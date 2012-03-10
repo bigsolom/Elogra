@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import com.elogra.db.DBConnection;
 import com.elogra.db.TableNames;
-import com.elogra.objects.Result;
+import com.elogra.model.Result;
 
 public class Search {
 	public Result goSearch(String srcID, String destID){
