@@ -1,4 +1,4 @@
-package com.elogra.objects;
+package com.elogra.model;
 
 public class Comments {
 	private String userName;
