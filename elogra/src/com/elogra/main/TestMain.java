@@ -11,7 +11,7 @@ public class TestMain {
 	 */
 	public static void main(String[] args) {
 		DBConnection dbc = new DBConnection();
-		Connection conn = dbc.getConnection("root", "****");
+		Connection conn = dbc.getConnection();
 	}
 
 }
