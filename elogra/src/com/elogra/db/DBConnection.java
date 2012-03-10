@@ -7,14 +7,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBConnection {
-	public Connection getConnection(String username, String pass){
+	
+	final static String DB_USERNAME = "root";
+	final static String DB_PASSWORD = "****";
+	
+	public Connection getConnection(){
 		Connection conn = null;
-
         try
         {
             String url = "jdbc:mysql://localhost/elogra";
             Class.forName ("com.mysql.jdbc.Driver").newInstance ();
-            conn = DriverManager.getConnection (url, username, pass);
+            conn = DriverManager.getConnection (url, DB_USERNAME, DB_PASSWORD);
             System.out.println ("Database connection established");
             return conn;
         }
@@ -46,6 +49,15 @@ public class DBConnection {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	public void closeConnection(Connection conn){
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }
