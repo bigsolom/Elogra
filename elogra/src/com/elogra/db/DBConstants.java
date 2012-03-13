@@ -1,6 +1,6 @@
 package com.elogra.db;
 
-public interface TableNames {
+public interface DBConstants {
 	
 	static final String ADDRESSES = "addresses";
 	static final String ADDRESSES_ID = "id";

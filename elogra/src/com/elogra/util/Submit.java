@@ -1,7 +1,7 @@
 package com.elogra.util;
 
 import com.elogra.db.DBConnection;
-import com.elogra.db.TableNames;
+import com.elogra.db.DBConstants;
 import com.elogra.model.SubmitModel;
 
 public class Submit {
