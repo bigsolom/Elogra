@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="template" template="/pages/template.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
+	<definition name="search" extends="template">
+		<put-attribute name="body" value="/pages/search_body.jsp" />
+	</definition>
+	<definition name="results" extends="template">
+		<put-attribute name="body" value="/pages/results_body.jsp" />
+	</definition>
+</tiles-definitions>
