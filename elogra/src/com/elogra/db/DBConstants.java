@@ -34,8 +34,7 @@ public interface DBConstants {
 	static final String HISTORY_FARES_TIME_LAST_UPDATE = "time_last_update";
 	static final String HISTORY_FARES_SRC_ID = "src_id";
 	static final String HISTORY_FARES_DEST_ID = "dest_id";
-	
-	
+	static final String HISTORY_TAXI_TYPE = "taxi_type";
 	
 	static final String LIVE_FARES = "live_fares";
 	static final String LIVE_FARES_ID = "id";
@@ -43,6 +42,7 @@ public interface DBConstants {
 	static final String LIVE_FARES_UPDATE = "time_last_update";
 	static final String LIVE_FARES_SRC_ID = "src_id";
 	static final String LIVE_FARES_DEST_ID = "dest_id";
+	static final String LIVE_TAXI_TYPE = "taxi_type";
 	
 	static final String USERS = "users";
 	static final String USERS_ID = "id";
