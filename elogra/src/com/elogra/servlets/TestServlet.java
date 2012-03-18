@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.elogra.db.DBConnection;
+import com.elogra.db.DBConstants;
 import com.elogra.model.Result;
 import com.elogra.util.Search;
 
@@ -42,6 +44,10 @@ public class TestServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//HttpSession session = request.getSession();
+		
+		DBConnection dbc = new DBConnection();
+		dbc.closeConnection();
+		
 		System.out.println(request.getParameter("RadioGroup1"));
 		
 		String srcID = request.getParameter("fromHS");

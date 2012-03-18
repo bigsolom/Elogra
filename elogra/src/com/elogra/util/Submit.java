@@ -42,19 +42,12 @@ public class Submit {
 		
 		sql = "insert into entries values(null," + sm.getTaxiType() + ",now(),'00:00','" + sm.getCmnt() + "'," + sm.getFare() +
 				"," + sm.getTrafficStat() + "," + sm.getSrcID() + "," + sm.getDestID() + "," + sm.getUserID() + 
-				"," + sm.getSrcAddrID() + "," + sm.getDestAddrID() + ");";
+				"," + sm.getSrcAddrID() + "," + sm.getDestAddrID() + " , now());";
 		System.out.println(sql);
 		dbc.executeUpdate(sql);
 ///////////////////////////////////////////// update live fares //////////////////////////////////////////////
-		sql = "select * from " + DBConstants.LIVE_FARES + " where " + DBConstants.LIVE_FARES_SRC_ID + " = " + sm.getSrcID() + " and " + DBConstants.LIVE_FARES_DEST_ID + " = " + sm.getDestID() + " and " + DBConstants.LIVE_TAXI_TYPE + " = " + sm.getTaxiType();
-		System.out.println(sql);
-		qr = dbc.executeQuery(sql);
-		if(qr.getRowsCount() == 0){
-			dbc.executeUpdate("insert into live_fares values(null," + sm.getFare() + ",now()," + sm.getSrcID() + "," + sm.getDestID() + "," + sm.getTaxiType() + ")");
-		}else{
-			sql = "update live_fares set time_last_update = now(), fare = " + sm.getFare() + " where id = " + qr.getObject(0, DBConstants.LIVE_FARES_ID).toString();
-			dbc.executeUpdate(sql);
-		}
+		Update su = new Update();
+		su.updateLiveFares(sm);
 		
 		dbc.closeConnection();
 		return true;

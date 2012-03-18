@@ -19,17 +19,18 @@ public class Search {
 		
 		res.setLiveFare(qr.getObject(0, DBConstants.LIVE_FARES_FARE).toString());
 		
-		sql = "select * from " + DBConstants.HISTORY_FARES + " where " + DBConstants.HISTORY_FARES_SRC_ID + " = " + srcID + " and " + DBConstants.HISTORY_FARES_DEST_ID + " = " + destID + " and " + DBConstants.HISTORY_TAXI_TYPE + " = " + taxiType;
+		/*sql = "select * from " + DBConstants.HISTORY_FARES + " where " + DBConstants.HISTORY_FARES_SRC_ID + " = " + srcID + " and " + DBConstants.HISTORY_FARES_DEST_ID + " = " + destID + " and " + DBConstants.HISTORY_TAXI_TYPE + " = " + taxiType;
 		System.out.println(sql);
 		qr = dbc.executeQuery(sql);
-		res.setHistoryFare(qr.getObject(0, DBConstants.HISTORY_FARES_FARE).toString());
-
+		res.setHistoryFare(qr.getObject(0, DBConstants.HISTORY_FARES_FARE).toString());*/
+		res.setHistoryFare("0");
 		
 		Comments cmnt = null;
 		ArrayList<Comments> cmntList = new ArrayList<Comments>();
 		sql = "select * from " + DBConstants.ENTRIES + " where " + DBConstants.ENTRIES_SRC_ID + " = " + srcID + " and " + DBConstants.ENTRIES_DEST_ID + " = " + destID + " and " + DBConstants.ENTRIES_TAXI_TYPE + " = " + taxiType;
 		System.out.println(sql);
 		qr = dbc.executeQuery(sql);
+		System.out.println(qr.getRowsCount());
 		////////// get from another view
 		for (int i = 0; i < qr.getRowsCount(); i++) {
 			cmnt = new Comments();
