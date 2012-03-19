@@ -10,25 +10,29 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
+import com.elogra.config.ConfigReader;
+
 public class DBConnection {
 	
-	final static String DB_USERNAME = "root";
-	final static String DB_PASSWORD = "root";
+	final static String DB_USERNAME = ConfigReader.getString("DBConnection.username"); //$NON-NLS-1$
+	final static String DB_PASSWORD = ConfigReader.getString("DBConnection.password"); //$NON-NLS-1$
+	final static String DB_HOST = ConfigReader.getString("DBConnection.host"); //$NON-NLS-1$
+	final static String DB_NAME = ConfigReader.getString("DBConnection.dbName"); //$NON-NLS-1$
 	
 	private Connection conn;
 	
 	public DBConnection(){
         try
         {
-            String url = "jdbc:mysql://localhost/elogra";
-            Class.forName ("com.mysql.jdbc.Driver").newInstance ();
+            String url = "jdbc:mysql://"+DB_HOST+"/"+DB_NAME; //$NON-NLS-1$ //$NON-NLS-2$
+            Class.forName ("com.mysql.jdbc.Driver").newInstance (); //$NON-NLS-1$
             conn = DriverManager.getConnection (url, DB_USERNAME, DB_PASSWORD);
-            System.out.println ("Database connection established");
+            System.out.println ("Database connection established"); //$NON-NLS-1$
             //return conn;
         }
         catch (Exception e)
         {
-            System.err.println ("Cannot connect to database server");
+            System.err.println ("Cannelograot connect to database server"); //$NON-NLS-1$
             e.printStackTrace();
             //return null;
         }

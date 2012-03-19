@@ -3,35 +3,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Results</title>
+<title>Submit</title>
 </head>
 
 <body>
 <form id="form1" name="form1" method="post" action="">
- <p>Live Fare 
-   <label for="textfield"></label>
-   <input type="text" name="textfield" id="textfield" />
- </p>
-<p>History Fare
-  <input type="text" name="textfield2" id="textfield2" />
-</p>
-  <p>User
-    <input type="text" name="textfield3" id="textfield3" />
-  </p>
+  Paid
+    <label for="textfield"></label>
+    <input type="text" name="textfield" id="textfield" />
   <p>Address from
-    <input type="text" name="textfield4" id="textfield4" />
+    <label for="select"></label>
+    <select name="select" id="select">
+    </select>
   </p>
   <p>Address to
-    <input type="text" name="textfield5" id="textfield5" />
+    <select name="select2" id="select2">
+    </select>
   </p>
-  <p>Comments
+  <p>Comment
     <input type="text" name="textfield6" id="textfield6" />
   </p>
-   <p>Trafic rating 
-     <input type="text" name="textfield7" id="textfield7" />
-     <br />
-   </p>
- </form>
+  <p>Trafic rating
+    <input type="text" name="textfield7" id="textfield7" />
+  </p>
+  <p>When 
+    <input type="text" name="textfield2" id="textfield2" />
+    <br />
+  </p>
+</form>
 <p>&nbsp;</p>
 </body>
 </html>

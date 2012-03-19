@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
+
     <script type="text/javascript">
 	var parents = "";
 	var hostSpots = "";
@@ -75,4 +76,5 @@ alert("ready");
   <p>
     <input type="submit" name="button" id="button" value="Search" />
   </p>
+
 </form>
