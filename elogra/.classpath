@@ -8,8 +8,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/home/mfayyad/git/Elogra/lib/jsp-api.jar"/>
-	<classpathentry kind="lib" path="/home/mfayyad/git/Elogra/lib/mysql-connector-java-5.1.18-bin.jar"/>
-	<classpathentry kind="lib" path="/home/mfayyad/git/Elogra/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
