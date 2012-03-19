@@ -13,4 +13,7 @@
 	<definition name="results" extends="template">
 		<put-attribute name="body" value="/pages/results_body.jsp" />
 	</definition>
+	<definition name="submit" extends="template">
+		<put-attribute name="body" value="/pages/submit_body.jsp" />
+	</definition>
 </tiles-definitions>
