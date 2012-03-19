@@ -11,9 +11,9 @@
   <p>
     <label>From</label>
     <select name="from" id="from">
-    <option value="1">٦ أكتوبر</option>
-    <option value="8">الشيخ زايد</option>
-    <option value="10">العجوزة</option>
+	    <option value="1">٦ أكتوبر</option>
+	    <option value="8">الشيخ زايد</option>
+	    <option value="10">العجوزة</option>
     </select> 
     <select name="fromHS" id="fromHS">
     <option value="9">هايبر وان</option>

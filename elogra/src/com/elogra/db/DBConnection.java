@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class DBConnection {
 	
 	final static String DB_USERNAME = "root";
-	final static String DB_PASSWORD = "*******";
+	final static String DB_PASSWORD = "root";
 	
 	private Connection conn;
 	
