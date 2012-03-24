@@ -21,6 +21,10 @@ public class DBConnection {
 	
 	private Connection conn;
 	
+	public Connection getConnection() {
+		return conn;
+	}
+
 	public DBConnection(){
         try
         {

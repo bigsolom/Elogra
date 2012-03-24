@@ -11,14 +11,14 @@
 <head>
 
      
-     <script type="text/javascript" src="../js/jquery.js"></script>
-    <script type="text/javascript" src="../js/jquery-ui.js"></script>
+     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
 
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title>terrafirma1.0 by nodethirtythree</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link rel="stylesheet" type="text/css" href="../css/default.css" />
+<link rel="stylesheet" type="text/css" href="css/default.css" />
 
 </head>
 <body>
@@ -38,8 +38,8 @@
 	
 		<div id="menu">
 			<ul>
-				<li class="first"><a href="search.jsp">Home</a></li>
-				<li><a href="submit.jsp">Submit</a></li>
+				<li class="first"><a href="search.tiles">Home</a></li>
+				<li><a href="submit.tiles">Submit</a></li>
 				<li><a href="#">Links</a></li>
 				<li><a href="#">Resources</a></li>
 				<li><a href="#">Contact</a></li>
