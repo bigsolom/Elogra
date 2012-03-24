@@ -8,7 +8,21 @@
 	var hostSpots = "";
 	
 	$(document).ready(function(){
-alert("ready");	
+alert("ready");
+		$.post("getLookups.jsp", { parent : "null" }, function(data){
+			$("#from").empty().append(data);
+			if(parents.length > 0){
+				$("option[label='" + parents +"']", "#from").attr("selected", "selected");
+			}
+			$("#from").trigger("change");
+			
+			$("#to").empty().append(data);
+			if(parents.length > 0){
+				$("option[label='" + parents +"']", "#to").attr("selected", "selected");
+			}
+			$("#to").trigger("change");
+		});
+		
 		$("#from").change(function(){
 			$.post("getLookups.jsp", { parent : $(this).val() }, function(data){
 				$("#fromHS").empty().append(data);
@@ -20,10 +34,10 @@ alert("ready");
 		});
 		
 		$("#to").change(function(){
-			$.post("browser.jsp", { parent : $(this).val(), indexlcassName : "Tec_L2 SubFolders"}, function(data){
-				$("#toHS").empty().append(data);//.trigger("change");
-				if(hostSpots.length > 0){
-					$("option[label='" + hostSpots +"']", "#toHS").attr("selected", "selected");
+			$.post("getLookups.jsp", { parent : $(this).val() }, function(data){
+				$("#toHS").empty().append(data);
+				if(parents.length > 0){
+					$("option[label='" + parents +"']", "#toHS").attr("selected", "selected");
 				}
 				$("#toHS").trigger("change");
 			});
