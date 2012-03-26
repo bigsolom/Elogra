@@ -48,6 +48,4 @@ public interface DBConstants {
 	static final String USERS = "users";
 	static final String USERS_ID = "id";
 	
-	
-	
 }

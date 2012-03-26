@@ -2,6 +2,7 @@ package com.elogra.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -74,11 +75,33 @@ public class DBConnection {
 		}
 	}
 	
+	public QueryResult executeQuery(String sql, ArrayList params){
+		try {
+			PreparedStatement statement = conn.prepareStatement(sql);
+			
+			for (int i = 0; i < params.size(); i++) {
+				if((params.get(i)) instanceof Integer){
+					statement.setInt((i + 1), (Integer) params.get(i));
+				}else if((params.get(i)) instanceof String){
+					statement.setString((i + 1), (String) params.get(i));
+				}
+			}
+			ResultSet rs = statement.executeQuery();
+			QueryResult res = new QueryResult(rs);
+			rs.close();
+			statement.close();
+			return res;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}	
+	
 	public void closeConnection(){
 		try {
 			conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
