@@ -13,7 +13,13 @@
      
      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
-
+     
+     <!-- bootstrap -->
+     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" type="text/css"/>
+     <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+     <!-- bootstrap -->
+     
+     
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title>terrafirma1.0 by nodethirtythree</title>
 <meta name="keywords" content="" />
