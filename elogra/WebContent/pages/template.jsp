@@ -11,7 +11,7 @@
 <head>
 
      
-     <script type="text/javascript" src="js/jquery.js"></script>
+     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
 
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
