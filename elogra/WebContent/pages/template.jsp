@@ -23,7 +23,7 @@
     <script type="text/javascript" src="js/jquery-ui.js"></script>
 		
 		     <!-- bootstrap -->
-     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" type="text/css"/>
+     <link rel="stylesheet" href="css/bootstrap/bootstrap-rtl.min.css" type="text/css"/>
      <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
      <!-- bootstrap -->
 		<!-- CSS -->
@@ -112,7 +112,7 @@
 		<!-- ENDS CSS -->	
 		
 	</head>
-	<body>
+	<body dir="rtl">
 	
 	<!-- WRAPPER -->
 	<div id="wrapper">
