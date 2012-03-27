@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<!--  
+<c:if test="${ message == null }">
+<fmt:setBundle basename="Translation" var="message" scope="application"/>
+</c:if>
+-->
+
+<c:if test="${param['lang']!=null }">
+	<fmt:setLocale value="${param['lang']}" scope="session" />
+</c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 	<head>
@@ -117,6 +129,8 @@
 					</li>
 				
 				<li><a href="contact.html">بكام</a></li>
+				<li><a href="?lang=ar">عربي</a></li>
+				<li><a href="?lang=en">English</a></li>
              </ul>
 			<!-- Navigation -->	
 					

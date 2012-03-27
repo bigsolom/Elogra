@@ -1,25 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <form id="form1" name="form1" method="post" action="TestServlet"
 	class="well">
 	<fieldset>
-		<label>From</label> <select name="from" id="from">
+		<label><fmt:message key="form.search.from"/></label> <select name="from" id="from">
 			<option value=0>اختر</option>
 		</select> <select name="fromHS" id="fromHS">
 			<option value=0>اختر</option>
-		</select> <label>To</label> <select name="to" id="to">
+		</select> <label><fmt:message key="form.search.to"/></label> <select name="to" id="to">
 			<option value=0>اختر</option>
 		</select> <select name="toHS" id="toHS">
 			<option value=0>اختر</option>
-		</select> <label>When</label> <label></label> <input type="text"
+		</select> <label><fmt:message key="form.search.when"/></label> <label></label> <input type="text"
 			name="textfield" id="textfield" class="form-poshytip"
 			title="When will you go?" />
 		<div class="control-group">
-			<label class="control-label">Type </label>
+			<label class="control-label"><fmt:message key="form.search.type"/> </label>
 			<div class="controls">
 				<label class="radio"> <input type="radio" name="RadioGroup1"
 					value="2" id="White" /> White
@@ -32,7 +32,7 @@
 				</label>
 			</div>
 		</div>
-		<input type="submit" name="button" id="button" value="Search"
+		<input type="submit" name="button" id="button" value="<fmt:message key='form.search.search'/>"
 			class="btn btn-large" />
 	</fieldset>
 </form>
