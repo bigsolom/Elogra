@@ -11,6 +11,7 @@ public interface DBConstants {
 	static final String AREAS_ID = "id";
 	static final String AREAS_NAME = "name";
 	static final String AREAS_PARENT_ID = "parent_id";
+	static final String AREAS_APPROVED = "approved";
 	
 	
 	static final String ENTRIES = "entries";

@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.elogra.db.DBConnection;
+import com.elogra.db.DBConstants;
 import com.elogra.model.Areas;
 import com.google.gson.Gson;
 
@@ -81,10 +82,21 @@ public class Ajax extends HttpServlet {
 	}
 	
 	private List<Areas> getTopLevelAreas(HttpServletRequest request){
-		Connection connection = new DBConnection().getConnection();
+		DBConnection dbc = new DBConnection();
 		List<Areas> areas = new ArrayList<Areas>();
-		String sql = "SELECT * FROM areas where parent_id is null";
-		Statement statement = null;
+		//String sql = "SELECT * FROM areas where parent_id is null";
+		String sql = "SELECT * FROM " + DBConstants.AREAS + " where " + DBConstants.AREAS_PARENT_ID + " is null and " + DBConstants.AREAS_APPROVED + " = 1";
+		DBConnection.QueryResult qr = dbc.executeQuery(sql);
+				
+		for (int i = 0 ; i < qr.getRowsCount() ; i++) {
+			Areas area = new Areas();
+			area.setName(qr.getObject(i, DBConstants.AREAS_NAME).toString());
+			area.setId(Integer.parseInt(qr.getObject(i, DBConstants.AREAS_ID).toString()));
+			areas.add(area);
+		}
+		
+		dbc.closeConnection();
+		/*Statement statement = null;
 		ResultSet resultSet = null;
 		try {
 			statement = connection.createStatement();
@@ -108,7 +120,7 @@ public class Ajax extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		}
+		}*/
 		
 		
 		return areas;
@@ -117,10 +129,23 @@ public class Ajax extends HttpServlet {
 	
 	private List<Areas> getAreasUnder(HttpServletRequest request){
 		int parentId = Integer.parseInt(request.getParameter("id"));
-		Connection connection = new DBConnection().getConnection();
+		DBConnection dbc = new DBConnection();
 		List<Areas> areas = new ArrayList<Areas>();
-		String sql = "SELECT * FROM areas where parent_id=?";
-		PreparedStatement statement = null;
+		String sql = "SELECT * FROM " + DBConstants.AREAS + " where " + DBConstants.AREAS_PARENT_ID + " = ? and " + DBConstants.AREAS_APPROVED + " = 1";
+		ArrayList<Object> params = new ArrayList<Object>();
+		params.add(parentId);
+		DBConnection.QueryResult qr = dbc.executeQuery(sql, params);
+		
+		for (int i = 0 ; i < qr.getRowsCount() ; i++) {
+			Areas area = new Areas();
+			area.setName(qr.getObject(i, DBConstants.AREAS_NAME).toString());
+			area.setId(Integer.parseInt(qr.getObject(i, DBConstants.AREAS_ID).toString()));
+			areas.add(area);
+		}
+		
+		dbc.closeConnection();
+		
+		/*PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		try {
 			statement = connection.prepareStatement(sql);
@@ -145,7 +170,7 @@ public class Ajax extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		}
+		}*/
 		
 		
 		return areas;	
