@@ -2,14 +2,14 @@
 ul.tabs { 
 	list-style:none; 
 	margin:0 !important;
-	background: url(../img/line-divider.png) top left repeat-x; 
+	background: url(../img/line-divider.png) top right repeat-x; 
 	padding:11px 0px 0px 0px;	
 	height:46px;
 }
 
 /* single tab */
 ul.tabs li { 
-	float:left;	 
+	float:right;	 
 	text-indent:0;
 	padding:0;
 	margin:0 !important;
@@ -27,7 +27,7 @@ ul.tabs a {
 	text-decoration:none;
 	padding: 3px 9px;
 	margin:0px;	
-	margin-right: 10px;
+	margin-left: 10px;
 	position:relative;
 	top:1px;
 	background: url(../img/tab-bg.png) no-repeat 0px -100px ;
@@ -59,7 +59,7 @@ ul.tabs li.current a {
 }
 
 .panes>div {
-   background: url(../img/line-divider.png) top left repeat-x; 
+   background: url(../img/line-divider.png) top right repeat-x; 
     display: none;
     min-height: 200px;
     padding: 21px 10px;

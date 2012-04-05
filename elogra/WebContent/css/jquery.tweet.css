@@ -9,8 +9,8 @@
 	font-size: 12px;
 	line-height: 1.5em;
 	color: #f4f2ea;
-	margin-left: 15px;
-	margin-right: 36px;
+	margin-right: 15px;
+	margin-left: 36px;
 	padding-top: 25px;
 	margin-bottom: 8px;
 }
@@ -78,8 +78,8 @@
 
 .tweet .tweet_list .tweet_avatar,
 .query .tweet_list .tweet_avatar {
-	padding-right: .5em;
-	float: left;
+	padding-left: .5em;
+	float: right;
 }
 
 .tweet .tweet_list .tweet_avatar img,

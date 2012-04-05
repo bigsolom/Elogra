@@ -1,6 +1,6 @@
 .tip-yellowsimple {
 	z-index:1000;
-	text-align:left;
+	text-align:right;
 	border:1px solid #c7bf93;
 	border-radius:4px;
 	-moz-border-radius:4px;
@@ -24,36 +24,36 @@
 /* Configure an arrow image - the script will automatically position it on the correct side of the tip */
 .tip-yellowsimple .tip-arrow-top {
 	margin-top:-6px;
-	margin-left:-5px; /* approx. half the width to center it */
+	margin-right:-5px; /* approx. half the width to center it */
 	top:0;
-	left:50%;
+	right:50%;
 	width:9px;
 	height:6px;
 	background:url(tip-yellowsimple_arrows.gif) no-repeat;
 }
 .tip-yellowsimple .tip-arrow-right {
 	margin-top:-4px; /* approx. half the height to center it */
-	margin-left:0;
+	margin-right:0;
 	top:50%;
-	left:100%;
+	right:100%;
 	width:6px;
 	height:9px;
 	background:url(tip-yellowsimple_arrows.gif) no-repeat -9px 0;
 }
 .tip-yellowsimple .tip-arrow-bottom {
 	margin-top:0;
-	margin-left:-5px; /* approx. half the width to center it */
+	margin-right:-5px; /* approx. half the width to center it */
 	top:100%;
-	left:50%;
+	right:50%;
 	width:9px;
 	height:6px;
 	background:url(tip-yellowsimple_arrows.gif) no-repeat -18px 0;
 }
 .tip-yellowsimple .tip-arrow-left {
 	margin-top:-4px; /* approx. half the height to center it */
-	margin-left:-6px;
+	margin-right:-6px;
 	top:50%;
-	left:0;
+	right:0;
 	width:6px;
 	height:9px;
 	background:url(tip-yellowsimple_arrows.gif) no-repeat -27px 0;

@@ -17,13 +17,13 @@
 .nivoSlider img {
 	position:absolute;
 	top:0px;
-	left:0px;
+	right:0px;
 }
 /* If an image is wrapped in a link */
 .nivoSlider a.nivo-imageLink {
 	position:absolute;
 	top:0px;
-	left:0px;
+	right:0px;
 	width:100%;
 	height:100%;
 	border:0;
@@ -42,7 +42,7 @@
 /* Caption styles */
 .nivo-caption {
 	position:absolute;
-	right:0px;
+	left:0px;
 	top:100px;
 	background: transparent;
 	color: #606060;
@@ -54,7 +54,7 @@
 	font-style: italic;
 }
 .nivo-caption p {
-	padding:5px 20px 5px 30px;
+	padding:5px 30px 5px 20px;
 	margin:0;
 }
 .nivo-caption a {
@@ -71,10 +71,10 @@
 	cursor:pointer;
 }
 .nivo-prevNav {
-	left:0px;
+	right:0px;
 }
 .nivo-nextNav {
-	right:0px;
+	left:0px;
 }
 /* Control nav styles (e.g. 1,2,3...) */
 .nivo-controlNav a {
@@ -93,7 +93,7 @@
     width:653px; /* Change this to your images width */
     height:400px; /* Change this to your images height */
     background:url(images/loading.html) no-repeat 50% 50%;
-    margin-left: 13px;
+    margin-right: 13px;
     margin-bottom: 60px;
 }
 
@@ -101,7 +101,7 @@
 #slider img {
     position:absolute;
     top:0px;
-    left:0px;
+    right:0px;
     display:none;
 }
 
@@ -113,16 +113,16 @@
 .nivo-controlNav{
 	position: absolute;
 	bottom: -25px;
-	left: 43px;
+	right: 43px;
 	z-index: 1;
 }
 
 .nivo-controlNav a{
 	display: block;
-	float: left;
+	float: right;
 	width: 11px;
 	height: 11px;
-	margin-right: 10px;
+	margin-left: 10px;
 	background: url(../img/slider-nav.png) no-repeat;
 	text-indent: -9000px;
 }
@@ -140,10 +140,10 @@
 }
 
 .nivo-directionNav a.nivo-nextNav{ 
-	background-position: top right;
-	margin-right: 15px;
+	background-position: top left;
+	margin-left: 15px;
 }
 
 .nivo-directionNav a.nivo-prevNav{ 
-	margin-left: 15px;
+	margin-right: 15px;
 }

@@ -3,12 +3,12 @@
 
 h5.accordion-trigger,
 h5.toggle-trigger {
-	padding: 0 0 0 20px;
+	padding: 0 20px 0 0;
 	margin: 0 0 5px 0;
 	height: 46px;
 	line-height: 46px;
 	width: 100%;
-	float: left;
+	float: right;
 	border-bottom: 1px solid #cccccc;
 }
 
@@ -26,7 +26,7 @@ h5.toggle-trigger a:hover {
 
 div.accordion-container,
 div.toggle-container {
-	margin: 0 0 5px 0px;
+	margin: 0 0px 5px 0;
 	padding: 0;
 	overflow: hidden;
 	clear: both;
@@ -51,14 +51,14 @@ div.toggle-container .block p{
 /* ALIGNMENT ------------------------------------------------------------*/
 
 .left-align{
-	float:left;
-	margin:8px 18px 18px 0;
+	float:right;
+	margin:8px 0 18px 18px;
 	display: block;
 }
 
 .right-align{
-	float:right;
-	margin:0px 0px 0px 10px;
+	float:left;
+	margin:0px 10px 0px 0px;
 	display: block;
 }
 
@@ -78,19 +78,19 @@ div.toggle-container .block p{
 
 .dropcap {
 	display:block;
-	float:left;
+	float:right;
 	font-size:36px;
 	line-height:40px;
-	margin:0 8px 0 0;
+	margin:0 0 0 8px;
 	padding: 0px 10px;
 }
 
 .dropcap-invert {
 	display:block;
-	float:left;
+	float:right;
 	font-size:28px;
 	line-height:40px;
-	margin:0 8px 0 0;
+	margin:0 0 0 8px;
 	padding: 0px 10px;
 	background: #606060;
 	color: #fff;
@@ -128,24 +128,24 @@ div.toggle-container .block p{
 
 .pullquote-right,
 .pullquote-left {
-	border-left: #555555 2px solid;
-	float:right;
+	border-right: #555555 2px solid;
+	float:left;
 	font-size:16px;
 	line-height:1.5em;
-	margin: 20px 0px 20px 20px;
-	padding:0 0 0 20px;
+	margin: 20px 20px 20px 0px;
+	padding:0 20px 0 0;
 	width:33%;
 	font-style: italic;
 }
 
 .pullquote-left {
-	float:left;
-	margin: 20px 20px 20px 0px;
+	float:right;
+	margin: 20px 0px 20px 20px;
 }
 
 .pullquote-right{
-	border-left: none;
-	border-right: #555555 2px solid;
+	border-right: none;
+	border-left: #555555 2px solid;
 }
 
 /* LINK BUTTON -------------------------------------------------------*/
@@ -167,22 +167,22 @@ a.link-button span,
 a.link-button-dark span{
 	display: block;
 	line-height: 44px;
-	margin-left: 21px;
-	padding-right: 21px;
-	background: url(../img/link-button.png) no-repeat bottom right;
+	margin-right: 21px;
+	padding-left: 21px;
+	background: url(../img/link-button.png) no-repeat bottom left;
 }
 
 a.link-button-dark span{
-	background: url(../img/link-button-dark.png) no-repeat bottom right;
+	background: url(../img/link-button-dark.png) no-repeat bottom left;
 }
 
 a.link-button:hover{ background: url(../img/link-button-over.png) no-repeat; }
 	
-a.link-button:hover span{ background: url(../img/link-button-over.png) no-repeat bottom right; }
+a.link-button:hover span{ background: url(../img/link-button-over.png) no-repeat bottom left; }
 
 a.link-button-dark:hover{ background: url(../img/link-button-dark-over.png) no-repeat; }
 	
-a.link-button-dark:hover span{ background: url(../img/link-button-dark-over.png) no-repeat bottom right; }
+a.link-button-dark:hover span{ background: url(../img/link-button-dark-over.png) no-repeat bottom left; }
 
 /* TABLE ------------------------------------------------------------*/
 
@@ -196,7 +196,7 @@ table {
 	border-top:1px solid white;
 	margin-bottom:28px;
 	width:100%;
-	text-align: left;
+	text-align: right;
 }
 
 th{
@@ -225,11 +225,11 @@ td, th{
 
 .tags li{
 	display: block;
-	float: left;
-	margin-right: 10px;
+	float: right;
+	margin-left: 10px;
 	margin-bottom: 10px;
-	background: url(../img/tag.png) no-repeat top left;
-	border-right: 1px solid #cc912d;	
+	background: url(../img/tag.png) no-repeat top right;
+	border-left: 1px solid #cc912d;	
 }
 
 .tags li:first-child{
@@ -241,8 +241,8 @@ td, th{
 	display: block;
 	height: 100%
 	width: 100%;
-	margin-left: 20px;
-	margin-right: 10px;
+	margin-right: 20px;
+	margin-left: 10px;
 }
 
 /* INFO BOXES ------------------------------------------------------------*/
@@ -283,7 +283,7 @@ td, th{
 {
 	border: 1px solid;
 	margin: 10px 0px;
-	padding:15px 10px 15px 50px;
+	padding:15px 50px 15px 10px;
 	background-repeat: no-repeat;
 	background-position: 10px center;
 	border-radius: 5px;

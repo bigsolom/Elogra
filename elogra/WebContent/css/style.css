@@ -29,8 +29,8 @@ body{ height: 100%; }
 body {}
 
 .home-quotes{
-	margin: 43px 43px 43px 30px;
-	padding-left: 30px;
+	margin: 43px 30px 43px 43px;
+	padding-right: 30px;
 	background: url(../img/quotes.png) no-repeat 0px 0px;
 }
 
@@ -48,8 +48,8 @@ h1.header-line,
 /* WRAPPER ------------------------------------------------------------*/
 
 #wrapper{
-	/*overflow: hidden;*/
-	width: 100%;
+	overflow: hidden;
+	width: 965px;
 	min-height: 100%;
 	padding-bottom: 15px;
 }
@@ -61,8 +61,8 @@ h1.header-line,
 .two-third,
 .three-fourth,
 .one-fourth {
-	float:left;
-	margin-right:30px;
+	float:right;
+	margin-left:30px;
 	position:relative;
 }
 
@@ -75,8 +75,8 @@ h1.header-line,
 .two-third{width: 384px;}
 
 .last {
-	clear:right;
-	margin-right:0 !important;
+	clear:left;
+	margin-left:0 !important;
 }
 
 /* SIDEBAR ------------------------------------------------------------*/
@@ -84,13 +84,15 @@ h1.header-line,
 #sidebar{
 	width: 285px;
 	float: right;
+	border:thick;
+	
 }
 
 .sidebar-divider{
 	clear: both;
-	width: 0px;
+	width: 235px;
 	height: 6px;
-	margin: 21px 0px 21px 15px;
+	margin: 21px 15px 21px 0px;
 }
 
 /* SEARCH FORM ------------------------------------------------------------*/
@@ -98,7 +100,7 @@ h1.header-line,
 #sidebar #searchform{
 	display: block;
 	position: relative;
-	margin-left: 15px;
+	margin-right: 15px;
 	padding-top: 25px;
 	margin-bottom: 20px;
 }
@@ -115,7 +117,7 @@ h1.header-line,
 #sidebar #searchform #searchsubmit{
 	position: absolute; 
 	top: 25px;
-	left: 195px;
+	right: 195px;
 	width: 34px;
 	height: 26px;
 	border: 0px;
@@ -130,8 +132,8 @@ h1.header-line,
 
 #sidebar #nav{
 	display: block;
-	margin-left: 15px;	
-	margin-right: 36px;
+	margin-right: 15px;	
+	margin-left: 36px;
 	padding-top: 15px;
 	margin-bottom: 10px;
 }
@@ -149,8 +151,8 @@ h1.header-line,
 #sidebar #nav>li:last-child{ border-bottom: none; }	
 
 #sidebar #nav>li ul{
-	padding-left: 20px;
-	padding-right: 10px;
+	padding-right: 20px;
+	padding-left: 10px;
 }
 
 #sidebar #nav>li>ul li{
@@ -172,7 +174,7 @@ h1.header-line,
 
 #sidebar #nav>li a{
 	display: block;
-	padding-left: 25px;
+	padding-right: 25px;
 	padding-top: 12px;
 }
 
@@ -185,18 +187,18 @@ h1.header-line,
 	margin-bottom: 20px;
 	
 	list-style-type: none;
-	margin-left: 15px;
-	margin-right: 36px;
+	margin-right: 15px;
+	margin-left: 36px;
 	clear: both;
 }
 
 #sidebar .cat-list a{
 	display: block;
 	width: 95px;
-	margin-right: 17px;
-	padding-left: 5px;
+	margin-left: 17px;
+	padding-right: 5px;
 	background: url(../img/sidebar-line-divider.png) repeat-x bottom center;
-	float: left;
+	float: right;
 }
 
 /* SIDEBAR - SOCIAL --------------------------------------------------------*/
@@ -204,8 +206,8 @@ h1.header-line,
 .social{
 	display: block;
 	overflow: hidden;
-	margin-left: 15px;
-	margin-right: 36px;
+	margin-right: 15px;
+	margin-left: 36px;
 	padding-top: 25px;
 	margin-bottom: 20px;
 }
@@ -217,14 +219,14 @@ h1.header-line,
 	display: block;
 	width: 32px;
 	height: 32px;
-	float: left;
+	float: right;
 	text-indent: -9000px;
-	margin-right: 10px;
+	margin-left: 10px;
 	margin-bottom: 10px;
 }
 
 #sidebar .social a{
-	margin-right: 5px;
+	margin-left: 5px;
 	margin-bottom: 5px;
 }
 
@@ -247,13 +249,13 @@ h1.header-line,
 #header #page-title{
 	position: absolute;
 	top: 32px;
-	left: 60px;	
+	right: 60px;	
 }
 
 #header #breadcrumbs{
 	position: absolute;
 	top: 62px;
-	left: 60px;	
+	right: 60px;	
 }
 
 /* CONTENT ------------------------------------------------------------*/
@@ -286,7 +288,7 @@ h1.header-line,
 
 .post .meta li{
 	display: block;
-	float: left;
+	float: right;
 }
 
 .post .feature-image{
@@ -320,7 +322,7 @@ h1.header-line,
 
 .post.compact .feature-image{
 	overflow: hidden;
-	float: left;
+	float: right;
 	width: 272px;
 	height: 272px;
 	padding: 5px;
@@ -339,9 +341,9 @@ h1.header-line,
 }
 
 .post.compact .the-excerpt{
-	float: left;
+	float: right;
 	width: 280px;
-	margin-left: 30px;
+	margin-right: 30px;
 }
 
 .post.compact .the-excerpt .link-button{ margin-top: 21px; }
@@ -367,7 +369,7 @@ h1.header-line,
 
 .comments-header .n-comments{
 	display: block;
-	float: left;
+	float: right;
 	width: 36px;
 	height: 30px;
 	background: url(../img/comments-balloon.png) no-repeat;
@@ -376,7 +378,7 @@ h1.header-line,
 .comments-list li{
 	display: block;
 	margin-bottom: 0px;
-	padding: 10px 10px 10px 0px;
+	padding: 10px 0px 10px 10px;
 	line-height: 1.5em;
 }
 
@@ -389,19 +391,19 @@ h1.header-line,
 .comments-list li .comments-right{
 	min-height: 80px;
 	overflow: hidden;
-	padding-left: 20px;
+	padding-right: 20px;
 	position: relative;
 }
 
 .comments-list li img{
 	display: block;
-	float: left;
-	margin: 0px 12px 20px 0px;
+	float: right;
+	margin: 0px 0px 20px 12px;
 }
 
 .comments-list .meta-date{
 	display: block;
-	float: right;
+	float: left;
 }
 
 
@@ -491,7 +493,7 @@ h1.header-line,
 
 .filter-main ul li{
 	display: block;
-	float: left;
+	float: right;
 	margin: 5px 10px;
 }
 
@@ -503,7 +505,7 @@ h1.header-line,
 	display: block;
 	overflow: hidden;
 	width: 654px;
-	margin-left: -15px;
+	margin-right: -15px;
 	padding-top: 5px;
 	margin-bottom: 10px;
 }
@@ -511,7 +513,7 @@ h1.header-line,
 .feature-blocks li{
 	display: block;
 	margin: 15px 15px 15px 15px;
-	float: left;
+	float: right;
 	width: 272px;
 }
 
@@ -541,13 +543,13 @@ h1.header-line,
 	display: block;
 	overflow: hidden;
 	padding-top: 5px;
-	padding-left: 5px;
+	padding-right: 5px;
 	margin-bottom: 21px;
 }
 
 .blocks-list li a.border{
 	display: block;
-	float: left;
+	float: right;
 	display: block;
 	background: #fff;
 	width: 114px;
@@ -560,15 +562,15 @@ h1.header-line,
 }
 
 .blocks-list li .the-excerpt{
-	float: left;
+	float: right;
 	display: block;
 	width: 380px;
-	margin-left: 18px;
+	margin-right: 18px;
 }
 
 .link-arrow{
 	display: block;
-	text-align: right;
+	text-align: left;
 }
 
 
@@ -577,12 +579,12 @@ h1.header-line,
 .blocks-gallery{
 	overflow: hidden;
 	padding-top: 5px;
-	padding-left: 5px;
+	padding-right: 5px;
 }
 
 .blocks-gallery li{
 	display: block;
-	float: left;
+	float: right;
 	background: #fff;
 	margin: 0px 6px 12px 6px;
 	padding: 5px;
@@ -600,7 +602,7 @@ h1.header-line,
 	display: block;
 	overflow: hidden;
 	width: 654px;
-	margin-left: -15px;
+	margin-right: -15px;
 	padding-top: 5px;
 }
 
@@ -608,7 +610,7 @@ h1.header-line,
 	display: block;
 	position: relative;
 	margin: 15px 15px 15px 15px;
-	float: left;
+	float: right;
 	background: #fff;
 	width: 272px;
 	height: 250px;
@@ -628,7 +630,7 @@ h1.header-line,
 	position: relative;
 	width: 272px;
 	height: 250px;
-	float:left;
+	float:right;
 	background:#fff;
 	overflow: hidden;
 }
@@ -642,7 +644,7 @@ h1.header-line,
 	display: none;
 	position: absolute;
 	top: -20px;
-	right: -20px;
+	left: -20px;
 	width: 46px;
 	height: 46px;
 	background: url(../img/plus-button.png) no-repeat;
@@ -677,7 +679,7 @@ h1.header-line,
 .gallery-thumbs li .boxgrid img.cover{
 	position: absolute;
 	top: 0;
-	left: 0;
+	right: 0;
 	border: 0;
 	z-index: 2;
 }
@@ -696,8 +698,8 @@ h1.header-line,
 	display: block;
 	width: 31px;
 	height: 44px;
-	margin-left: 5px;
-	float: left;
+	margin-right: 5px;
+	float: right;
 	background: url(../img/pager.png) no-repeat -58px 0px;
 }
 
@@ -738,8 +740,8 @@ h1.header-line,
 }
 
 .alignleft{
-	float: left;
-	margin: 5px 10px 5px 0px;
+	float: right;
+	margin: 5px 0px 5px 10px;
 }
 
 /* FOOTER ------------------------------------------------------------*/
@@ -760,19 +762,19 @@ h1.header-line,
 #footer-cols{
 	display: block;
 	overflow: hidden;
-	margin-left: 15px;
+	margin-right: 15px;
 	margin-bottom: 25px;
 }
 
 #footer-cols li.col{
 	display: block;
 	width: 280px;
-	float: left;
-	margin-right: 30px;
+	float: right;
+	margin-left: 30px;
 	margin-bottom: 30px;
 }
 
-#footer-cols li.clear-col{ clear:left; }
+#footer-cols li.clear-col{ clear:right; }
 
 #footer-cols li.col ul{
 	display: block;
@@ -792,19 +794,19 @@ h1.header-line,
 /* FOOTER-BOTTOM ------------------------------------------------------------*/
 
 #footer-bottom{ 
-	margin-left: 15px;
+	margin-right: 15px;
 	overflow: hidden;
 }
 
 #footer-bottom #bottom-left{
-	float: left;
+	float: right;
 }
 
 #footer-bottom #bottom-right{
 	display: block;
-	float: right;
-	background: url(../img/to-top-arrow.png) no-repeat right 5px ;
-	padding-right: 20px;
+	float: left;
+	background: url(../img/to-top-arrow.png) no-repeat left 5px ;
+	padding-left: 20px;
 	cursor: pointer;
 }
 

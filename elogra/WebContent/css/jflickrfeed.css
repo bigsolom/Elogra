@@ -7,7 +7,7 @@
 }
 
 #sidebar .thumbs{
-	margin-left: 15px;
+	margin-right: 15px;
 	padding-top: 25px;
 	margin-bottom: 25px;
 	background: url(../img/sidebar-divider.html) no-repeat; 
@@ -20,7 +20,7 @@
 #sidebar .thumbs li,
 #footer .thumbs li { 
 	list-style: none; 
-	float: left; 
+	float: right; 
 	margin: 1px; 
 	padding: 1px; 
 	background: #eee; 
@@ -29,7 +29,7 @@
 }
 
 #footer .thumbs li{
-	margin-right: 15px; 	
+	margin-left: 15px; 	
 	margin-bottom: 15px; 
 }
 
@@ -64,7 +64,7 @@
 #cycle li div { 
 	position: absolute; 
 	bottom: 3px; 
-	left: 3px; 
+	right: 3px; 
 	padding: 3px; 
 	width: 494px; 
 	background: black; 
