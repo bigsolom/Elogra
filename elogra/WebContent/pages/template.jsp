@@ -1,4 +1,4 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -12,7 +12,7 @@
 <c:if test="${param['lang']!=null }">
 	<fmt:setLocale value="${param['lang']}" scope="session" />
 </c:if>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -22,10 +22,6 @@
 		 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
 		
-		     <!-- bootstrap -->
-     <link rel="stylesheet" href="css/bootstrap/bootstrap-rtl.min.css" type="text/css"/>
-     <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
-     <!-- bootstrap -->
 		<!-- CSS -->
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="css/social-icons.css" type="text/css" media="screen" />
@@ -101,6 +97,13 @@
 		<script type="text/javascript" src="js/tabs.js"></script>
   		<!-- ENDS tabs -->
   		
+		     <!-- bootstrap -->
+     <link rel="stylesheet" href="css/bootstrap/bootstrap-rtl.min.css" type="text/css"/>
+     <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+     <link href="css/bootstrap/extra.css" rel="stylesheet" type="text/css"/>
+     <!-- bootstrap -->
+     
+     
   		
 
 		<!--[if IE 7]>

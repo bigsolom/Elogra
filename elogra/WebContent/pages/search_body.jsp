@@ -4,7 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<form id="form1" name="form1" method="post" action="TestServlet"
+<form id="form1" name="form1" method="post" action="search"
 	class="well">
 	<fieldset>
 		<label><fmt:message key="form.search.from"/></label> <select name="from" id="from">

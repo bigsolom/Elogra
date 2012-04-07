@@ -8,10 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.elogra.db.DBConnection;
-import com.elogra.db.DBConstants;
 import com.elogra.model.Result;
 import com.elogra.util.Search;
 

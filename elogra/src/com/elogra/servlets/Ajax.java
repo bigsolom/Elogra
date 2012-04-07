@@ -4,11 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
 
 import com.elogra.db.DBConnection;
 import com.elogra.db.DBConstants;
@@ -29,7 +26,7 @@ import com.google.gson.Gson;
 @WebServlet("/Ajax")
 public class Ajax extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	static Logger logger = Logger.getLogger(Ajax.class);   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -45,6 +42,7 @@ public class Ajax extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		response.setCharacterEncoding("utf-8");
+		logger.info("hi");
 		Class<? extends Ajax> class1 = this.getClass();
 		Class[] parameterTypes = {HttpServletRequest.class};
 		Object returned = null;

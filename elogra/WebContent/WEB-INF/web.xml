@@ -13,7 +13,14 @@
   	<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
   	<param-value>Translation</param-value>
   </context-param>
-  
+  <servlet>
+  <servlet-name>Search Servlet</servlet-name>
+  <servlet-class>com.elogra.servlets.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Search Servlet</servlet-name>
+  <url-pattern>/search</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>tiles</servlet-name>
     <servlet-class>org.apache.tiles.web.startup.simple.SimpleTilesInitializerServlet</servlet-class>
