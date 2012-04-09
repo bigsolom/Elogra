@@ -16,4 +16,8 @@
 	<definition name="submit" extends="template">
 		<put-attribute name="body" value="/pages/submit_body.jsp" />
 	</definition>
+	
+	<definition name="taxiTalks" extends="template">
+		<put-attribute name="body" value="/pages/taxiTalks_body.jsp" />
+	</definition>
 </tiles-definitions>
