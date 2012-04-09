@@ -10,7 +10,7 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td, 
-label, input, button, select, textarea{
+label, input, button, select, textarea,option{
 	font-family: Frugiter;
 }
 
