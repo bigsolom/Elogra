@@ -21,6 +21,14 @@
   <servlet-name>Search Servlet</servlet-name>
   <url-pattern>/search</url-pattern>
   </servlet-mapping>
+    <servlet>
+  <servlet-name>Submit Servlet</servlet-name>
+  <servlet-class>com.elogra.servlets.SubmitServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Submit Servlet</servlet-name>
+  <url-pattern>/submit</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>tiles</servlet-name>
     <servlet-class>org.apache.tiles.web.startup.simple.SimpleTilesInitializerServlet</servlet-class>
