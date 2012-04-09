@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%
+    String redirectURL = "../search.tiles";
+    response.sendRedirect(redirectURL);
+%>
 </body>
 </html>
