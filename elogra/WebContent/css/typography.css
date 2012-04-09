@@ -1,9 +1,12 @@
 /* GENERAL ------------------------------------------------------------*/
 
+@font-face { font-family: Frugiter; src: url('Fonts/FrutigerLTArabic-45Light.ttf'); }
+
 body {
 	line-height: 1em;
 	font-family: Tahoma, Arial, Helvetica, sans-serif;
 	font-size:  100%;
+	font-family: Frugiter;
 }
 
 #wrapper{

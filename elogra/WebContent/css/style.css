@@ -10,6 +10,9 @@
 
 @import url('styled-elements.css');
 
+@font-face { font-family: Frugiter; src: url('Fonts/FrutigerLTArabic-45Light.ttf'); }
+
+
 
 /* HACKS ------------------------------------------------------------*/
 
@@ -18,15 +21,21 @@
 	height:1px;
 }
 
+
 .inv{ display:none; }
 
 
 /* GENERAL ------------------------------------------------------------*/
 
 html,
-body{ height: 100%; }
+body{ height: 100%;
 
-body {}
+}
+
+
+body {
+	
+}
 
 .home-quotes{
 	margin: 43px 30px 43px 43px;
@@ -52,6 +61,7 @@ h1.header-line,
 	width: 965px;
 	min-height: 100%;
 	padding-bottom: 15px;
+			font-family: Frugiter;
 }
 
 /* COLUMNS LAYOUT----------------------------------------------------------*/
@@ -236,6 +246,7 @@ h1.header-line,
 #main{
 	width: 680px;
 	float: right;
+	
 }
 
 /* HEADER ------------------------------------------------------------*/
