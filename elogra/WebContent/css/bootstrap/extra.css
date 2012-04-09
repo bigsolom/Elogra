@@ -1,12 +1,14 @@
 /* Special grid styles
 -------------------------------------------------- */
 .show-grid {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 .show-grid [class*="span"] {
-  background-color: #eee;
   text-align: center;
+  /*
+  background-color: #eee;
+  */
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
@@ -14,7 +16,9 @@
   line-height: 30px;
 }
 .show-grid:hover [class*="span"] {
+  /*
   background: #ddd;
+  */
 }
 .show-grid .show-grid {
   margin-top: 0;
@@ -22,4 +26,40 @@
 }
 .show-grid .show-grid [class*="span"] {
   background-color: #ccc;
+}
+/*green*/
+.traffic-status-1 {
+  background-color: #37dc74;
+  
+}
+
+.traffic-status-1:hover {
+  background-color: #63dc90;
+  
+}
+
+/*yellow*/
+.traffic-status-2 {
+  background-color: #ffee40;
+}
+
+.traffic-status-2:hover {
+  background-color: #fff273;
+}
+
+/*red*/
+.traffic-status-3 {
+  background-color: #ff4940;
+}
+
+.traffic-status-3:hover {
+  background-color: #ff7a73;
+}
+
+/*----------------*/
+.span8{
+	width: 580px;
+}
+.span4{
+	width: 280px;
 }

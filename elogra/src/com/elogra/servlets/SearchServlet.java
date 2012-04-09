@@ -51,8 +51,10 @@ public class SearchServlet extends HttpServlet {
 		Search s = new Search();
 		Result res = s.goSearch(srcID, destID, taxiColor);
         request.setAttribute("searchResult",res);
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/results.tiles");
-        requestDispatcher.include(request,response);
+        request.getRequestDispatcher("results.tiles").forward(request, response);
+//        response.sendRedirect("results.tiles");
+//        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/results.tiles");
+//        requestDispatcher.include(request,response);
 	}
 
 }

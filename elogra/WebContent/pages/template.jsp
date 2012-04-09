@@ -8,10 +8,7 @@
 <fmt:setBundle basename="Translation" var="message" scope="application"/>
 </c:if>
 -->
-
-<c:if test="${param['lang']!=null }">
-	<fmt:setLocale value="${param['lang']}" scope="session" />
-</c:if>
+<fmt:setLocale value="ar" scope="session" />
 <!DOCTYPE html>
 <html>
 	<head>
@@ -132,9 +129,7 @@
 					</li>
 				
 				<li><a href="contact.html">بكام</a></li>
-				<li><a href="?lang=ar">عربي</a></li>
-				<li><a href="?lang=en">English</a></li>
-             </ul>
+		  </ul>
 			<!-- Navigation -->	
 					
 			<!-- categories --><!-- categories -->	
