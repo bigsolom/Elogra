@@ -57,11 +57,11 @@
 				</label>
 			</div>
 		</div>
-			<label><fmt:message key="form.submit.comment"/></label> <label></label> <textarea type="text"
-			name="comment" id="comment" class="form-poshytip"
-			title="Comments" rows="4" cols="400"></textarea><br />
-		<input type="submit" name="button" id="button" value="<fmt:message key='form.submit.submit'/>"
-			class="btn btn-large" />
+			<label><fmt:message key="form.submit.comment"/></label> 
+			<label></label> 
+			<textarea type="text" name="comment" id="comment" class="form-poshytip" title="Comments" rows="4" cols="400"></textarea><br />
+		
+		<input type="submit" name="button" id="button" value="<fmt:message key='form.submit.submit'/>" class="btn btn-large" />
 	</fieldset>
 </form>
 
