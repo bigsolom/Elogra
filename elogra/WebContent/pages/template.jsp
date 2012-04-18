@@ -28,6 +28,8 @@
 		
 		<!-- JS -->
 		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript" src="js/extras.js"></script>
+				
 		<script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
 		<script type="text/javascript" src="js/quicksand.js"></script>
 		<script type="text/javascript" src="js/custom.js"></script>
