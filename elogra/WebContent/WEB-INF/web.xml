@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>elogra</display-name>
-   <welcome-file-list>
+  <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -10,25 +10,35 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <context-param>
-  	<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
-  	<param-value>Translation</param-value>
+    <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+    <param-value>Translation</param-value>
   </context-param>
   <servlet>
-  <servlet-name>Search Servlet</servlet-name>
-  <servlet-class>com.elogra.servlets.SearchServlet</servlet-class>
+    <servlet-name>Search Servlet</servlet-name>
+    <servlet-class>com.elogra.servlets.SearchServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>Search Servlet</servlet-name>
-  <url-pattern>/search</url-pattern>
+    <servlet-name>Search Servlet</servlet-name>
+    <url-pattern>/search</url-pattern>
   </servlet-mapping>
-    <servlet>
-  <servlet-name>Submit Servlet</servlet-name>
-  <servlet-class>com.elogra.servlets.SubmitServlet</servlet-class>
+  <servlet>
+    <servlet-name>Submit Servlet</servlet-name>
+    <servlet-class>com.elogra.servlets.SubmitServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>Submit Servlet</servlet-name>
-  <url-pattern>/submit</url-pattern>
+    <servlet-name>Submit Servlet</servlet-name>
+    <url-pattern>/submit</url-pattern>
   </servlet-mapping>
+  <servlet>
+      <servlet-name>Hakawy Servlet</servlet-name>
+    <servlet-class>com.elogra.servlets.HakawyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Hakawy Servlet</servlet-name>
+    <url-pattern>/hakawy</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
     <servlet-name>tiles</servlet-name>
     <servlet-class>org.apache.tiles.web.startup.simple.SimpleTilesInitializerServlet</servlet-class>

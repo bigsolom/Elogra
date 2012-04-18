@@ -49,4 +49,11 @@ public interface DBConstants {
 	static final String USERS = "users";
 	static final String USERS_ID = "id";
 	
+	static final String HAKAWY = "hakawy";
+	static final String HAKAWY_ID = "id";
+	static final String HAKAWY_USERID = "userid";
+	static final String HAKAWY_DRIVERID = "driverid";
+	static final String HAKAWY_TEXT = "text";
+	static final String HAKAWY_STATUS = "status";
+	
 }
