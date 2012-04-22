@@ -41,6 +41,7 @@ public class HakawyServlet extends HttpServlet {
 		Hakawy h = new Hakawy();
 		hm.setHekaya(hekaya);
 		h.submitHakawy(hm);
+		request.getRequestDispatcher("/taxiTalks.tiles").forward(request, response);
 	}
 
 }

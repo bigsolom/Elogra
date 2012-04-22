@@ -28,6 +28,7 @@ public interface DBConstants {
 	static final String ENTRIES_SRC_ADDR_ID = "src_addr_id";
 	static final String ENTRIES_DEST_ADDR_ID = "dest_addr_id";
 	static final String ENTRIES_ENTRY_TIME = "entry_time";
+	static final String ENTRIES_STATUS = "status";
 	
 	
 	static final String HISTORY_FARES = "history_fares";
