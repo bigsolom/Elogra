@@ -17,13 +17,15 @@ public class Submit {
 		System.out.println(sql);
 		DBConnection.QueryResult qr = dbc.executeQuery(sql);		
 		if(qr.getRowsCount() == 0){
-			dbc.executeUpdate("insert into " + DBConstants.ADDRESSES + " values(null,'" + sm.getSrcAddr() + "'," + sm.getSrcID() + ")");
+			sql = "insert into " + DBConstants.ADDRESSES + " values(null,'" + sm.getSrcAddr() + "'," + sm.getSrcID() + ")";
+			System.out.println(sql);
+			dbc.executeUpdate(sql);
 			sql = "select * from " + DBConstants.ADDRESSES + " where " + DBConstants.ADDRESSES_TEXT + " = '" + sm.getSrcAddr() + "'";
 			System.out.println(sql);
 			qr = dbc.executeQuery(sql);
-			sm.setSrcAddrID(Integer.parseInt(qr.getObject(0, DBConstants.ADDRESSES_ID).toString()));
+			sm.setSrcAddrID(qr.getObject(0, DBConstants.ADDRESSES_ID).toString());
 		}else{
-			sm.setSrcAddrID(Integer.parseInt(qr.getObject(0, DBConstants.ADDRESSES_ID).toString()));
+			sm.setSrcAddrID(qr.getObject(0, DBConstants.ADDRESSES_ID).toString());
 		}
 ///////////// check for destination address if already available		
 		sql = "select * from " + DBConstants.ADDRESSES + " where " + DBConstants.ADDRESSES_TEXT + " like '" + sm.getDestAddr() + "'";
@@ -34,15 +36,15 @@ public class Submit {
 			sql = "select * from " + DBConstants.ADDRESSES + " where " + DBConstants.ADDRESSES_TEXT + " = '" + sm.getDestAddr() + "'";
 			System.out.println(sql);
 			qr = dbc.executeQuery(sql);
-			sm.setDestAddrID(Integer.parseInt(qr.getObject(0, DBConstants.ADDRESSES_ID).toString()));
+			sm.setDestAddrID(qr.getObject(0, DBConstants.ADDRESSES_ID).toString());
 		}else{
-			sm.setDestAddrID(Integer.parseInt(qr.getObject(0, DBConstants.ADDRESSES_ID).toString()));
+			sm.setDestAddrID(qr.getObject(0, DBConstants.ADDRESSES_ID).toString());
 		}		
 /////////////////////////////////////////// insert a new entry //////////////////////////////////////////////////////		
 		
 		sql = "insert into entries values(null," + sm.getTaxiType() + ",now(),'00:00','" + sm.getCmnt() + "'," + sm.getFare() +
 				"," + sm.getTrafficStat() + "," + sm.getSrcID() + "," + sm.getDestID() + "," + sm.getUserID() + 
-				"," + sm.getSrcAddrID() + "," + sm.getDestAddrID() + " , now());";
+				"," + sm.getSrcAddrID() + "," + sm.getDestAddrID() + " , now(),0);";
 		System.out.println(sql);
 		dbc.executeUpdate(sql);
 ///////////////////////////////////////////// update live fares //////////////////////////////////////////////

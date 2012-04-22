@@ -1,29 +1,29 @@
 package com.elogra.model;
 
 public class SubmitModel {
-	private int srcID;
-	private int destID;
-	private int srcAddrID;
-	private int destAddrID;
-	private int trafficStat;
-	private int taxiType;
-	private int userID;
+	private String srcID;
+	private String destID;
+	private String srcAddrID;
+	private String destAddrID;
+	private String trafficStat;
+	private String taxiType;
+	private String userID;
 	private String fare;
 	private String cmnt;
 	private String srcAddr;
 	private String destAddr;
 	
 	
-	public int getUserID() {
+	public String getUserID() {
 		return userID;
 	}
-	public void setUserID(int userID) {
+	public void setUserID(String userID) {
 		this.userID = userID;
 	}
-	public int getTaxiType() {
+	public String getTaxiType() {
 		return taxiType;
 	}
-	public void setTaxiType(int taxiType) {
+	public void setTaxiType(String taxiType) {
 		this.taxiType = taxiType;
 	}
 	public String getSrcAddr() {	
@@ -38,34 +38,34 @@ public class SubmitModel {
 	public void setDestAddr(String destAddr) {
 		this.destAddr = destAddr;
 	}	
-	public int getSrcID() {
+	public String getSrcID() {
 		return srcID;
 	}
-	public void setSrcID(int srcID) {
+	public void setSrcID(String srcID) {
 		this.srcID = srcID;
 	}
-	public int getDestID() {
+	public String getDestID() {
 		return destID;
 	}
-	public void setDestID(int destID) {
+	public void setDestID(String destID) {
 		this.destID = destID;
 	}
-	public int getSrcAddrID() {
+	public String getSrcAddrID() {
 		return srcAddrID;
 	}
-	public void setSrcAddrID(int srcAddrID) {
+	public void setSrcAddrID(String srcAddrID) {
 		this.srcAddrID = srcAddrID;
 	}
-	public int getDestAddrID() {
+	public String getDestAddrID() {
 		return destAddrID;
 	}
-	public void setDestAddrID(int destAddrID) {
+	public void setDestAddrID(String destAddrID) {
 		this.destAddrID = destAddrID;
 	}
-	public int getTrafficStat() {
+	public String getTrafficStat() {
 		return trafficStat;
 	}
-	public void setTrafficStat(int trafficStat) {
+	public void setTrafficStat(String trafficStat) {
 		this.trafficStat = trafficStat;
 	}
 	public String getFare() {

@@ -77,3 +77,10 @@ label, input, button, select, textarea,option{
 .span4{
 	width: 280px;
 }
+
+
+.expand {
+    height: 1.5em;
+    width: 95%;
+    padding: 3px;
+}​
