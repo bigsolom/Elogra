@@ -43,7 +43,7 @@ public class SubmitServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String srcID = request.getParameter("fromHS");
 		String destID = request.getParameter("toHS");
-		String taxiColor = request.getParameter("RadioGroup1");
+		String taxiColor = request.getParameter("imgRadio-input");
 		String fare = request.getParameter("fare");
 		String fromAddr = request.getParameter("fromAddr");
 		String toAddr = request.getParameter("toAddr");

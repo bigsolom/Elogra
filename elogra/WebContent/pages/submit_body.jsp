@@ -32,15 +32,11 @@
 		<div class="control-group">
 			<label class="control-label"><fmt:message key="form.search.type"/> </label>
 			<div class="controls">
-				<label class="radio"> <input type="radio" name="RadioGroup1"
-					value="2" id="White" /> White
-				</label> <label class="radio"> <input type="radio"
-					name="RadioGroup1" value="3" id="Yellow" /> Yellow
-				</label> <label class="radio"> <input type="radio"
-					name="RadioGroup1" value="1" id="Black" /> Black
-				</label> <label class="radio"> <input type="radio"
-					name="RadioGroup1" value="4" id="London" /> London
-				</label>
+				<img class="imgRadio" src="img/blackTaxis.jpg" data-value="1" />
+						<img class="imgRadio" src="img/whiteTaxis.jpg" data-value="2" />
+						<img class="imgRadio" src="img/yellowTaxis.jpg" data-value="3" />
+						<img class="imgRadio" src="img/londonTaxis.jpg" data-value="4" />
+						<input type="hidden" id="imgRadio-input" name="imgRadio-input" />
 			</div>
 		</div>
 		<div class="control-group">
