@@ -44,7 +44,7 @@ public class SearchServlet extends HttpServlet {
 		
 		String srcID = request.getParameter("fromHS");
 		String destID = request.getParameter("toHS");
-		String taxiColor = request.getParameter("RadioGroup1");
+		String taxiColor = request.getParameter("imgRadio-input");
 		
 		Search s = new Search();
 		Result res = s.goSearch(srcID, destID, taxiColor);

@@ -19,46 +19,46 @@
 					
 						<!-- Information  -->
 						<div>
-							
-							<form id="form1" name="form1" method="post" action="search"
-	class="well">
-	<fieldset>
-		<label><fmt:message key="form.search.from"/></label> <select name="from" id="from">
-			<option value=0>اختر</option>
-		</select> <select name="fromHS" id="fromHS">
-			<option value=0>اختر</option>
-		</select> <label><fmt:message key="form.search.to"/></label> <select name="to" id="to">
-			<option value=0>اختر</option>
-		</select> <select name="toHS" id="toHS">
-			<option value=0>اختر</option>
-		</select> <label><fmt:message key="form.search.when"/></label> <label></label> <input type="text"
-			name="textfield" id="textfield" class="form-poshytip"
-			title="When will you go?" />
-		<div class="control-group">
-			<label class="control-label"><fmt:message key="form.search.type"/> </label>
-			<div class="controls">
-				<label class="radio"> <input type="radio" name="RadioGroup1"
-					value="2" id="White" /> White
-				</label> <label class="radio"> <input type="radio"
-					name="RadioGroup1" value="3" id="Yellow" /> Yellow
-				</label> <label class="radio"> <input type="radio"
-					name="RadioGroup1" value="1" id="Black" /> Black
-				</label> <label class="radio"> <input type="radio"
-					name="RadioGroup1" value="4" id="London" /> London
-				</label>
-			</div>
-		</div>
-		<input type="submit" name="button" id="button" value="<fmt:message key='form.search.search'/>"
-			class="btn btn-large" />
-	</fieldset>
-</form>
 
-<script type="text/javascript">
+		<form id="form1" name="form1" method="post" action="search"
+			class="well">
+			<fieldset>
+				<label><fmt:message key="form.search.from" />
+				</label> <select name="from" id="from">
+					<option value=0>اختر</option>
+				</select> <select name="fromHS" id="fromHS">
+					<option value=0>اختر</option>
+				</select> <label><fmt:message key="form.search.to" />
+				</label> <select name="to" id="to">
+					<option value=0>اختر</option>
+				</select> <select name="toHS" id="toHS">
+					<option value=0>اختر</option>
+				</select> <label><fmt:message key="form.search.when" />
+				</label> <label></label> <input type="text" name="textfield" id="textfield"
+					class="form-poshytip" title="When will you go?" />
+				<div class="control-group">
+					<label class="control-label"><fmt:message
+							key="form.search.type" /> </label>
+
+					<div class="controls">
+						<img class="imgRadio" src="img/blackTaxis.jpg" data-value="1" />
+						<img class="imgRadio" src="img/whiteTaxis.jpg" data-value="2" />
+						<img class="imgRadio" src="img/yellowTaxis.jpg" data-value="3" />
+						<img class="imgRadio" src="img/londonTaxis.jpg" data-value="4" />
+						<input type="hidden" id="imgRadio-input" name="imgRadio-input" />
+					</div>
+				</div>
+				<input type="submit" name="button" id="button"
+					value="<fmt:message key='form.search.search'/>"
+					class="btn btn-large" />
+			</fieldset>
+		</form>
+		<script type="text/javascript">
 $(document).ready(function(){
   		
     loadCascadingCombo("from","fromHS");
     loadCascadingCombo("to","toHS");
-	
+    
     function loadCascadingCombo(parentId,childId){
         $.ajax({
             url: "Ajax?action=getTopLevelAreas",
