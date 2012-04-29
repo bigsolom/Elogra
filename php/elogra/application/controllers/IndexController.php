@@ -12,6 +12,18 @@ class IndexController extends Zend_Controller_Action
     {
         // action body
     }
+    
+    public function searchAction(){
+        
+    }
+    
+    public function submitAction(){
+        
+    }
+    
+    public function hakawyAction(){
+        
+    }
 
 
 }
