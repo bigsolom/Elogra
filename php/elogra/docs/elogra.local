@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+ServerName elogra.local
+           DocumentRoot "/media/d/Personal/UHU/elogra/elogra/php/elogra/public"
+			SetEnv APPLICATION_ENV development
+           <Directory "/media/d/Personal/UHU/elogra/elogra/php/elogra/public">
+             Options Indexes MultiViews FollowSymLinks
+              AllowOverride All
+              Order allow,deny
+              Allow from all
+       </Directory>
+</VirtualHost>
+
