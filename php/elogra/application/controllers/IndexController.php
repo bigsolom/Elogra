@@ -10,7 +10,8 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $entries = new Application_Model_Entries();
+        $this->view->entries = $entries->fetchAll()->toArray();
     }
     
     public function searchAction(){
