@@ -14,7 +14,7 @@
 						<!-- Information  -->
 						<div>
 
-		<form id="form1" name="form1" method="post" action="search"
+		<form id="form1" name="form1" method="post" action="<?=$this->url(array('controller'=>'search','action'=>'get'),'default',true)?>"
 			class="well">
 			<fieldset>
 				<label>From
@@ -54,7 +54,7 @@ $(document).ready(function(){
     
     function loadCascadingCombo(parentId,childId){
         $.ajax({
-            url: "Ajax?action=getTopLevelAreas",
+            url: "<?=$this->url(array('controller'=>'ajax','action'=>'gettoplevelareas'),'default',true)?>",
             cache: false,
             dataType: "json",
             success: function(data){
@@ -70,7 +70,7 @@ $(document).ready(function(){
   		  		
 	$("#"+parentId).change(function(){
                 $.ajax({
-                    url: "Ajax?action=getAreasUnder",
+                    url: "<?=$this->url(array('controller'=>'ajax','action'=>'getareasunder'),'default',true)?>",
                     dataType: "json", 
                     data: {id : $(this).val()},
                     success: function(data) {
