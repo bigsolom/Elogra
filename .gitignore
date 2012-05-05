@@ -2,3 +2,4 @@
 *.class
 elogra/build/classes/*
 php/elogra/library/Zend
+java/elogra/build/*
