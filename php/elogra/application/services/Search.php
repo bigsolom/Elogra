@@ -17,6 +17,7 @@ class Application_Service_Search {
         $noOfEntries = 5;
         $liveFares = new Application_Model_LiveFares();
         $fares = $liveFares->getLatestEntries($srcID, $destID, $taxiType, $noOfEntries);
+        //TODO: handle zero results
         $total = 0;
         foreach ($fares as $fare){
             $total += $fare['fare'];            
