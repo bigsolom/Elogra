@@ -18,7 +18,15 @@ class SearchController extends Zend_Controller_Action {
     }
     
     public function getAction(){
+        $srcID = $this->_request->getParam("fromHS");
+        $destID = $this->_request->getParam("toHS");
+        $taxiColor = $this->_request->getParam("imgRadio-input");
+
+        $searchService = new Application_Service_Search();
+        $searchResults = $searchService->goSearch($srcID, $destID, $taxiColor);
         
+        $this->view->searchResults = $searchResults;
+//		Result res = s.goSearch(srcID, destID, taxiColor);
     }
     
     

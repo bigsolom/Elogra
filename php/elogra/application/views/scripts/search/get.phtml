@@ -1,0 +1,35 @@
+<table border="1">
+
+	<tr>
+	<td>
+	Live Fare
+	</td>
+	<td>
+	<?=$this->searchResults->liveFare?>
+	</td>
+	<td>
+	History Fare
+	</td>
+	<td>
+	<?=$this->searchResults->historyFare?>
+	</td>
+	</tr>
+</table>
+<?php
+    foreach ($this->searchResults->comments as $comment) {
+?>
+<div class="row show-grid">
+
+	<div class="span8 traffic-status-<?=$comment['traffic_status']?>">
+			<?=$comment['comment']?>
+		<div class="row show-grid">
+				<div class="span4"><?=$comment['srcAddrTxt']?></div>
+				<div class="span4"><?=$comment['destAddrTxt']?></div>
+		</div>
+	</div>
+</div>
+
+
+<?php
+	}
+?>

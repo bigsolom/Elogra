@@ -15,6 +15,18 @@ class Application_Model_Areas extends Zend_Db_Table_Abstract {
     
     protected $_name='areas';
     
+    protected $_referenceMap = array(
+        'Source_Entry_Area' => array(
+            'columns' => 'id',
+            'refTableClass' => 'Application_Model_Entries',
+            'refColumns' => 'src_id'
+        ),
+        'Destination_Entry_Area' => array(
+            'columns' => 'id',
+            'refTableClass' => 'Application_Model_Entries',
+            'refColumns' => 'dest_id'
+            ));
+    
     public function getParentAreas(){
         $row = $this->fetchAll('parent_id is null AND approved=1');
         if (!$row) {
