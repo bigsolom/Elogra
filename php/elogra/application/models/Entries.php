@@ -43,11 +43,13 @@ class Application_Model_Entries extends Zend_Db_Table_Abstract {
     }
     
   
+    public function submitEntry(){
+        
+    }
+
     
-    
-    
-    
-    
+
+
 //    public function addAlbum($artist, $title) {
 //        $data = array(
 //            'artist' => $artist,

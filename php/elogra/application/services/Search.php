@@ -16,7 +16,7 @@ class Application_Service_Search {
     public function goSearch($srcID, $destID, $taxiType){
         $noOfEntries = 5;
         $liveFares = new Application_Model_LiveFares();
-        $fares = $liveFares->getLatestEntries($srcID, $destID, $taxiType, $noOfEntries);
+        $fares = $liveFares->getLatestEntries($srcID, $destID, $taxiType);
         //TODO: handle zero results
         $total = 0;
         foreach ($fares as $fare){

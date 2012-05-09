@@ -55,15 +55,15 @@
 	</fieldset>
 </form>
 
-<script type="text/javascript">
+		<script type="text/javascript">
 $(document).ready(function(){
   		
     loadCascadingCombo("from","fromHS");
     loadCascadingCombo("to","toHS");
-	
+    
     function loadCascadingCombo(parentId,childId){
         $.ajax({
-            url: "Ajax?action=getTopLevelAreas",
+            url: "<?=$this->url(array('controller'=>'ajax','action'=>'gettoplevelareas'),'default',true)?>",
             cache: false,
             dataType: "json",
             success: function(data){
@@ -79,7 +79,7 @@ $(document).ready(function(){
   		  		
 	$("#"+parentId).change(function(){
                 $.ajax({
-                    url: "Ajax?action=getAreasUnder",
+                    url: "<?=$this->url(array('controller'=>'ajax','action'=>'getareasunder'),'default',true)?>",
                     dataType: "json", 
                     data: {id : $(this).val()},
                     success: function(data) {
