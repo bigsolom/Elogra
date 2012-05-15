@@ -9,6 +9,23 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $registry = Zend_Registry::getInstance();
         $registry->set('Zend_Layout', $layout);
     }
+    
+    protected function _initTranslate() {
+        $registry = Zend_Registry::getInstance();
+        $locale = new Zend_Locale();
+        $translate = new Zend_Translate(
+                        array(
+                            'adapter' => 'array',
+                            'content' => APPLICATION_PATH . DIRECTORY_SEPARATOR . 'languages',
+                            'scan' => Zend_Translate::LOCALE_FILENAME,
+                            'locale' => 'ar',
+                            'disableNotices' => true, // This is a very good idea!
+                            'logUntranslated' => false, // Change this if you debug
+                ));
+        $registry->set('Zend_Locale', $locale);
+        $registry->set('Zend_Translate', $translate);
+        Zend_Form::setDefaultTranslator($translate);
+    }
 
 }
 
