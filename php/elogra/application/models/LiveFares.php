@@ -27,10 +27,36 @@ class Application_Model_LiveFares extends Zend_Db_Table_Abstract  {
         return $row->toArray();
     }
     
-    public function submitEntry($srcID,$destID,$taxiType,$noOfEntries){
-        
+    public function updateFares($srcID,$destID,$taxiType,$fare){
+        $select = $this->select();
+        $select->where(Application_Model_DBConstants::LIVE_FARES_SRC_ID.'= ?',(int)$srcID)
+                ->where(Application_Model_DBConstants::LIVE_FARES_DEST_ID.'= ?',(int)$destID)
+                ->where(Application_Model_DBConstants::LIVE_TAXI_TYPE.'= ?',(int)$taxiType);
+        $row = $this->fetchAll($select);
+        if (!$row) {
+            $data = array(
+                'fare' => $fare,
+                'time_last_update' => 'now()',   
+                'src_id' => $srcID,
+                'dest_id' => $destID,
+                'taxi_type' => $taxiType
+            );
+            $this->insert($data);
+            //throw new Exception("Could not find rows");
+        }else{
+            $data = array(
+                'fare' => $fare,
+                'time_last_update' => 'now()'
+            );
+            
+            $where = array(
+                'src_id' => $srcID,
+                'dest_id' => $destID,
+                'taxi_type' => $taxiType
+            );
+            $this->update($data, $where);
+        }
     }
-    
 }
 
 ?>

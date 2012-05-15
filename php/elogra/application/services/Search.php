@@ -13,7 +13,7 @@
 class Application_Service_Search {
     //put your code here
     
-    public function goSearch($srcID, $destID, $taxiType){
+    public function goSearch($srcID, $destID, $taxiType,$pageNumber = 1){
         $noOfEntries = 5;
         $liveFares = new Application_Model_LiveFares();
         $fares = $liveFares->getLatestEntries($srcID, $destID, $taxiType);
@@ -25,7 +25,7 @@ class Application_Service_Search {
         $avg = $total/  count($fares);
         
         $entriesModel = new Application_Model_Entries();
-        $comments = $entriesModel->getEntries($srcID, $destID, $taxiType, $noOfEntries, 0);
+        $comments = $entriesModel->getEntries($srcID, $destID, $taxiType, $pageNumber);
         
         $result = new stdClass();
         $result->liveFare = $avg;
@@ -33,9 +33,6 @@ class Application_Service_Search {
         $result->comments = $comments;
         
         return $result;
-        
-        
-        
     }
 }
 

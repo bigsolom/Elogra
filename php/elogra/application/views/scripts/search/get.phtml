@@ -15,21 +15,40 @@
 	</td>
 	</tr>
 </table>
-<?php
-    foreach ($this->searchResults->comments as $comment) {
-?>
-<div class="row show-grid">
-
-	<div class="span8 traffic-status-<?=$comment['traffic_status']?>">
-			<?=$comment['comment']?>
-		<div class="row show-grid">
-				<div class="span4"><?=$comment['srcAddrTxt']?></div>
-				<div class="span4"><?=$comment['destAddrTxt']?></div>
-		</div>
-	</div>
+<div class="paginated" data-page="1" data-from="<?=$this->from?>" data-to="<?=$this->to?>" data-taxi="<?=$this->taxi?>">
+    <?=$this->partial('partials/_entrySearch.phtml',array('comments'=>$this->searchResults->comments));?>
 </div>
+<button id="more">More</button>
 
-
-<?php
-	}
-?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        $("#more").click(function(){
+            getMore(); 
+        });
+        
+        function getMore(){
+            $.ajax({
+                url: "<?= $this->url(array('controller' => 'search', 'action' => 'more'), 'default', true) ?>",
+                dataType: "json", 
+                data: getPaginationData(),
+                success: function(data) {
+                    $("")
+                }
+             });
+        }
+         
+         function getPaginationData(){
+            var page = $(".paginated").attr('data-page');
+            page++;
+            var from = $(".paginated").attr('data-from');
+            var to = $(".paginated").attr('data-to');
+            var taxi = $(".paginated").attr('data-taxi');
+            return {page: page, from :from, to: to, taxi: taxi};
+         }
+         
+         
+        
+        
+    });
+</script>

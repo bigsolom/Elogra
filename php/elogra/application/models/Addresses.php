@@ -34,6 +34,27 @@ class Application_Model_Addresses extends Zend_Db_Table_Abstract {
         }
         return $row->toArray();
     }
+    
+    public function checkAddress($areaID, $address){
+        $select = $this->select();
+        $select->where(Application_Model_DBConstants::ADDRESSES_AREA_ID.'= ?',(int)$areaID);
+        $rows = $this->fetchAll($select);
+        if (!$rows) {
+            //throw new Exception("Could not find rows");
+            $data = array(
+            'text' => $address,
+             'area_id' => $areaID   
+            );
+            $this->insert($data);
+            $lastID = $this->getAdapter()->lastInsertId();
+            return $lastID;
+        }else{
+            $rowArray = $rows->toArray();
+            foreach ($rowArray as $row){
+                return $row['id'];
+            }
+        }
+    }
 }
 
 ?>

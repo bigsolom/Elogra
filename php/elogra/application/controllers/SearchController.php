@@ -26,7 +26,24 @@ class SearchController extends Zend_Controller_Action {
         $searchResults = $searchService->goSearch($srcID, $destID, $taxiColor);
         
         $this->view->searchResults = $searchResults;
+         $this->view->from = $srcID;
+         $this->view->to = $destID;
+         $this->view->taxi = $taxiColor;
 //		Result res = s.goSearch(srcID, destID, taxiColor);
+    }
+    
+    public function moreAction(){
+        $page = $this->_request->getParam('page');
+        $srcID = $this->_request->getParam("from");
+        $destID = $this->_request->getParam("to");
+        $taxiColor = $this->_request->getParam("taxi");
+        
+        $searchService = new Application_Service_Search();
+        $searchResults = $searchService->goSearch($srcID, $destID, $taxiColor,$page);
+        $html = $this->view->partial('partials/_entrySearch.phtml',array('comments'=>$searchResults->comments));
+        $result = array();
+        $result['html'] = $html;
+        $this->_helper->json($result);
     }
     
     
