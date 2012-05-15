@@ -18,22 +18,24 @@
 <div class="paginated" data-page="1" data-from="<?=$this->from?>" data-to="<?=$this->to?>" data-taxi="<?=$this->taxi?>">
     <?=$this->partial('partials/_entrySearch.phtml',array('comments'=>$this->searchResults->comments));?>
 </div>
-<button id="more">More</button>
 
 <script type="text/javascript">
     $(document).ready(function(){
         
-        $("#more").click(function(){
+        $(document).scroll(function(){
             getMore(); 
         });
-        
+                
         function getMore(){
             $.ajax({
                 url: "<?= $this->url(array('controller' => 'search', 'action' => 'more'), 'default', true) ?>",
                 dataType: "json", 
                 data: getPaginationData(),
                 success: function(data) {
-                    $("")
+                    $(".paginated").append(data.html);
+                    var page = $(".paginated").attr('data-page');
+                    page++;
+                    $(".paginated").attr('data-page',page);
                 }
              });
         }
