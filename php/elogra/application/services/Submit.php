@@ -22,7 +22,11 @@ class Application_Service_Submit {
         foreach ($entriesRows as $entry){
             $total += $entry['fare'];            
         }
-        $avg = $total/  count($entriesRows);
+        if(count($entriesRows) > 0){
+            $avg = $total/  count($entriesRows);
+        }else{
+            $avg = $total;
+        }
         
         $liveFares->updateFares($srcID, $destID, $taxiType, $avg);
     }
