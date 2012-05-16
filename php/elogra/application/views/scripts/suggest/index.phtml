@@ -1,0 +1,44 @@
+<form id="form1" name="form1" method="post" action="<?=$this->url(array('controller'=>'suggest','action'=>'index'),'default',true)?>"
+			class="well">
+			<fieldset>
+                            <label><?=  Application_Service_Translate::_('from')?></label> <select name="from" id="from">
+			<option value=0><?=  Application_Service_Translate::_('choose')?></option>
+                        <option value=0>أخرى</option>
+                        
+		</select> 
+                             <label>أخرى</label> <label></label> <input type="text"
+			name="newParent" id="newParent" class="form-poshytip"
+			title="حى" />
+                              <label>أسم  المنطقة</label> <label></label> <input type="text"
+			name="name" id="name" class="form-poshytip"
+			title="منطقة" />
+                              
+                              <input type="submit" name="button" id="button" value="<?=  Application_Service_Translate::_('share')?>" class="btn btn-large" />
+                            </fieldset>
+		</form>
+
+			<script type="text/javascript">
+$(document).ready(function(){
+  		
+    loadCascadingCombo("from","fromHS");
+    loadCascadingCombo("to","toHS");
+    
+    function loadCascadingCombo(parentId,childId){
+        $.ajax({
+            url: "<?=$this->url(array('controller'=>'ajax','action'=>'gettoplevelareas'),'default',true)?>",
+            cache: false,
+            dataType: "json",
+            success: function(data){
+                $.each(data, function(i, item) {
+                    $("#"+parentId).append($('<option/>').val(data[i].id).text(data[i].name));
+                });
+			  
+            },
+            error: function(e, xhr){
+                alert("error");
+            }
+        });
+      }
+});
+
+</script>
