@@ -2,13 +2,13 @@
 
 	<tr>
 	<td>
-	Live Fare
+	<?=  Application_Service_Translate::_('live_fare')?>
 	</td>
 	<td>
 	<?=$this->searchResults->liveFare?>
 	</td>
 	<td>
-	History Fare
+	<?=  Application_Service_Translate::_('history_fare')?>
 	</td>
 	<td>
 	<?=$this->searchResults->historyFare?>
@@ -34,7 +34,7 @@
                 dataType: "json", 
                 data: getPaginationData(),
                 beforeSend:function(){ // Are not working with dataType:'jsonp'
-                    $('.paginated').after("<img id='loading' src='/img/progressbar.gif' />");
+                    $('.paginated').after("<div align='center'><img  id='loading' src='/img/progressbar.gif' /></div>");
                 },
                 complete: function(){
                     $('#loading').remove();

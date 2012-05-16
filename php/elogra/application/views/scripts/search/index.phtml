@@ -1,37 +1,26 @@
-<!-- TABS -->
-					<!-- the tabs -->
-					<ul class="tabs">
-						<li><a href="#">Search</a></li>
-						<li><a href="#">News</a></li>
-						<li><a href="#">Recent videos</a></li>
-						<li><a href="#">Latest gallery</a></li>
-						
-				  </ul>
-					
-					<!-- tab "panes" -->
-					<div class="panes">
-					
-						<!-- Information  -->
+
 						<div>
 
 		<form id="form1" name="form1" method="post" action="<?=$this->url(array('controller'=>'search','action'=>'get'),'default',true)?>"
 			class="well">
 			<fieldset>
-				<label>From
+				<label><?=  Application_Service_Translate::_('from')?>
 				</label> <select name="from" id="from">
-					<option value=0>اختر</option>
+					<option value=0><?=  Application_Service_Translate::_('choose')?></option>
 				</select> <select name="fromHS" id="fromHS">
-					<option value=0>اختر</option>
-				</select> <label>To
+					<option value=0><?=  Application_Service_Translate::_('choose')?></option>
+				</select> <label><?=  Application_Service_Translate::_('to')?>
 				</label> <select name="to" id="to">
-					<option value=0>اختر</option>
+					<option value=0><?=  Application_Service_Translate::_('choose')?></option>
 				</select> <select name="toHS" id="toHS">
-					<option value=0>اختر</option>
-				</select> <label>When
+					<option value=0><?=  Application_Service_Translate::_('choose')?></option>
+				</select> <label><?=  Application_Service_Translate::_('when')?>
 				</label> <label></label> <input type="text" name="textfield" id="textfield"
 					class="form-poshytip" title="When will you go?" />
 				<div class="control-group">
-					<label class="control-label">Type </label>
+					<label class="control-label">
+                                            <?=  Application_Service_Translate::_('taxi_type')?> 
+                                        </label>
 
 					<div class="controls">
 						<img class="imgRadio" src="/img/blackTaxis.jpg" data-value="1" />
@@ -42,7 +31,7 @@
 					</div>
 				</div>
 				<input type="submit" name="button" id="button"
-					value="Search"
+					value="<?=  Application_Service_Translate::_('search')?>"
 					class="btn btn-large" />
 			</fieldset>
 		</form>
@@ -92,73 +81,3 @@
 </script>
 
 </div>
-<!-- ENDS Information -->
-
-<!-- Post list -->
-<div>
-        <ul class="blocks-list">
-                <li>
-                        <a href="/single.html" class="border"><img src="/img/dummies/114x86.jpg" alt="Post" /></a>
-                        <div class="the-excerpt">
-                                <strong>Pellentesque habitant morbi tristique</strong>  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.																			<a href="single.html" class="link-arrow">Read more &#8594;</a>
-                        </div>
-                </li>
-                <li>
-                        <a href="/single.html" class="border"><img src="/img/dummies/114x86.jpg" alt="Post" /></a>
-                        <div class="the-excerpt">
-                                <strong>Pellentesque habitant morbi tristique</strong>  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.																			<a href="/single.html" class="link-arrow">Read more &#8594;</a>
-                        </div>
-                </li>
-                <li>
-                        <a href="/single.html" class="border"><img src="img/dummies/114x86.jpg" alt="Post" /></a>
-                        <div class="the-excerpt">
-                                <strong>Pellentesque habitant morbi tristique</strong>  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.																			<a href="/single.html" class="link-arrow">Read more &#8594;</a>
-                        </div>
-                </li>
-        </ul>
-</div>
-<!-- ENDS Post list -->
-
-
-<!-- img gallery -->
-<div>
-        <ul class="blocks-gallery">
-                <li><a class="border" href="/http://www.youtube.com/watch?v=twuScTcDP_Q" title="The Video" rel="prettyPhoto"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a class="border" href="/http://www.youtube.com/watch?v=twuScTcDP_Q" title="The Video" rel="prettyPhoto"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a class="border" href="/http://www.youtube.com/watch?v=twuScTcDP_Q" title="The Video" rel="prettyPhoto"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a class="border" href="/http://www.youtube.com/watch?v=twuScTcDP_Q" title="The Video" rel="prettyPhoto"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a class="border" href="/http://www.youtube.com/watch?v=twuScTcDP_Q" title="The Video" rel="prettyPhoto"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a class="border" href="/http://www.youtube.com/watch?v=twuScTcDP_Q" title="The Video" rel="prettyPhoto"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a class="border" href="/http://www.youtube.com/watch?v=twuScTcDP_Q" title="The Video" rel="prettyPhoto"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a class="border" href="/http://www.youtube.com/watch?v=twuScTcDP_Q" title="The Video" rel="prettyPhoto"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a class="border" href="/http://www.youtube.com/watch?v=twuScTcDP_Q" title="The Video" rel="prettyPhoto"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a class="border" href="/http://www.youtube.com/watch?v=twuScTcDP_Q" title="The Video" rel="prettyPhoto"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a class="border" href="/http://www.youtube.com/watch?v=twuScTcDP_Q" title="The Video" rel="prettyPhoto"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a class="border" href="/http://www.youtube.com/watch?v=twuScTcDP_Q" title="The Video" rel="prettyPhoto"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-        </ul>
-</div>
-<!-- ENDS img gallery -->
-
-<!-- img gallery -->
-<div>
-        <ul class="blocks-gallery">
-                <li><a href="/img/dummies/584x300.jpg" class="border fancybox" title="An image"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a href="/img/dummies/584x300.jpg" class="border fancybox" title="An image"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a href="/img/dummies/584x300.jpg" class="border fancybox" title="An image"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a href="/img/dummies/584x300.jpg" class="border fancybox" title="An image"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a href="/img/dummies/584x300.jpg" class="border fancybox" title="An image"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a href="/img/dummies/584x300.jpg" class="border fancybox" title="An image"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a href="/img/dummies/584x300.jpg" class="border fancybox" title="An image"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a href="/img/dummies/584x300.jpg" class="border fancybox" title="An image"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a href="/img/dummies/584x300.jpg" class="border fancybox" title="An image"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a href="/img/dummies/584x300.jpg" class="border fancybox" title="An image"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a href="/img/dummies/584x300.jpg" class="border fancybox" title="An image"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-                <li><a href="/img/dummies/584x300.jpg" class="border fancybox" title="An image"><img src="img/dummies/114x86.jpg" alt="Post" /></a></li>
-        </ul>
-</div>
-<!-- ENDS img gallery -->
-
-</div>
-<!-- ENDS TABS -->
-
-
