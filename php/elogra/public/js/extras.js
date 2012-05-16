@@ -1,5 +1,20 @@
 $(document).ready(function() {
-	function OnFocusInput(textarea) {
+	$(".imgRadio").each(function() {
+		$(this).css('border', "solid 2px #E6E6E6");
+		$(this).click(function() {
+			$(".imgRadio").each(function() {
+				$(this).css('border', "solid 2px #E6E6E6");
+			});
+			$(this).css('border', "solid 2px red");
+			$(this).css('border-radius', "5px");
+			$("#imgRadio-input").val($(this).attr("data-value"));
+		});
+	});
+        
+        
+});
+
+function OnFocusInput(textarea) {
 
 		$('textarea.expand').animate({
 			height : "100em"
@@ -14,16 +29,3 @@ $(document).ready(function() {
 			}, 2);
 
 	}
-
-	$(".imgRadio").each(function() {
-		$(this).css('border', "solid 2px #E6E6E6");
-		$(this).click(function() {
-			$(".imgRadio").each(function() {
-				$(this).css('border', "solid 2px #E6E6E6");
-			});
-			$(this).css('border', "solid 2px red");
-			$(this).css('border-radius', "5px");
-			$("#imgRadio-input").val($(this).attr("data-value"));
-		});
-	});
-});
