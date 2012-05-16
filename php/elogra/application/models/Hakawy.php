@@ -7,13 +7,15 @@
 
 class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
     protected $_name='hakawy';
-    const NO_OF_ENTRIES_PER_PAGE = 2;
+    const NO_OF_ENTRIES_PER_PAGE = 20;
     
     public function submitHekaya($hekaya){
         $data = array(
             'text' => $hekaya
         );
-        $this->insert($data);
+        $row =  $this->createRow($data);
+        $row->save();
+        return $row->toArray();
     }
     
     public function getHakawy($pageNumber){
@@ -24,7 +26,7 @@ class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
         if (!$rows) {
             throw new Exception("Could not find rows");
         }
-        $rowsArray = array();
+        $rowsArray = $rows->toArray();
         return $rowsArray;
     }
 }

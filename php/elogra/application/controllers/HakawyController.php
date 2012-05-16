@@ -4,7 +4,9 @@ class HakawyController extends Zend_Controller_Action
 {
 
     public function indexAction(){
-        
+        $hakawyService = new Application_Service_Hakawy();
+        $hakawy = $hakawyService->getHakawy(1);
+        $this->view->hakawy = $hakawy;
     }
     
     public function submitAction(){
@@ -12,7 +14,9 @@ class HakawyController extends Zend_Controller_Action
         $hakawyService = new Application_Service_Hakawy();
         $result = $hakawyService->submitHekaya($hekaya);
         if($result){
-            $this->view->submitHekaya = "Hekaya submitted";
+            $reply = array();
+            $reply['html'] = $this->view->partial('partials/_hekaya.phtml', array('hekaya' => $result));;
+            $this->_helper->json($reply);
         }
     }
 

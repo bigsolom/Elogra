@@ -15,8 +15,8 @@ class Application_Service_Hakawy {
     
     public function submitHekaya($hekaya){
       $hakawy = new Application_Model_Hakawy();
-      $hakawy->submitHekaya($hekaya);
-      return true;
+      $insertedHekaya = $hakawy->submitHekaya($hekaya);
+      return $insertedHekaya;
     }
     
     public function getHakawy($pageNumber){
