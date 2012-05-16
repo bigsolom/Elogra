@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>LEFT TEMPLATE</title>
+		<title>الأجرة | الرئيسية</title>
 		
 		
 		 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
@@ -111,7 +111,7 @@
 		<!-- SIDEBAR -->
 		<div id="sidebar">
 			<!-- logo -->
-			<a href="/index-2.html"><img src="/img/logo.png" alt="Left template" id="logo" /></a>
+			<img src="/img/logo.png" alt="Left template" id="logo" />
 						
 			<!-- Navigation -->
 		  <ul id="nav" class="sf-menu sf-vertical">
@@ -120,7 +120,7 @@
 					</li>
 				
 				<li><a href="<?=$this->url(array('controller'=>'submit','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('submit_link')?></a></li>
-		  </ul>
+		  <li><a href="<?=$this->url(array('controller'=>'fares','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('fares_link')?></a></li>
 			<!-- Navigation -->	
 					
 			<!-- categories --><!-- categories -->	
@@ -148,7 +148,7 @@
 				<div id="page-content">
 					
 					<!-- feature blocks -->
-				  <h1 class="header-line">FEATURE PAGES</h1>
+				  <h1 class="header-line">الأجرة ... يلا بينا</h1>
 					<!-- ENDS feature blocks -->
 										
 					
@@ -164,8 +164,11 @@
 			<!-- ENDS CONTENT -->
 			
 	  </div>
-		<!-- ENDS MAIN -->
-	</div>
+
+                <!-- ENDS MAIN -->
+	
+        
+        </div>
 	<!-- ENDS WRAPPER -->
 
 	<!-- FOOTER -->
