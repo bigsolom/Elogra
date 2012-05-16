@@ -33,10 +33,10 @@ class Application_Model_LiveFares extends Zend_Db_Table_Abstract  {
                 ->where(Application_Model_DBConstants::LIVE_FARES_DEST_ID.'= ?',(int)$destID)
                 ->where(Application_Model_DBConstants::LIVE_TAXI_TYPE.'= ?',(int)$taxiType);
         $row = $this->fetchAll($select);
-        if (!$row) {
+        if (count($row) < 1) {
             $data = array(
                 'fare' => $fare,
-                'time_last_update' => 'now()',   
+                'time_last_update' => new Zend_Db_Expr('NOW()'),   
                 'src_id' => $srcID,
                 'dest_id' => $destID,
                 'taxi_type' => $taxiType
@@ -46,7 +46,7 @@ class Application_Model_LiveFares extends Zend_Db_Table_Abstract  {
         }else{
             $data = array(
                 'fare' => $fare,
-                'time_last_update' => 'now()'
+                'time_last_update' => new Zend_Db_Expr('NOW()')
             );
             
             $where = array(

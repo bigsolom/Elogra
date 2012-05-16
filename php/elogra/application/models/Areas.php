@@ -42,6 +42,22 @@ class Application_Model_Areas extends Zend_Db_Table_Abstract {
         }
         return $row->toArray();
     }
+    
+    public function submitArea($name, $parent_id){
+        if($parent_id == -1){
+            $data = array(
+                'name' => $name,
+                'parent_id' => null
+            );
+            $this->insert($data);
+        }else{
+            $data = array(
+                'name' => $name,
+                'parent_id' => $parent_id
+            );
+            $this->insert($data);            
+        }
+    }
 }
 
 ?>

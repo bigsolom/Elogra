@@ -22,7 +22,12 @@ class Application_Service_Search {
         foreach ($fares as $fare){
             $total += $fare['fare'];            
         }
-        $avg = $total/  count($fares);
+        if(count($fares) > 0){
+            $avg = $total/  count($fares);    
+        }else{
+            $avg = $total;
+        }
+        
         
         $entriesModel = new Application_Model_Entries();
         $comments = $entriesModel->getEntries($srcID, $destID, $taxiType, $pageNumber);

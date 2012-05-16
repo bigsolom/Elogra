@@ -16,7 +16,7 @@ class Application_Service_Submit {
         
         $entries->submitEntry($taxiType, $comment, $fare, $traffic, $srcID, $destID, $srcAddrID, $destAddrID);
         
-        $entriesRows = $entries->getEntries($srcID, $destID, $taxiType, 5, 0);
+        $entriesRows = $entries->getEntries($srcID, $destID, $taxiType, 1);
         
         $total = 0;
         foreach ($entriesRows as $entry){

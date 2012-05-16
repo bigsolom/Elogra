@@ -3,7 +3,7 @@
 return array(
     'taxi_talks_link'=>'حكاوي التاكسي',
     'search_link'=>'بكام',
-    'submit_link'=>'قول رأيك',
+    'submit_link'=>'أجرتك',
     'fares_link'=>'احسبها',
     
     //---- Taxi fares
