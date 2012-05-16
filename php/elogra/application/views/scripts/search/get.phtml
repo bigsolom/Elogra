@@ -16,7 +16,14 @@
 	</tr>
 </table>
 <div class="paginated" data-page="1" data-from="<?=$this->from?>" data-to="<?=$this->to?>" data-taxi="<?=$this->taxi?>">
-    <?=$this->partial('partials/_entrySearch.phtml',array('comments'=>$this->searchResults->comments));?>
+    
+        <?php
+    foreach ($this->searchResults->comments as $comment) {
+?>
+        <?=$this->partial('partials/_entrySearch.phtml',array('comment'=>$comment));?>
+    <?php
+	}
+?>
 </div>
 
 <script type="text/javascript">

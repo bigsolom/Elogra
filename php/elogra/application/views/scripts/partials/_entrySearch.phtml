@@ -1,18 +1,11 @@
-<?php
-    foreach ($this->comments as $comment) {
-?>
 <div class="row show-grid">
 
-	<div class="span8 traffic-status-<?=$comment['traffic_status']?>">
-			<?=$comment['comment']?>
+	<div class="span8 traffic-status-<?=$this->comment['traffic_status']?>">
+			<?=$this->comment['comment']?>
 		<div class="row show-grid">
-				<div class="span4"><?=$comment['srcAddrTxt']?></div>
-				<div class="span4"><?=$comment['destAddrTxt']?></div>
+				<div class="span4"><?=$this->comment['srcAddrTxt']?></div>
+				<div class="span4"><?=$this->comment['destAddrTxt']?></div>
 		</div>
 	</div>
 </div>
 
-
-<?php
-	}
-?>

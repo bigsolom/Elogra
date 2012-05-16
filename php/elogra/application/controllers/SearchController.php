@@ -40,7 +40,10 @@ class SearchController extends Zend_Controller_Action {
         
         $searchService = new Application_Service_Search();
         $searchResults = $searchService->goSearch($srcID, $destID, $taxiColor,$page);
-        $html = $this->view->partial('partials/_entrySearch.phtml',array('comments'=>$searchResults->comments));
+        $html = '';
+        foreach ($searchResults->comments as $comment){
+            $html .= $this->view->partial('partials/_entrySearch.phtml',array('comment'=>$comment));
+        }
         $result = array();
         $result['html'] = $html;
         $this->_helper->json($result);
