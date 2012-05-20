@@ -3,16 +3,17 @@
 			<fieldset>
                             <label><?=  Application_Service_Translate::_('from')?></label> <select name="from" id="from">
 			<option value=0><?=  Application_Service_Translate::_('choose')?></option>
-                        <option value=0>أخرى</option>
+                        <option value="أخرى">أخرى</option>
                         
 		</select> 
-                             <label>أخرى</label> <label></label> <input type="text"
+                             <label id="newPLabel">أخرى</label> <label></label> <input type="text"
 			name="newParent" id="newParent" class="form-poshytip"
 			title="حى" />
-                              <label>أسم  المنطقة</label> <label></label> <input type="text"
+                              <label id="newCLabel">أسم  المنطقة</label> <label></label> <input type="text"
 			name="name" id="name" class="form-poshytip"
 			title="منطقة" />
                               
+                              <br />
                               <input type="submit" name="button" id="button" value="<?=  Application_Service_Translate::_('share')?>" class="btn btn-large" />
                             </fieldset>
 		</form>
@@ -21,7 +22,32 @@
 $(document).ready(function(){
   		
     loadCascadingCombo("from","fromHS");
-    loadCascadingCombo("to","toHS");
+//    loadCascadingCombo("to","toHS");
+    $("#newParent").hide();
+    $("#newPLabel").hide();
+    
+    //أخرى
+    $('#form1').submit(function() {
+        if($("#from").val() == 0){
+            //alert($("#from").val());
+            alert("Please choose a district");
+            return false;    
+        }
+    });
+    
+    $("#from").change(function(){
+        if($("#from").val() == "أخرى"){
+            $("#name").hide();
+            $("#newCLabel").hide();
+            $("#newParent").show();
+            $("#newPLabel").show();                
+        }else{
+            $("#name").show();
+            $("#newCLabel").show();
+            $("#newParent").hide();
+            $("#newPLabel").hide();                                
+        }
+    });
     
     function loadCascadingCombo(parentId,childId){
         $.ajax({
