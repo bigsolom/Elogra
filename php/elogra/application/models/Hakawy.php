@@ -7,7 +7,7 @@
 
 class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
     protected $_name='hakawy';
-    const NO_OF_ENTRIES_PER_PAGE = 20;
+    const NO_OF_ENTRIES_PER_PAGE = 5;
     
     public function submitHekaya($hekaya){
         $data = array(

@@ -9,6 +9,20 @@ class HakawyController extends Zend_Controller_Action
         $this->view->hakawy = $hakawy;
     }
     
+    public function moreAction(){
+        $page = $this->_request->getParam('page');
+        $hakawyService = new Application_Service_Hakawy();
+        $hakawy = $hakawyService->getHakawy($page);
+        
+        $html = '';
+        foreach ($hakawy as $hekaya){
+            $html .= $this->view->partial('partials/_hekaya.phtml',array('hekaya'=>$hekaya));
+        }
+        $result = array();
+        $result['html'] = $html;
+        $this->_helper->json($result);
+    }
+    
     public function submitAction(){
         $hekaya = $this->_request->getParam("taxiTalksInput");
         $hakawyService = new Application_Service_Hakawy();
