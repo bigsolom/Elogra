@@ -7,11 +7,16 @@ $(document).ready(function(){
         
         $(window).scroll(function(){
             if  ($(window).scrollTop() == $(document).height() - $(window).height()){//only when scrolling down
+                       
                        getMore(); 
+                       
+                       
             }
         });
                 
         function getMore(){
+            if($(".paginated").attr('data-status')!="idle") return;
+            $(".paginated").attr('data-status',"progress");
             $.ajax({
                 url: moreActionURL,
                 dataType: "json", 
@@ -29,6 +34,7 @@ $(document).ready(function(){
                         page++;
                         $(".paginated").attr('data-page',page);
                     }
+                    $(".paginated").attr('data-status',"idle")
                 }
              });
         }
