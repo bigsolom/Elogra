@@ -829,3 +829,8 @@ h1.header-line,
 
 
 
+.record				{ width:554px; border:1px solid #ccc; padding:15px; margin:0 0 15px 0; }
+.record:hover		{ background:#eee; }
+.record-controls	{ font-size:10px; }
+.unapprove			{ color:#d98500; }
+.delete				{ color:#bc0b0b; }
