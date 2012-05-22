@@ -1,44 +1,6 @@
 <script type="text/javascript">
-    $(document).ready(function(){
-        
-        $(window).scroll(function(){
-            if  ($(window).scrollTop() == $(document).height() - $(window).height()){//only when scrolling down
-                       getMore(); 
-            }
-        });
-                
-        function getMore(){
-            $.ajax({
-                url: "<?= $this->url(array('controller' => 'hakawy', 'action' => 'more'), 'default', true) ?>",
-                dataType: "json", 
-                data: getPaginationData(),
-                beforeSend:function(){ // Are not working with dataType:'jsonp'
-                    $('.paginated').after("<div align='center'><img  id='loading' src='/img/progressbar.gif' /></div>");
-                },
-                complete: function(){
-                    $('#loading').remove();
-                },
-                success: function(data) {
-                    $(".paginated").append(data.html);
-                    var page = $(".paginated").attr('data-page');
-                    page++;
-                    $(".paginated").attr('data-page',page);
-                }
-             });
-        }
-         
-         function getPaginationData(){
-            var page = $(".paginated").attr('data-page');
-            page++;
-            return {page: page};
-         }
-         
-         
-        
-        
-    });
-           
-        function addHekaya(){
+    var moreActionURL = "<?= $this->url(array('controller' => 'hakawy', 'action' => 'more'), 'default', true) ?>";
+    function addHekaya(){
            $.ajax({
                 url: "<?= $this->url(array('controller' => 'hakawy', 'action' => 'submit'), 'default', true) ?>",
                 dataType: "json", 
@@ -59,7 +21,7 @@
         }
 
 </script>
-
+<script type="text/javascript" src="/js/pagination.js"></script>
 <form id="hekayaForm" method="post" onsubmit="addHekaya(); return false;" class="well">
     <fieldset>
 <textarea class="expand" 
