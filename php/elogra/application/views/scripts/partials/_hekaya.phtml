@@ -1,3 +1,16 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+	/* hide all controls right away */
+	/* add events for show/hide */
+	$('div.record').each(function() {
+		var controls = $(this).children('div.record-controls');
+		$(this).hover(
+			function() { $(controls).css('visibility','visible') },
+			function() { $(controls).css('visibility','hidden') }
+		);
+	});
+});
+</script>
 <div class="record">
 
     <p>
