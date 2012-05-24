@@ -1,3 +1,4 @@
+<div id="alert-area"></div>
 <form id="form2" name="form2" method="post" action="<?=$this->url(array('controller'=>'submit','action'=>'post'),'default',true)?>"
 	class="well">
 	<fieldset>
@@ -87,13 +88,47 @@ $(document).ready(function(){
                         });
                         $("#"+childId).trigger("change");
                     }});
-
-
         });
     }
 	
+    $('#form2').submit(function() { 
+        if($("#from").val() == 0){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار منين</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            $('html, body').animate({scrollTop:0}, 'slow');
 
-	
+            return false;
+        }else if($("#fromHS").val() == 0){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار منين</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else if($("#to").val() == 0){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار لفين</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else if($("#toHS").val() == 0){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار لفين</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else if($("#imgRadio-input").val() == ''){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار لون التاكسى</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else if($("#toHS").val() == $("#fromHS").val()){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>مينفعش تختار نفس المنطقة</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else if($("#fare").val() == ''){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>قولنا دفعت كام</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else if($("#traffic").val() == ''){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>إيه نظام الطريق؟</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            $("#alert-area").focus();
+            return false;
+        }
+    });	
 });
 
 </script>

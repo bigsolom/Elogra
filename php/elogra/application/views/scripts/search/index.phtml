@@ -1,3 +1,4 @@
+<div id="alert-area"></div>
 <div>
 		<form id="form1" name="form1" method="post" action="<?=$this->url(array('controller'=>'search','action'=>'get'),'default',true)?>"
 			class="well">
@@ -33,7 +34,7 @@
 		</form>
 <script type="text/javascript">
  $(document).ready(function(){
-  		
+  	
     loadCascadingCombo("from","fromHS");
     loadCascadingCombo("to","toHS");
     
@@ -69,7 +70,33 @@
 
         });
     }
-	
+    $('#form1').submit(function() {
+        if($("#from").val() == 0){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار منين</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else if($("#fromHS").val() == 0){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار منين</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else if($("#to").val() == 0){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار لفين</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else if($("#toHS").val() == 0){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار لفين</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else if($("#imgRadio-input").val() == ''){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار لون التاكسى</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else if($("#toHS").val() == $("#fromHS").val()){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>مينفعش تختار نفس المنطقة</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }
+    });	
 
 	
 });
