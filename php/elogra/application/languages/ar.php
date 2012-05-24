@@ -39,4 +39,5 @@ return array(
     'follow'=>'تابع الأجرة',
     'twitter'=>'الأجرة على تويتر',
     'facebook'=>'الاجرة على فيسبوك',
+    'no_more_results'=>'أخر الخط',
 );
