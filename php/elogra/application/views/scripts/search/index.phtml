@@ -1,6 +1,4 @@
-
-						<div>
-
+<div>
 		<form id="form1" name="form1" method="post" action="<?=$this->url(array('controller'=>'search','action'=>'get'),'default',true)?>"
 			class="well">
 			<fieldset>
@@ -51,7 +49,7 @@
 			  
             },
             error: function(e, xhr){
-                alert("error");
+                console.log("ajax error");
             }
         });
   		  		
