@@ -41,5 +41,8 @@ return array(
     'facebook'=>'الاجرة على فيسبوك',
     
     
-    'spam'=>'ميصحش!'
+    'spam'=>'ميصحش!',
+
+    'no_more_results'=>'أخر الخط',
+
 );

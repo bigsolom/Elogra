@@ -38,7 +38,7 @@
 <div class="record">
 
     <p>
-        <?= $this->hekaya['text'] ?>
+        <?= Application_Service_TextFormatting::htmlNlEncoding2Br($this->hekaya['text'])?>
     </p>
     <div class="record-controls" >
         

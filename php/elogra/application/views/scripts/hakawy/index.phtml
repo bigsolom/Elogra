@@ -1,6 +1,12 @@
 <script type="text/javascript">
     var moreActionURL = "<?= $this->url(array('controller' => 'hakawy', 'action' => 'more'), 'default', true) ?>";
+    var noMoreMsg = "<?=  Application_Service_Translate::_('no_more_results')?>";
     function addHekaya(){
+           if($("#taxiTalksInput").val() == ''){
+                $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أحكى حكايتك</strong></div> "));
+                $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });                
+                return false;
+            }
            $.ajax({
                 url: "<?= $this->url(array('controller' => 'hakawy', 'action' => 'submit'), 'default', true) ?>",
                 dataType: "json", 
@@ -11,6 +17,7 @@
                 },
                 complete: function(){//enable them back
                     $('#taxiTalksInput').attr("value","");
+                    displayCharCounts(document.getElementById("taxiTalksInput"));//to reset the characters counter
                     $('#taxiTalksInput').removeAttr("disabled");
                     $('#hekayaButton').removeAttr("disabled");
                 },
@@ -34,6 +41,7 @@ $(document).ready(function(){
 
 </script>
 <script type="text/javascript" src="/js/pagination.js"></script>
+<div id="alert-area"></div>
 <form id="hekayaForm" method="post" onsubmit="addHekaya(); return false;" class="well">
     <fieldset>
 <textarea class="expand" 
@@ -45,15 +53,13 @@ id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput
 
 <!-- YAMLI CODE START -->
 <script type="text/javascript" src="http://api.yamli.com/js/yamli_api.js"></script>
-
-		<script type="text/javascript">
+<script type="text/javascript">
   if (typeof(Yamli) == "object" && Yamli.init( { uiLanguage: "ar" , startMode: "offOrUserDefault" } ))
   {
     Yamli.yamlify( "taxiTalksInput", { settingsPlacement: "inside" } );
   }
 </script>
-
-<div class="paginated" data-page="1" data-status="idle">
+ <div class="paginated container" data-page="1" data-status="idle">
     <?php
     foreach ($this->hakawy as $hekaya) {
         ?>
