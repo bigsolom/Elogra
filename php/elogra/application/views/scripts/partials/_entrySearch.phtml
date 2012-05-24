@@ -1,7 +1,7 @@
 <div class="row show-grid">
 
 	<div class="span8 traffic-status-<?=$this->comment['traffic_status']?>">
-			<?=$this->comment['comment']?>
+			<?=Application_Service_TextFormatting::htmlNlEncoding2Br($this->comment['comment'])?>
 		<div class="row show-grid">
 				<div class="span4"><?=$this->comment['srcAddrTxt']?></div>
 				<div class="span4"><?=$this->comment['destAddrTxt']?></div>
