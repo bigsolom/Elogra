@@ -2,6 +2,11 @@
     var moreActionURL = "<?= $this->url(array('controller' => 'hakawy', 'action' => 'more'), 'default', true) ?>";
     var noMoreMsg = "<?=  Application_Service_Translate::_('no_more_results')?>";
     function addHekaya(){
+           if($("#taxiTalksInput").val() == ''){
+                $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أحكى حكايتك</strong></div> "));
+                $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });                
+                return false;
+            }
            $.ajax({
                 url: "<?= $this->url(array('controller' => 'hakawy', 'action' => 'submit'), 'default', true) ?>",
                 dataType: "json", 
@@ -36,6 +41,7 @@ $(document).ready(function(){
 
 </script>
 <script type="text/javascript" src="/js/pagination.js"></script>
+<div id="alert-area"></div>
 <form id="hekayaForm" method="post" onsubmit="addHekaya(); return false;" class="well">
     <fieldset>
 <textarea class="expand" 
