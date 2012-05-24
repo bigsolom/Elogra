@@ -1,5 +1,6 @@
 <script type="text/javascript">
     var moreActionURL = "<?= $this->url(array('controller' => 'hakawy', 'action' => 'more'), 'default', true) ?>";
+    var noMoreMsg = "<?=  Application_Service_Translate::_('no_more_results')?>";
     function addHekaya(){
            $.ajax({
                 url: "<?= $this->url(array('controller' => 'hakawy', 'action' => 'submit'), 'default', true) ?>",
@@ -11,6 +12,7 @@
                 },
                 complete: function(){//enable them back
                     $('#taxiTalksInput').attr("value","");
+                    displayCharCounts(document.getElementById("taxiTalksInput"));//to reset the characters counter
                     $('#taxiTalksInput').removeAttr("disabled");
                     $('#hekayaButton').removeAttr("disabled");
                 },
@@ -53,7 +55,7 @@ id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput
   }
 </script>
 
-<div class="paginated" data-page="1" data-status="idle">
+<div class="paginated container" data-page="1" data-status="idle">
     <?php
     foreach ($this->hakawy as $hekaya) {
         ?>

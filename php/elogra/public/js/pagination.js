@@ -16,6 +16,13 @@ $(document).ready(function(){
                 
         function getMore(){
             if($(".paginated").attr('data-status')!="idle") return;
+            if($(".paginated").attr('data-nomore')){
+                if($('#end').length){
+                    $('#end').remove();
+                }
+                $('.paginated').after("<div align='center' id='end'>"+noMoreMsg+"</div>");
+                return;
+            }
             $(".paginated").attr('data-status',"progress");
             $.ajax({
                 url: moreActionURL,
@@ -33,6 +40,8 @@ $(document).ready(function(){
                         var page = $(".paginated").attr('data-page');
                         page++;
                         $(".paginated").attr('data-page',page);
+                    }else{
+                        $(".paginated").attr('data-nomore',true);
                     }
                     $(".paginated").attr('data-status',"idle")
                 }
@@ -43,8 +52,6 @@ $(document).ready(function(){
             var page = $(".paginated").attr('data-page');
             page++;
             var paginationData = {"page": page};
-//            var pageNumber = {"page": page};
-//            paginationData.push(pageNumber);
             if(typeof extraPaginationParams !== 'undefined'){//if it is passed
                 for (var key in extraPaginationParams){//add it to the existing parameters
                     paginationData[key] = extraPaginationParams[key];
