@@ -1,3 +1,4 @@
+<div id="alert-area"></div>
 <form id="form1" name="form1" method="post" action="<?=$this->url(array('controller'=>'suggest','action'=>'index'),'default',true)?>"
 			class="well">
 			<fieldset>
@@ -20,6 +21,8 @@
 
 			<script type="text/javascript">
 $(document).ready(function(){
+    
+    $("#error-alert").hide();
   		
     loadCascadingCombo("from","fromHS");
 //    loadCascadingCombo("to","toHS");
@@ -29,10 +32,17 @@ $(document).ready(function(){
     //أخرى
     $('#form1').submit(function() {
         if($("#from").val() == 0){
-            //alert($("#from").val());
-            alert("Please choose a district");
-            return false;    
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار منطقة</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else{
+            if($("#name").val() == ''){
+                $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار مكان</strong></div> "));
+                $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+                return false;                
+            }
         }
+        
     });
     
     $("#from").change(function(){
