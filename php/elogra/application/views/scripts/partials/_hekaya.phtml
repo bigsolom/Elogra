@@ -10,18 +10,53 @@
 		);
 	});
 });
+
+
+
 </script>
+<script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id))
+            {
+                js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document,"script","twitter-wjs");
+</script>
+<script src="" 
+        type="text/javascript">
+</script>
+  <style type="text/css">
+  #custom-tweet-button a {
+    
+    padding: 0px 0px 0px 0px;
+    background: url('http://a4.twimg.com/images/favicon.ico') 1px  no-repeat;
+    
+  }
+</style>
+
 <div class="record">
 
     <p>
         <?= $this->hekaya['text'] ?>
     </p>
-    <div class="record-controls">
-        <a href="#" class="unapprove">Unapprove</a> |
-        <a href="#">Edit</a> |
-        <a href="#">Reply</a> |
-        <a href="#">Spam</a> |
-        <a href="#" class="delete">Delete</a>
+    <div class="record-controls" >
+        
+        &nbsp;
+        &nbsp;
+        &nbsp;
+    
+    
+    <!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_preferred_1" href="http://static.ak.fbcdn.net/connect.php/js/FB.Share"></a>
+<a class="addthis_button_preferred_2"href="https://twitter.com/share?hashtags=ElOgra&text=Twitter%20%2F%20Twitter%20buttons"></a>
+<a class="delete"><?=  Application_Service_Translate::_('spam')?></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4fbeb3166bee5d66"></script>
+<!-- AddThis Button END -->
+      
     </div>
 
+    
 </div>
