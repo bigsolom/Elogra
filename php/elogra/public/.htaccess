@@ -5,3 +5,7 @@ RewriteCond %{REQUEST_FILENAME} -l [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^.*$ - [NC,L]
 RewriteRule ^.*$ index.php [NC,L]
+#AuthType Basic
+#AuthName "Restricted Files"
+#AuthUserFile /var/chroot/home/content/55/8518655/data/pass
+#Require user elogra
