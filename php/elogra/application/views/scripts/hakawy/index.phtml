@@ -1,6 +1,6 @@
 <script type="text/javascript">
     var moreActionURL = "<?= $this->url(array('controller' => 'hakawy', 'action' => 'more'), 'default', true) ?>";
-    var noMoreMsg = "<?=  Application_Service_Translate::_('no_more_results')?>"
+    var noMoreMsg = "<?=  Application_Service_Translate::_('no_more_results')?>";
     function addHekaya(){
            $.ajax({
                 url: "<?= $this->url(array('controller' => 'hakawy', 'action' => 'submit'), 'default', true) ?>",
