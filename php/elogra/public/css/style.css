@@ -833,6 +833,6 @@ h1.header-line,
 .record:hover		{ background:#eee; }
 .record-controls	{ font-size:13px; visibility:hidden }
 .unapprove		{ color:#d98500; }
-.delete			{ color:#bc0b0b; }
+.delete			{ color:#bc0b0b;float:right; }
 .record-img             {}
 
