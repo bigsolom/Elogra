@@ -6,17 +6,17 @@
 			name="fare" id="fare" class="form-poshytip"
 			title="$ $ $" />
 		<label><?=  Application_Service_Translate::_('from')?></label> <select size="1.1" name="from" id="from">
-			<option value=0><?=  Application_Service_Translate::_('choose')?></option>
+			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
                 </select > <select  size="1.1" name="fromHS" id="fromHS">
-			<option value=0><?=  Application_Service_Translate::_('choose')?></option>
+			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
 		</select>
 		<label><?=  Application_Service_Translate::_('address')?></label> <label></label> <input type="text"
 			name="fromAddr" id="fromAddr" class="form-poshytip"
 			title="Address" /> 
 		<label><?=  Application_Service_Translate::_('to')?></label> <select name="to" size="1.1" id="to">
-			<option value=0><?=  Application_Service_Translate::_('choose')?></option>
+			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
                 </select> <select size="1.1" name="toHS" id="toHS">
-			<option value=0><?=  Application_Service_Translate::_('choose')?></option>
+			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
 		</select>
 			<label><?=  Application_Service_Translate::_('address')?></label> <label></label> <input type="text"
 			name="toAddr" id="toAddr" class="form-poshytip"
@@ -92,22 +92,22 @@ $(document).ready(function(){
     }
 	
     $('#form2').submit(function() { 
-        if($("#from").val() == 0){
+        if($("#from").val() == -1){
             $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار منين</strong></div> "));
             $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
             $('html, body').animate({scrollTop:0}, 'slow');
             return false;
-        }else if($("#fromHS").val() == 0){
+        }else if($("#fromHS").val() == -1){
             $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار منين</strong></div> "));
             $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
             $('html, body').animate({scrollTop:0}, 'slow');
             return false;
-        }else if($("#to").val() == 0){
+        }else if($("#to").val() == -1){
             $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار لفين</strong></div> "));
             $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
             $('html, body').animate({scrollTop:0}, 'slow');
             return false;
-        }else if($("#toHS").val() == 0){
+        }else if($("#toHS").val() == -1){
             $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار لفين</strong></div> "));
             $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
             $('html, body').animate({scrollTop:0}, 'slow');
