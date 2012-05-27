@@ -1,3 +1,6 @@
+<?php
+    $hekayaUrl = $this->serverUrl().$this->url(array('controller'=>'hakawy','action'=>'get','id'=>$this->hekaya['id']),'default',true);
+?>
 <script type="text/javascript">
     $(document).ready(function(){
 /* hide all controls right away */
@@ -11,10 +14,6 @@
                 
 	});
         
-        $('.record').click(
-                        function() {
-            window.location.href = "<?=$this->url(array('controller'=>'hakawy','action'=>'get','id'=>$this->hekaya['id']),'default',true)?>";                            
-        });
 });
 
 
@@ -56,13 +55,15 @@
     
     <div align="left">
     
-    <a class="" href="http://static.ak.fbcdn.net/connect.php/js/FB.Share"><img src="http://apacimagery.thinkstock.com/unpack/images/icons/share_facebook.png"></img></a>
-    <a class=""href="https://twitter.com/share?hashtags=ElOgra&text=Twitter%20%2F%20Twitter%20buttons" ><img src="http://www.celltick.com/projects/celltick/app/views/en/images/twitter_icon.gif"></img></a>
+    <a name="fb_share" type="icon" share_url="<?=$hekayaUrl?>"></a>
+    <a href="https://twitter.com/share?hashtags=ElOgra&text=Twitter%20%2F%20Twitter%20buttons&url=<?=$hekayaUrl?>" ><img src="http://www.celltick.com/projects/celltick/app/views/en/images/twitter_icon.gif"></img></a>
     <a  class="delete"><?=  Application_Service_Translate::_('spam')?></a>
     
 </div>
     
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4fbeb3166bee5d66"></script>
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" 
+        type="text/javascript">
+</script>
 <!-- AddThis Button END -->
       
     </div>
