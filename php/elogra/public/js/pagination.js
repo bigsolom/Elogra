@@ -5,7 +5,7 @@
 
 $(document).ready(function(){
         
-        $(window).onscroll(function(){
+        $(window).scroll(function(){
             if  ($(window).scrollTop() == $(document).height() - $(window).height()){//only when scrolling down
                        
                        getMore(); 

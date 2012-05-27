@@ -29,6 +29,16 @@ class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
         $rowsArray = $rows->toArray();
         return $rowsArray;
     }
+    
+    public function getHekayaById($id){
+        $select = $this->select();
+        $select->where(Application_Model_DBConstants::HAKAWY_ID." = ?",(int)$id);
+        $row = $this->fetchRow($select);
+        if (!$row) {
+            throw new Exception("Could not find rows");
+        }
+        return $row->toArray();
+    }
 }
 
 ?>

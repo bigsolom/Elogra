@@ -24,6 +24,12 @@ class Application_Service_Hakawy {
       $hakawyRows = $hakawy->getHakawy($pageNumber);
       return $hakawyRows;
     }
+    
+    public function getHekaya($id){
+        $hakawyService = new Application_Model_Hakawy();
+        $hekaya  = $hakawyService->getHekayaById($id);
+        return $hekaya;
+    }
 }
 
 ?>

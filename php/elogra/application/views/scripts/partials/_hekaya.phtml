@@ -1,6 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
-	/* hide all controls right away */
+/* hide all controls right away */
 	/* add events for show/hide */
 	$('div.record').each(function() {
 		var controls = $(this).children('div.record-controls');
@@ -8,7 +8,13 @@
 			function() { $(controls).css('visibility','visible') },
 			function() { $(controls).css('visibility','hidden') }
 		);
+                
 	});
+        
+        $('.record').click(
+                        function() {
+            window.location.href = "<?=$this->url(array('controller'=>'hakawy','action'=>'get','id'=>$this->hekaya['id']),'default',true)?>";                            
+        });
 });
 
 
