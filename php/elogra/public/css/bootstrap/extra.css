@@ -85,10 +85,6 @@ label, input, button, select, textarea,option{
     padding: 3px;
 }
 
-.twitter_share{
-    padding-bottom: 4px;
-}
-
 .record			{ width:554px; border:1px solid #ccc; padding:15px; margin:0 0 15px 0; }
 .record:hover		{ background:#eee; }
 .record-controls	{ font-size:13px; visibility:hidden }
