@@ -38,7 +38,7 @@
     <div align="left">
     <a class="popup" href="http://www.facebook.com/sharer.php?u=<?=$hekayaUrl?>"><img src="/img/connect_favicon.png"></img></a>
     <a class="popup" href="https://twitter.com/share?hashtags=ElOgra&url=<?=$hekayaUrl?>" ><img src="http://www.celltick.com/projects/celltick/app/views/en/images/twitter_icon.gif"></img></a>
-    <a class="delete" href="<?=$this->url(array('controller'=>'ajax','action'=>'report','id'=>$this->hekaya['id'],'type'=>  Application_Model_DBConstants::REPORT_TYPE_HAKAWY))?>"><?=  Application_Service_Translate::_('spam')?></a>
+    <a class="delete" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::REPORT_TYPE_HAKAWY?>"><?=  Application_Service_Translate::_('spam')?></a>
     
 </div>
     

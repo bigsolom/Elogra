@@ -35,3 +35,9 @@ function OnFocusInput(textarea) {
 			}, 2);
 
 	}
+        
+        function successMsg(msg){
+             $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>"+msg+"</strong></div> "));
+             $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+             $('html, body').animate({scrollTop:0}, 'slow');
+        }

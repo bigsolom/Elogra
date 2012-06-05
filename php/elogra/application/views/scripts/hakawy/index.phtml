@@ -38,6 +38,22 @@ $(document).ready(function(){
 			function() { $(controls).css('visibility','hidden') }
 		);
 	});
+        
+        $('.delete').on("click",function(){
+            var id = $(this).attr('data-id');
+            var type = $(this).attr('data-type');
+            $.ajax({
+                url: "<?=$this->url(array('controller'=>'ajax','action'=>'report'),'default',true)?>",
+                dataType: "json", 
+                data: {'id':id,'type':type},
+                complete: function(){//enable them back
+                    successMsg('thanls');
+                },
+                success: function(data) {
+
+                }
+             });
+        });
 });
 
 

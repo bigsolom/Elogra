@@ -39,6 +39,7 @@ class AjaxController extends Zend_Controller_Action {
         }
         $reportService = new Application_Service_Report();
         $reportService->reportEntry($id, $type);
+        $this->_helper->json('ok');
     }
 }
 
