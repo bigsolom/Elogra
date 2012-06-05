@@ -25,6 +25,8 @@
                     $(".container").prepend(data.html);
                 }
              });
+             $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>شكرا على الحدوته</strong></div> "));
+             $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
         }
         /* when the dom is ready... */
 $(document).ready(function(){
@@ -59,7 +61,7 @@ id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput
     Yamli.yamlify( "taxiTalksInput", { settingsPlacement: "inside" } );
   }
 </script>
- <div class="paginated container" data-page="1" data-status="idle">
+ <div class="paginated container" id="scrlDiv" data-page="1" data-status="idle">
     <?php
     foreach ($this->hakawy as $hekaya) {
         ?>
