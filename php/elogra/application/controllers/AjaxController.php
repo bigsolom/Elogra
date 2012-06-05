@@ -30,6 +30,16 @@ class AjaxController extends Zend_Controller_Action {
         $areasUnder = $areas->getAreasUnder($id);
         $this->_helper->json($areasUnder);
     }
+    
+    public function reportAction(){
+        $id = $this->_request->getParam('id');
+        $type = $this->_request->getParam('type');
+        if($type != Application_Model_DBConstants::REPORT_TYPE_HAKAWY && $type != Application_Model_DBConstants::REPORT_TYPE_ENTRIES){
+            throw new InvalidArgumentException('Invalid type');
+        }
+        $reportService = new Application_Service_Report();
+        $reportService->reportEntry($id, $type);
+    }
 }
 
 ?>

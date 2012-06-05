@@ -66,6 +66,9 @@ class Application_Model_DBConstants {
 	const HAKAWY_DRIVERID = "driverid";
 	const HAKAWY_TEXT = "text";
 	const HAKAWY_STATUS = "status";
+        
+        const REPORT_TYPE_HAKAWY = 'hakawy';
+        const REPORT_TYPE_ENTRIES = 'entries';
 }
 
 ?>
