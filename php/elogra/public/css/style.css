@@ -220,8 +220,6 @@ h1.header-line,
 /* SIDEBAR - SOCIAL --------------------------------------------------------*/
 
 .social{
-	display: block;
-	overflow: hidden;
 	margin-right: 15px;
 	margin-left: 36px;
 	padding-top: 25px;
