@@ -5,7 +5,7 @@ return array(
     'search_link'=>'بكام',
     'submit_link'=>'أجرتك',
     'fares_link'=>'احسبها',
-    
+    'suggest_link'=>'قوللنا مكانك',
     //---- Taxi fares
     
     'taxi_titles_1'=>'أبيض و أسود',
