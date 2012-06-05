@@ -47,7 +47,7 @@ $(document).ready(function(){
                 dataType: "json", 
                 data: {'id':id,'type':type},
                 complete: function(){//enable them back
-                    successMsg('thanls');
+                    successMsg("<?=  Application_Service_Translate::_('report_success_msg')?>");
                 },
                 success: function(data) {
 

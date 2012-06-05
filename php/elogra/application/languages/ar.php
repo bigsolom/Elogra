@@ -46,5 +46,7 @@ return array(
     'no_more_results'=>'أخر الخط',
     
     'site_title'=>'الأجرة  | حكاوي المشاوير',
+    
+    'report_success_msg'=>'صحيح عيب!'
 
 );
