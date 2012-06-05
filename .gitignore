@@ -3,3 +3,4 @@
 elogra/build/classes/*
 php/elogra/library/Zend
 java/elogra/build/*
+php/elogra/public/index.php
