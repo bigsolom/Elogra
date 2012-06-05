@@ -5,16 +5,70 @@
 
 $(document).ready(function(){
         
-        $(window).scroll(function(){
+var scrlStart = false;        
+        document.addEventListener("touchmove", ScrollStart, false);
+        document.addEventListener("scroll", Scroll, false);
+
+        function ScrollStart() {
+            //start of scroll event for iOS
+           // alert('scroll start');
+          /* if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+             alert("bottom1");
+             scrlStart = true;
+           }*/
+        }
+
+        function Scroll() {
+            //alert('scroll');
+            //end of scroll event for iOS
+            //and
+            //start/end of scroll event for other browsers            
+            if($(window).scrollTop() + $(window).height() == getDocHeight()) {
+                //alert("bottom2");
+                scrlStart = true;
+            }
+            if ($(document).height() - $(window).scrollTop() <= 1278) {
+                //alert("bottom1");
+                scrlStart = true;
+            }
+            if(scrlStart){
+                getMore();
+                scrlStart = false;
+            }
+            
+        }
+        
+         function getDocHeight() {
+    var D = document;
+    return Math.max(
+    Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
+    Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
+    Math.max(D.body.clientHeight, D.documentElement.clientHeight)
+    );          
+}
+        
+        /*$(window).scroll(function(){
             if  ($(window).scrollTop() == $(document).height() - $(window).height()){//only when scrolling down
                        
                        getMore(); 
                        
                        
             }
-        });
-                
+        });*/
+    
+/*$(window).endlessScroll({
+  fireOnce: false,
+  fireDelay: false,
+  callback: function(p){
+    alert("test");
+    if  ($(window).scrollTop() == $(document).height() - $(window).height()){//only when scrolling down
+        getMore();
+    }
+  }
+});*/
+
         function getMore(){
+            //alert('getmore');
             if($(".paginated").attr('data-status')!="idle") return;
             if($(".paginated").attr('data-nomore')){
                 if($('#end').length){
@@ -58,11 +112,5 @@ $(document).ready(function(){
                 }
             }
             return paginationData;
-         }
-         
-         
-        
-        
+         } 
     });
-
-
