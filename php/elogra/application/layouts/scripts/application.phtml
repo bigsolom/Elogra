@@ -104,7 +104,19 @@
 			<link rel="stylesheet" type="text/css" media="screen" href="css/ie8-hacks.css" />
 		<![endif]-->
 		<!-- ENDS CSS -->	
-		
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32426890-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>		
 	</head>
 	<body dir="rtl">
 	
@@ -118,12 +130,11 @@
 						
 			<!-- Navigation class="current-menu-item" -->
 		  <ul id="nav" class="sf-menu sf-vertical">
-                      <li><a href="<?=$this->url(array('controller'=>'hakawy','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('taxi_talks_link')?></a></li>
-				<li><a href="<?=$this->url(array('controller'=>'search','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('search_link')?></a>
-					</li>
-				
-				<li><a href="<?=$this->url(array('controller'=>'submit','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('submit_link')?></a></li>
-		  <li><a href="<?=$this->url(array('controller'=>'fares','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('fares_link')?></a></li>
+<li><a href="<?=$this->url(array('controller'=>'hakawy','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('taxi_talks_link')?></a></li>
+<li><a href="<?=$this->url(array('controller'=>'search','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('search_link')?></a></li>				
+<li><a href="<?=$this->url(array('controller'=>'submit','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('submit_link')?></a></li>
+<li><a href="<?=$this->url(array('controller'=>'fares','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('fares_link')?></a></li>
+<li><a href="<?=$this->url(array('controller'=>'suggest','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('suggest_link')?></a></li>
 			<!-- Navigation -->	
 					
 			<!-- categories --><!-- categories -->	
@@ -135,6 +146,9 @@
 			
                         <ul class="social">
                                                     <br>
+                                                       <br>
+                                                    <br>                                                    
+                                                    
                                                     <br>                                                    
                                                     <br>
                                                     <br>                                                    
@@ -190,7 +204,7 @@
 
 		<!-- ENDS FOOTER-WRAPPER -->
 	<!-- ENDS FOOTER -->
-	
+
 	
 	</body>
 </html>
