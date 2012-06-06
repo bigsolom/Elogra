@@ -1,6 +1,8 @@
 <script type="text/javascript">
     var moreActionURL = "<?= $this->url(array('controller' => 'hakawy', 'action' => 'more'), 'default', true) ?>";
     var noMoreMsg = "<?=  Application_Service_Translate::_('no_more_results')?>";
+    var reportURL = "<?=$this->url(array('controller'=>'ajax','action'=>'report'),'default',true)?>";
+    var reportMsg = "<?=  Application_Service_Translate::_('report_success_msg')?>";
     function addHekaya(){
            if($("#taxiTalksInput").val() == ''){
                 $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أحكى حكايتك</strong></div> "));
@@ -28,6 +30,9 @@
              $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>شكرا على الحدوته</strong></div> "));
              $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
         }
+        
+        
+          
         /* when the dom is ready... */
 $(document).ready(function(){
 	/* add events for show/hide */
@@ -39,21 +44,6 @@ $(document).ready(function(){
 		);
 	});
         
-        $('.delete').on("click",function(){
-            var id = $(this).attr('data-id');
-            var type = $(this).attr('data-type');
-            $.ajax({
-                url: "<?=$this->url(array('controller'=>'ajax','action'=>'report'),'default',true)?>",
-                dataType: "json", 
-                data: {'id':id,'type':type},
-                complete: function(){//enable them back
-                    successMsg("<?=  Application_Service_Translate::_('report_success_msg')?>");
-                },
-                success: function(data) {
-
-                }
-             });
-        });
 });
 
 
