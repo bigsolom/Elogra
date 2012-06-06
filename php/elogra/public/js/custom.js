@@ -22,24 +22,24 @@ $(document).ready(function() {
 	$("ul.tabs").tabs("div.panes > div", {effect: 'fade'});
 
 	// nivo slider
-	$('#slider').nivoSlider({
-		effect:'random', //Specify sets like: 'fold,fade,sliceDown'
-        slices:15,
-        animSpeed:500, //Slide transition speed
-        pauseTime:3000,
-        startSlide:0, //Set starting Slide (0 index)
-        directionNav:true, //Next & Prev
-        directionNavHide:true, //Only show on hover
-        controlNav:true, //1,2,3...
-        controlNavThumbs:false, //Use thumbnails for Control Nav
-        controlNavThumbsFromRel:false, //Use image rel for thumbs
-        controlNavThumbsSearch: '.jpg', //Replace this with...
-        controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
-        keyboardNav:true, //Use left & right arrows
-        pauseOnHover:true, //Stop animation while hovering
-        manualAdvance: false, //Force manual transitions
-        captionOpacity:0.7 //Universal caption opacity
-	});
+//	$('#slider').nivoSlider({
+//		effect:'random', //Specify sets like: 'fold,fade,sliceDown'
+//        slices:15,
+//        animSpeed:500, //Slide transition speed
+//        pauseTime:3000,
+//        startSlide:0, //Set starting Slide (0 index)
+//        directionNav:true, //Next & Prev
+//        directionNavHide:true, //Only show on hover
+//        controlNav:true, //1,2,3...
+//        controlNavThumbs:false, //Use thumbnails for Control Nav
+//        controlNavThumbsFromRel:false, //Use image rel for thumbs
+//        controlNavThumbsSearch: '.jpg', //Replace this with...
+//        controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
+//        keyboardNav:true, //Use left & right arrows
+//        pauseOnHover:true, //Stop animation while hovering
+//        manualAdvance: false, //Force manual transitions
+//        captionOpacity:0.7 //Universal caption opacity
+//	});
 
 	// Scroll to top
 	$('#bottom-right').click(function(){
@@ -47,34 +47,34 @@ $(document).ready(function() {
 	});
 
 	// Flicker
-	$('#flickr-stream').jflickrfeed({
-		limit: 9,
-		qstrings: {
-			id: '37304598@N02'
-		},
-		itemTemplate:
-		'<li>' +
-			'<a rel="colorbox" href="{{image}}" title="{{title}}">' +
-				'<img src="{{image_s}}" alt="{{title}}" />' +
-			'</a>' +
-		'</li>'
-	}, function(data) {
-		$('#flickr-stream a').colorbox();
-	});
+//	$('#flickr-stream').jflickrfeed({
+//		limit: 9,
+//		qstrings: {
+//			id: '37304598@N02'
+//		},
+//		itemTemplate:
+//		'<li>' +
+//			'<a rel="colorbox" href="{{image}}" title="{{title}}">' +
+//				'<img src="{{image_s}}" alt="{{title}}" />' +
+//			'</a>' +
+//		'</li>'
+//	}, function(data) {
+//		$('#flickr-stream a').colorbox();
+//	});
 		
 	// Tweet
-	$(".tweet").tweet({
-        username: "ansimuz",
-        join_text: "auto",
-        avatar_size: 32,
-        count: 3,
-        auto_join_text_default: "we said,",
-        auto_join_text_ed: "we",
-        auto_join_text_ing: "we were",
-        auto_join_text_reply: "we replied to",
-        auto_join_text_url: "we were checking out",
-        loading_text: "loading tweets..."
-    });
+//	$(".tweet").tweet({
+//        username: "ansimuz",
+//        join_text: "auto",
+//        avatar_size: 32,
+//        count: 3,
+//        auto_join_text_default: "we said,",
+//        auto_join_text_ed: "we",
+//        auto_join_text_ing: "we were",
+//        auto_join_text_reply: "we replied to",
+//        auto_join_text_url: "we were checking out",
+//        loading_text: "loading tweets..."
+//    });
     
     // Poshytips
     $('.social a, .blocks-gallery a, .poshy img, .poshytip').poshytip({
@@ -133,14 +133,14 @@ $(document).ready(function() {
 		});
 		
 		// Fancy box
-		$("a.fancybox").fancybox({ 
-			'overlayColor'		:	'#000'
-		});
+//		$("a.fancybox").fancybox({ 
+//			'overlayColor'		:	'#000'
+//		});
 		
 		// pretty photo
-		$("a[rel^='prettyPhoto']").prettyPhoto({
-			theme: 'light_square'
-		});
+//		$("a[rel^='prettyPhoto']").prettyPhoto({
+//			theme: 'light_square'
+//		});
 	}
 	// init
 	galleryFunctions();
