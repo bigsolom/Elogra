@@ -15,8 +15,10 @@ iPhone.DomLoad(updateLayout);
 setInterval(updateLayout, 400);
 </script>
 		<meta charset="utf-8">              
-         <meta name="viewport" content="width=device-width/" >
+                <meta name="viewport" content="width=device-width/" >
 		<title>الأجرة  | حكاوي المشاوير </title>
+		<meta charset="utf-8">
+                <title><?=  Application_Service_Translate::_('site_title')?> </title>
 		
 		<link rel='icon' href='img/favicon.ico'/>
 		 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
@@ -139,7 +141,7 @@ setInterval(updateLayout, 400);
 		<!-- SIDEBAR -->
 		<div id="sidebar">
 			<!-- logo -->
-			<img src="/img/logo.png" alt="Left template" id="logo" />
+                        <a href="<?=$this->url(array('controller'=>'index','action'=>'index'),'default',true)?>"><img src="/img/logo.png" alt="Left template" id="logo" /></a>
 						
 			<!-- Navigation class="current-menu-item" -->
 		  <ul id="nav" class="sf-menu sf-vertical">
@@ -153,30 +155,28 @@ setInterval(updateLayout, 400);
 			<!-- categories --><!-- categories -->	
 			<!-- latest tweets --><!-- ENDS latest tweets -->
 			
+                        </ul>
 			<!-- Social -->
-                        </ul>
-                        
-			
-                        <ul class="social">
-                                                    <br>
-                                                       <br>
-                                                    <br>                                                    
-                                                    
-                                                    <br>                                                    
-                                                    <br>
-                                                    <br>                                                    
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                        </ul>
-                                <p class="social" style="font-size:larger;"><?=  Application_Service_Translate::_('follow')?></p>
-                            
-                            <ul class="social">
-				<a href="http://www.facebook.com/" class="facebook" title="<?=  Application_Service_Translate::_('facebook')?>"></a>
-				<a href="http://www.twitter.com/" class="twitter" title="<?=  Application_Service_Translate::_('twitter')?>"></a>
-				
-                        </ul>
-			<!-- ENDS Social -->
+			<ul class="social">
+                                                   <br>
+                                                      <br>
+                                                   <br>                                                    
+                                                   
+                                                   <br>                                                    
+                                                   <br>
+                                                   <br>                                                    
+                                                   <br>
+                                                   <br>
+                                                   <br>
+                       </ul>
+                               <p class="social" style="font-size:larger;"><?=  Application_Service_Translate::_('follow')?></p>
+                           
+                           <ul class="social">
+                               <a href="http://www.facebook.com/" class="facebook" title="<?=  Application_Service_Translate::_('facebook')?>"></a>
+                               <a href="http://www.twitter.com/" class="twitter" title="<?=  Application_Service_Translate::_('twitter')?>"></a>
+                               
+                       </ul>
+                        <!-- ENDS Social -->
 
 		</div>
 		<!-- ENDS SIDEBAR -->

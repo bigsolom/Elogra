@@ -35,3 +35,25 @@ function OnFocusInput(textarea) {
 			}, 2);
 
 	}
+        
+        function successMsg(msg){
+             $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>"+msg+"</strong></div> "));
+             $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+             $('html, body').animate({scrollTop:0}, 'slow');
+        }
+        
+        function report(elem){
+            var id = elem.getAttribute('data-id');
+            var type = elem.getAttribute('data-type');
+            $.ajax({
+                url: reportURL,
+                dataType: "json", 
+                data: {'id':id,'type':type},
+                complete: function(){//enable them back
+                    successMsg(reportMsg);
+                },
+                success: function(data) {
+
+                }
+             });
+        }

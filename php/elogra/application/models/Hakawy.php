@@ -21,6 +21,7 @@ class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
     public function getHakawy($pageNumber){
         $select = $this->select();
         $select->order("id DESC")
+                ->where(Application_Model_DBConstants::HAKAWY_STATUS."=?",0)
                ->limitPage($pageNumber, self::NO_OF_ENTRIES_PER_PAGE);
         $rows = $this->fetchAll($select);
         if (!$rows) {
@@ -32,7 +33,8 @@ class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
     
     public function getHekayaById($id){
         $select = $this->select();
-        $select->where(Application_Model_DBConstants::HAKAWY_ID." = ?",(int)$id);
+        $select->where(Application_Model_DBConstants::HAKAWY_ID." = ?",(int)$id)
+                ->where(Application_Model_DBConstants::HAKAWY_STATUS."=?",0);
         $row = $this->fetchRow($select);
         if (!$row) {
             throw new Exception("Could not find rows");
