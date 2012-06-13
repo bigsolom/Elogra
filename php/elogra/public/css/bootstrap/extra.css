@@ -85,9 +85,30 @@ label, input, button, select, textarea,option{
     padding: 3px;
 }
 
-.record			{ width:554px; border:1px solid #ccc; padding:15px; margin:0 0 15px 0; }
+.record			{ border:1px solid #ccc; padding:15px; margin:0 0 15px 0; }
 .record:hover		{ background:#eee; }
 .record-controls	{ font-size:13px; visibility:hidden }
 .unapprove		{ color:#d98500; }
 .delete			{ color:#bc0b0b;float:right; }
 .record-img             {}
+
+.round-box-border{
+-webkit-border-radius:5px;
+-moz-border-radius:5px;
+border-radius:5px;
+
+border-width: 22px 27px 27px; 
+-moz-border-image: url("/img/hakawy-border.png") 22 27 27 stretch; 
+-webkit-border-image: url('/img/hakawy-border.png') 22 27 27 stretch; 
+-o-border-image: url('/img/hakawy-border.png') 22 27 27 stretch; 
+border-image: url('/img/hakawy-border.png') 22 27 27 stretch; 
+    padding: 2px;
+}
+
+.hekaya-border{
+    border-width: 12px 10px 9px 27px; 
+    -moz-border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch; 
+    -webkit-border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch; 
+    -o-border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch; 
+    border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch;
+}
