@@ -85,12 +85,32 @@ label, input, button, select, textarea,option{
     padding: 3px;
 }
 
-.record			{ border:1px solid #ccc; padding:15px; margin:0 0 15px 0; }
-.record:hover		{ background:#eee; }
-.record-controls	{ font-size:13px; visibility:hidden }
+.record			{ 
+    margin:0 0 20px 0; 
+    padding: 0 0 5px 0;
+    background: url('/img/hekaya-border.png') no-repeat 50% 100%;
+}
+
+.record-controls	{ 
+    font-size:13px; 
+    visibility:hidden;
+ }
 .unapprove		{ color:#d98500; }
 .delete			{ color:#bc0b0b;float:right; }
-.record-img             {}
+.record-bg             {
+    float: right;
+    padding-top: 5px;
+    max-width: 100%;
+    width: 15px;
+    height: 15px;
+}
+.record p{
+    margin-right: 18px;
+    padding: 0 0 2px 0;
+}
+.fb-t-share{
+    float: left;
+}
 
 .round-box-border{
 -webkit-border-radius:5px;
