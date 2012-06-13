@@ -8,6 +8,7 @@
 
 body {
 	background: #f1f1f1 url(bg.png) repeat;
+        background-size: 100%;
 	color: #606060;
 }
 
@@ -23,9 +24,20 @@ body {
 
 /* SIDEBAR  ------------------------------------------------------------*/
 
-#wrapper{ background: url(sidebar.png) transparent repeat-y;}
+#wrapper{background: #565656; /* Old browsers */
+background: -moz-linear-gradient(left,  #565656 0%, #565656 70%, #cbe8ee 70%, #ffffff 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#565656), color-stop(70%,#565656), color-stop(70%,#cbe8ee), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  #565656 0%,#565656 70%,#cbe8ee 70%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  #565656 0%,#565656 70%,#cbe8ee 70%,#ffffff 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  #565656 0%,#565656 70%,#cbe8ee 70%,#ffffff 100%); /* IE10+ */
+background: linear-gradient(left,  #565656 0%,#565656 70%,#cbe8ee 70%,#ffffff 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#565656', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
 
-#sidebar, #sidebar a{ color: #f4f2ea; }
+}
+
+#sidebar{
+    
+}
 
 .sidebar-divider{ background: url(sidebar-divider.png) no-repeat; }
 
@@ -36,7 +48,7 @@ body {
 
 /* SIDEBAR NAVIGATION ---------------------------------------------------*/
 
-#sidebar #nav>li a{ color: #fefefe; }
+#sidebar #nav>li a{ color: #000000; font-size: larger !important;}
 
 #sidebar #nav>li>ul li a{ color: #606060; }
 

@@ -12,6 +12,7 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td, 
 label, input, button, select, textarea,option{
 	font-family: Frugiter;
+        
 }
 
 .show-grid {
@@ -124,6 +125,7 @@ border-image: url('/img/hakawy-border.png') 22 27 27 stretch;
 }
 
 .hekaya-border{
+    background: none;
     border-width: 12px 10px 9px 27px; 
     -moz-border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch; 
     -webkit-border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch; 

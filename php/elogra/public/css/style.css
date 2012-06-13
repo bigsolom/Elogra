@@ -95,6 +95,7 @@ h1.header-line,
 	width: 285px;
 	float: right;
 	border:thick;
+        
 	
 }
 
@@ -146,6 +147,7 @@ h1.header-line,
 	margin-left: 36px;
 	padding-top: 15px;
 	margin-bottom: 10px;
+        
 }
 
 #sidebar #nav>li{
@@ -153,18 +155,15 @@ h1.header-line,
 	height: 40px;
         
 	background: url(../img/nav-item.png)  transparent ;
-        
-
-	border-top: 1px solid #636363;
-	border-bottom: 1px solid #373737;
         margin-left: 200px;
         
         
 }
 
-#sidebar #nav>li:first-child{ border-top: none; }
 
-#sidebar #nav>li:last-child{ border-bottom: none; }	
+#sidebar #nav>li:first-child{  border-top: none; }
+
+#sidebar #nav>li:last-child{border-bottom: none; }	
 
 #sidebar #nav>li ul{
 	padding-right: 20px;
@@ -186,6 +185,7 @@ h1.header-line,
 #sidebar #nav>li:hover,
 #sidebar #nav>li.current-menu-item{
 	background-position: right top;
+       
 }
 
 #sidebar #nav>li a{
