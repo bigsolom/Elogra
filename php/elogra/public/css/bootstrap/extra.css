@@ -101,8 +101,6 @@ label, input, button, select, textarea,option{
     float: right;
     padding-top: 5px;
     max-width: 100%;
-    width: 15px;
-    height: 15px;
 }
 .record p{
     margin-right: 18px;
@@ -131,4 +129,14 @@ border-image: url('/img/hakawy-border.png') 22 27 27 stretch;
     -webkit-border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch; 
     -o-border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch; 
     border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch;
+}
+
+.add-hekaya-btn{
+    background: url('/img/add-hekaya-bg.png') no-repeat transparent;
+    width: 107px !important;
+    height: 70px !important;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 150%;
 }
