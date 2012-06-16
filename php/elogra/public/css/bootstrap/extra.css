@@ -157,3 +157,9 @@ border-image: url('/img/hakawy-border.png') 22 27 27 fill stretch;
     box-shadow: none;
     font-size: 150%;
 }
+
+.imgRadio{
+    width: 20%;
+    height: 20%;
+        
+}
