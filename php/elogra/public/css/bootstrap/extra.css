@@ -163,3 +163,7 @@ border-image: url('/img/hakawy-border.png') 22 27 27 fill stretch;
     height: 20%;
         
 }
+
+.white{
+    color: #fff;
+}

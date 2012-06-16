@@ -74,7 +74,7 @@ var scrlStart = false;
                 if($('#end').length){
                     $('#end').remove();
                 }
-                $('.paginated').after("<div align='center' id='end'>"+noMoreMsg+"</div>");
+                $('.paginated').after("<div align='center' id='end' class='white'>"+noMoreMsg+"</div>");
                 return;
             }
             $(".paginated").attr('data-status',"progress");
