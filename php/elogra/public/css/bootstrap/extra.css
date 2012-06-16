@@ -15,13 +15,15 @@ label, input, button, select, textarea,option{
         
 }
 body{background: #ffffff; /* Old browsers */
-background: url(/img/bg.png) repeat 0% 0% , -moz-linear-gradient(left, #ffffff 0%, #c2e2eb 53%); /* FF3.6+ */
-background: url(/img/bg.png) repeat 0% 0% , -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(53%,#c2e2eb)); /* Chrome,Safari4+ */
-background: url(/img/bg.png) repeat 0% 0% , -webkit-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* Chrome10+,Safari5.1+ */
-background: url(/img/bg.png) repeat 0% 0% , -o-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* Opera 11.10+ */
-background: url(/img/bg.png) repeat 0% 0% , -ms-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* IE10+ */
-background: url(/img/bg.png) repeat 0% 0% , linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* W3C */
+background: url(/img/bg.png)  left top , -moz-linear-gradient(left, #ffffff 0%, #c2e2eb 53%); /* FF3.6+ */
+background: url(/img/bg.png)  left top , -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(53%,#c2e2eb)); /* Chrome,Safari4+ */
+background: url(/img/bg.png)  left top , -webkit-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* Chrome10+,Safari5.1+ */
+background: url(/img/bg.png)  left top , -o-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* Opera 11.10+ */
+background: url(/img/bg.png)  left top , -ms-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* IE10+ */
+background: url(/img/bg.png)  left top , linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c2e2eb',GradientType=1 ); /* IE6-9 */
+background-repeat: repeat;
+background-size : auto auto; 
 }
 
 
