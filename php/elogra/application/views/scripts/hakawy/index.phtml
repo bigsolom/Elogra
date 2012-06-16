@@ -42,15 +42,6 @@ id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput
 </form>
 <script type="text/javascript" src="/js/charcount.js"></script>
 
-<!-- YAMLI CODE START -->
-<script type="text/javascript" src="http://api.yamli.com/js/yamli_api.js"></script>
-<script type="text/javascript">
-  if (typeof(Yamli) == "object" && Yamli.init( { uiLanguage: "ar" , startMode: "offOrUserDefault" } ))
-  {
-    Yamli.yamlify( "taxiTalksInput", { settingsPlacement: "inside" } );
-  }
-</script>
-
  <section class="paginated round-box-border" id="scrlDiv" data-page="1" data-status="idle">
     <?php
     foreach ($this->hakawy as $hekaya) {

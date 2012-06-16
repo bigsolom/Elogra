@@ -7,9 +7,11 @@
 /* GENERAL ------------------------------------------------------------*/
 
 body {
-	background: #f1f1f1 url(bg.png) repeat;
+	background: #f1f1f1 url(bg.png) repeat left top;
         background-size: 100%;
+        
 	color: #606060;
+        
 }
 
 /* HEADER ------------------------------------------------------------*/

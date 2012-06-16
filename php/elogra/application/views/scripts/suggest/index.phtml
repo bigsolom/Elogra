@@ -2,12 +2,12 @@
 <form id="form1" name="form1" method="post" action="<?=$this->url(array('controller'=>'suggest','action'=>'index'),'default',true)?>"
 			class="well">
 			<fieldset>
-                            <label><?=  Application_Service_Translate::_('from')?></label> <select name="from" id="from">
+                            <label><?=  Application_Service_Translate::_('from')?></label> <select name="from" id="from" size="1.1">
 			<option value=0><?=  Application_Service_Translate::_('choose')?></option>
                         <option value="أخرى">أخرى</option>
                         
 		</select> 
-                             <label id="newPLabel">أخرى</label> <label></label> <input type="text"
+                            <label id="newPLabel">أخرى</label> <label></label> <input type="text"
 			name="newParent" id="newParent"
 			title="حى" />
                               <label id="newCLabel">أسم  المنطقة</label> <label></label> <input type="text"
