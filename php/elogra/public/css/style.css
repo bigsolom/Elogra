@@ -92,7 +92,7 @@ h1.header-line,
 /* SIDEBAR ------------------------------------------------------------*/
 
 #sidebar{
-	width: 285px;
+	width: 29%;
 	float: right;
 	border:thick;
         
@@ -101,7 +101,6 @@ h1.header-line,
 
 .sidebar-divider{
 	clear: both;
-	width: 235px;
 	height: 6px;
 	margin: 21px 15px 21px 0px;
 }
