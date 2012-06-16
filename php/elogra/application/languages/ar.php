@@ -47,6 +47,8 @@ return array(
     
     'site_title'=>'الأجرة  | حكاوي المشاوير',
     
-    'report_success_msg'=>'صحيح عيب!'
+    'report_success_msg'=>'صحيح عيب!',
+    
+    'suggest_place_success_msg' => 'شكرا علي المكان',
 
 );

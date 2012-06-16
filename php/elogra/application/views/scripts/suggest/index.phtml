@@ -1,5 +1,5 @@
 <div id="alert-area"></div>
-<form id="form1" name="form1" method="post" action="<?=$this->url(array('controller'=>'suggest','action'=>'index'),'default',true)?>"
+<form id="suggestForm" name="form1" method="post" onsubmit="suggestPlace(); return false;"
 			class="well hekaya-border">
 			<fieldset>
                             <label><?=  Application_Service_Translate::_('from')?></label> <select name="from" id="from" size="1.1">
@@ -20,6 +20,39 @@
 		</form>
 
 			<script type="text/javascript">
+           function suggestPlace(){
+           if($("#from").val() == 0){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار منطقة</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            return false;
+        }else{
+            if($("#name").val() == ''){
+                $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار مكان</strong></div> "));
+                $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+                return false;                
+            }
+        }
+           $.ajax({
+                url: "<?= $this->url(array('controller'=>'suggest','action'=>'post'),'default',true) ?>",
+                dataType: "json", 
+                data: $('#suggestForm').serialize(),
+                beforeSend:function(){ //disable button and field
+                   $('#from').attr("disabled","disabled");
+                   $('#name').attr("disabled","disabled");
+                },
+                complete: function(){//enable them back
+                    $('#name').attr("value","");
+                    $('#from').removeAttr("disabled");
+                    $('#name').removeAttr("disabled");
+                },
+                success: function(data) {
+                    if(data){
+                        successMsg("<?=  Application_Service_Translate::_('suggest_place_success_msg')?>")
+                    }
+                }
+             });
+        }
+                            
 $(document).ready(function(){
     
     $("#error-alert").hide();
@@ -31,17 +64,7 @@ $(document).ready(function(){
     
     //أخرى
     $('#form1').submit(function() {
-        if($("#from").val() == 0){
-            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار منطقة</strong></div> "));
-            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
-            return false;
-        }else{
-            if($("#name").val() == ''){
-                $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار مكان</strong></div> "));
-                $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
-                return false;                
-            }
-        }
+        
         
     });
     

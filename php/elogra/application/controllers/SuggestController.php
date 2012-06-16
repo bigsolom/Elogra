@@ -12,6 +12,10 @@
  */
 class SuggestController extends Zend_Controller_Action{
     public function indexAction(){
+        
+    }
+    
+    public function postAction(){
         $parentID = $this->_request->getParam("from");
         $otherText = $this->_request->getParam("newParent");
         $name = $this->_request->getParam("name");
@@ -21,6 +25,7 @@ class SuggestController extends Zend_Controller_Action{
         }else{
             $suggestService->submitNewArea($parentID, $name);
         }
+        $this->_helper->json(true);
     }
     //put your code here
 }
