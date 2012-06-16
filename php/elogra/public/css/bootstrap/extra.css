@@ -14,6 +14,16 @@ label, input, button, select, textarea,option{
 	font-family: Frugiter;
         
 }
+body{background: #ffffff; /* Old browsers */
+background: url(/img/bg.png) repeat left top , -moz-linear-gradient(left, #ffffff 0%, #c2e2eb 53%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(53%,#c2e2eb)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* IE10+ */
+background: linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c2e2eb',GradientType=1 ); /* IE6-9 */
+}
+
 
 .show-grid {
   margin-top: 1px;
