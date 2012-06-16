@@ -15,12 +15,12 @@ label, input, button, select, textarea,option{
         
 }
 body{background: #ffffff; /* Old browsers */
-background: url(/img/bg.png) repeat left top , -moz-linear-gradient(left, #ffffff 0%, #c2e2eb 53%); /* FF3.6+ */
-background: url(/img/bg.png) repeat left top , -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(53%,#c2e2eb)); /* Chrome,Safari4+ */
-background: url(/img/bg.png) repeat left top , -webkit-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* Chrome10+,Safari5.1+ */
-background: url(/img/bg.png) repeat left top , -o-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* Opera 11.10+ */
-background: url(/img/bg.png) repeat left top , -ms-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* IE10+ */
-background: url(/img/bg.png) repeat left top , linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* W3C */
+background: url(/img/bg.png) repeat 0% 0% , -moz-linear-gradient(left, #ffffff 0%, #c2e2eb 53%); /* FF3.6+ */
+background: url(/img/bg.png) repeat 0% 0% , -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(53%,#c2e2eb)); /* Chrome,Safari4+ */
+background: url(/img/bg.png) repeat 0% 0% , -webkit-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* Chrome10+,Safari5.1+ */
+background: url(/img/bg.png) repeat 0% 0% , -o-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* Opera 11.10+ */
+background: url(/img/bg.png) repeat 0% 0% , -ms-linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* IE10+ */
+background: url(/img/bg.png) repeat 0% 0% , linear-gradient(left, #ffffff 0%,#c2e2eb 53%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c2e2eb',GradientType=1 ); /* IE6-9 */
 }
 
@@ -124,6 +124,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .round-box-border{
+    background: none;
 -webkit-border-radius:5px;
 -moz-border-radius:5px;
 border-radius:5px;
@@ -132,7 +133,7 @@ border-width: 22px 27px 27px;
 -moz-border-image: url("/img/hakawy-border.png") 22 27 27 stretch; 
 -webkit-border-image: url('/img/hakawy-border.png') 22 27 27 stretch; 
 -o-border-image: url('/img/hakawy-border.png') 22 27 27 stretch; 
-border-image: url('/img/hakawy-border.png') 22 27 27 stretch; 
+border-image: url('/img/hakawy-border.png') 22 27 27 fill stretch; 
     padding: 2px;
 }
 
@@ -142,7 +143,7 @@ border-image: url('/img/hakawy-border.png') 22 27 27 stretch;
     -moz-border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch; 
     -webkit-border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch; 
     -o-border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch; 
-    border-image: url('/img/hekaya-form-border.png') 12 10 9 27 stretch;
+    border-image: url('/img/hekaya-form-border.png') 12 10 9 27 fill stretch;
 }
 
 .add-hekaya-btn{
