@@ -98,6 +98,12 @@ background-size : auto auto;
     padding: 3px;
 }
 
+.leave-comments {
+    height: 5em;
+    width: 100%;
+    padding: 3px;
+}
+
 .record			{ 
     margin:0 0 20px 0; 
     padding: 0 0 5px 0;

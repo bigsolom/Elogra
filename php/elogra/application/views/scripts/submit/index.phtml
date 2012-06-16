@@ -21,7 +21,8 @@
 			<label><?=  Application_Service_Translate::_('address')?></label> <label></label> <input type="text"
 			name="toAddr" id="toAddr"
 			title="Address" />
-		
+                        <br>
+                                                <br>
 		<div class="control-group">
 			<label class="control-label"><?=  Application_Service_Translate::_('taxi_type')?> </label>
 			<div class="controls">
@@ -32,6 +33,7 @@
                             <input type="hidden" id="imgRadio-input" name="imgRadio-input" />
 			</div>
 		</div>
+                        <br>
 		<div class="control-group">
 			<label class="control-label"><!--<fmt:message key="form.search.type"/>--> <?=  Application_Service_Translate::_('traffic')?> </label>
 			<div class="controls">
@@ -46,15 +48,20 @@
 				</label>
 			</div>
 		</div>
+<br>
 			<label><?=  Application_Service_Translate::_('comment')?></label> 
-			<label></label> 
-			<textarea type="text" name="comment" id="comment" title="Comments" rows="4" cols="400"></textarea><br />
+                        
+                        
+                        <textarea  onfocus="parseCharCounts()" class="leave-comments" type="text" name="comment" id="comment" title="" maxlength="500"></textarea><br />
 		
 		<input type="submit" name="button" id="button" value="<?=  Application_Service_Translate::_('share')?>" class="add-hekaya-btn" />
 	</fieldset>
 </form>
+<script type="text/javascript" src="/js/charcount.js"></script>
 
 		<script type="text/javascript">
+                    
+                    
 $(document).ready(function(){
   		
     loadCascadingCombo("from","fromHS");
