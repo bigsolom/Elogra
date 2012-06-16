@@ -1,23 +1,6 @@
 <?php
     $hekayaUrl = $this->serverUrl().$this->url(array('controller'=>'hakawy','action'=>'get','id'=>$this->hekaya['id']),'default',true);
 ?>
-<script type="text/javascript">
-    $(document).ready(function(){
-/* hide all controls right away */
-	/* add events for show/hide */
-	$('div.record').each(function() {
-		var controls = $(this).children('div.record-controls');
-		$(this).hover(
-			function() { $(controls).css('visibility','visible') },
-			function() { $(controls).css('visibility','hidden') }
-		);
-                
-	});
-});
-
-
-
-</script>
 <script>
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
         if(!d.getElementById(id))
@@ -35,8 +18,8 @@
         <?= Application_Service_TextFormatting::htmlNlEncoding2Br($this->hekaya['text'])?>
     <div class="record-controls" >
     <div class="fb-t-share">
-    <a class="popup" href="http://www.facebook.com/sharer.php?u=<?=$hekayaUrl?>"><img src="/img/connect_favicon.png"></img></a>
-    <a class="popup" href="https://twitter.com/share?hashtags=ElOgra&url=<?=$hekayaUrl?>" ><img src="http://www.celltick.com/projects/celltick/app/views/en/images/twitter_icon.gif"></img></a>
+    <a class="popup" href="http://www.facebook.com/sharer.php?u=<?=$hekayaUrl?>"><img src="/img/social-icons/circular/facebook_32.png" height="15px" width="15px"></img></a>
+    <a class="popup" href="https://twitter.com/share?hashtags=ElOgra&url=<?=$hekayaUrl?>" ><img src="/img/social-icons/circular/twitter_32.png" height="15px" width="15px"></img></a>
     </div>
     <a class="delete" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::REPORT_TYPE_HAKAWY?>" onclick="javascript:report(this)"><?=  Application_Service_Translate::_('spam')?></a>
     </div>

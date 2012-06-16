@@ -94,7 +94,7 @@ label, input, button, select, textarea,option{
 
 .record-controls	{ 
     font-size:13px; 
-    visibility:hidden;
+    
  }
 .unapprove		{ color:#d98500; }
 .delete			{ color:#bc0b0b;float:right; }

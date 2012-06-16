@@ -30,23 +30,6 @@
              $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>شكرا على الحدوته</strong></div> "));
              $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
         }
-        
-        
-          
-        /* when the dom is ready... */
-$(document).ready(function(){
-	/* add events for show/hide */
-	$('div.record').each(function() {
-		var controls = $(this).children('div.record-controls');
-		$(this).hover(
-			function() { $(controls).css('visibility','visible') },
-			function() { $(controls).css('visibility','hidden') }
-		);
-	});
-        
-});
-
-
 </script>
 <script type="text/javascript" src="/js/pagination.js"></script>
 <div id="alert-area"></div>
