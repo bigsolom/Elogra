@@ -24,7 +24,7 @@
                     $('#hekayaButton').removeAttr("disabled");
                 },
                 success: function(data) {
-                    $(".container").prepend(data.html);
+                    $(".section").prepend(data.html);
                 }
              });
              $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>شكرا على الحدوته</strong></div> "));
@@ -42,7 +42,7 @@ id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput
 </form>
 <script type="text/javascript" src="/js/charcount.js"></script>
 
- <div class="paginated round-box-border" id="scrlDiv" data-page="1" data-status="idle">
+ <div class="paginated round-box-border section" id="scrlDiv" data-page="1" data-status="idle">
     <?php
     foreach ($this->hakawy as $hekaya) {
         ?>
