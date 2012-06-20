@@ -2,15 +2,18 @@
 <form id="suggestForm" name="form1" method="post" onsubmit="suggestPlace(); return false;"
 			class="well hekaya-border">
 			<fieldset>
-                            <label><?=  Application_Service_Translate::_('from')?></label> <select name="from" id="from" size="1.1">
-			<option value=0><?=  Application_Service_Translate::_('choose')?></option>
-                        <option value="أخرى">أخرى</option>
-                        
+                            <label><?=  Application_Service_Translate::_('suggestArea')?></label> <select name="from" id="from" size="1.1">
+			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
+                        <option value="<?=  Application_Service_Translate::_('other')?>"><?=  Application_Service_Translate::_('other')?></option>   
 		</select> 
-                            <label id="newPLabel">أخرى</label> <label></label> <input type="text"
+                            
+            <label id="HSlabel"><?=  Application_Service_Translate::_('availableHS')?></label>
+            <select  size="1.1" name="fromHS" id="fromHS">
+            </select>
+                            <label id="newPLabel"><?=  Application_Service_Translate::_('other')?></label> <label></label> <input type="text"
 			name="newParent" id="newParent"
 			title="حى" />
-                              <label id="newCLabel">أسم  المنطقة</label> <label></label> <input type="text"
+                              <label id="newCLabel"><?=  Application_Service_Translate::_('suggestHS')?></label> <label></label> <input type="text"
 			name="name" id="name"
 			title="منطقة" />
                               
@@ -20,13 +23,13 @@
 		</form>
 
 			<script type="text/javascript">
-           function suggestPlace(){
-           if($("#from").val() == 0){
+     function suggestPlace(){
+        if($("#from").val() == -1){
             $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار منطقة</strong></div> "));
             $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
             return false;
         }else{
-            if($("#name").val() == ''){
+            if(($("#name").val() == '') && ($("#from").val() != "<?=  Application_Service_Translate::_('other')?>")){
                 $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار مكان</strong></div> "));
                 $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
                 return false;                
@@ -48,6 +51,8 @@
                 success: function(data) {
                     if(data){
                         successMsg("<?=  Application_Service_Translate::_('suggest_place_success_msg')?>")
+                        $("#name").val('');
+                        $("#newParent").val('');
                     }
                 }
              });
@@ -60,6 +65,8 @@ $(document).ready(function(){
     loadCascadingCombo("from","fromHS");
 //    loadCascadingCombo("to","toHS");
     $("#newParent").hide();
+    $("#fromHS").hide();
+    $("#HSlabel").hide();
     $("#newPLabel").hide();
     
     //أخرى
@@ -69,12 +76,16 @@ $(document).ready(function(){
     });
     
     $("#from").change(function(){
-        if($("#from").val() == "أخرى"){
+        if($("#from").val() == "<?=  Application_Service_Translate::_('other')?>"){
             $("#name").hide();
             $("#newCLabel").hide();
             $("#newParent").show();
-            $("#newPLabel").show();                
+            $("#newPLabel").show();  
+            $("#fromHS").hide();
+            $("#HSlabel").hide();
         }else{
+            $("#fromHS").show();
+            $("#HSlabel").show();
             $("#name").show();
             $("#newCLabel").show();
             $("#newParent").hide();
@@ -96,6 +107,19 @@ $(document).ready(function(){
             error: function(e, xhr){
                 alert("error");
             }
+        });
+        $("#"+parentId).change(function(){
+                $.ajax({
+                    url: "<?=$this->url(array('controller'=>'ajax','action'=>'getareasunder'),'default',true)?>",
+                    dataType: "json", 
+                    data: {id : $(this).val()},
+                    success: function(data) {
+                        $("#"+childId).empty();
+                        $.each(data, function(i, item) {
+                            $("#"+childId).append($('<option/>').val(data[i].id).text(data[i].name));
+                        });
+                        $("#"+childId).trigger("change");
+                    }});
         });
       }
 });
