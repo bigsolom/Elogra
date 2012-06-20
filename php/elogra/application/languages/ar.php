@@ -13,6 +13,12 @@ return array(
     'taxi_titles_3'=>'كايرو كاب',
     'taxi_titles_4'=>'تاكسي لندن',
     
+    //------- suggest
+    'other'=>'أخرى',
+    'suggestArea'=>'المنطقة',
+    'availableHS'=>'الموجود دلوقتى',
+    'suggestHS'=>'حى+',
+    
     //------- search
     
     'from'=>'من فين',
