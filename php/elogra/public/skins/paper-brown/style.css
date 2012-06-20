@@ -33,8 +33,9 @@ background: -webkit-linear-gradient(left,  #565656 0%,#565656 70%,#cbe8ee 70%,#f
 background: -o-linear-gradient(left,  #565656 0%,#565656 70%,#cbe8ee 70%,#ffffff 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(left,  #565656 0%,#565656 70%,#cbe8ee 70%,#ffffff 100%); /* IE10+ */
 background: linear-gradient(left,  #565656 0%,#565656 70%,#cbe8ee 70%,#ffffff 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#565656', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
-
+/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#565656', endColorstr='#ffffff',GradientType=1 );  IE6-9 */
+-pie-background: linear-gradient(left,  #565656 0%,#565656 70%,#cbe8ee 70%,#ffffff 100%); /* W3C */
+behavior: url(/css/PIE.htc);
 }
 
 #sidebar{
