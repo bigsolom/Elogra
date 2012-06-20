@@ -4,8 +4,8 @@
 ul.tabs { 
 	list-style:none; 
 	margin:0 !important;
-	/*background: url(../img/line-divider.png) top right repeat-x; */ /*to remove the upper line of the tabs*/
-	padding:0px 0px 0px 0px;	
+	background: url(../img/line-divider.png) top right repeat-x;  /*to remove the upper line of the tabs*/
+	padding:8px 0px 0px 0px;	
 	height:46px;
 	font-family: Frugiter;
 }

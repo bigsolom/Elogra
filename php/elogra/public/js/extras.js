@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	$(".imgRadio").each(function() {
-		$(this).css('border', "solid 2px #E6E6E6");
+		$(this).css('border', "solid 2px transparent");
 		$(this).click(function() {
 			$(".imgRadio").each(function() {
-				$(this).css('border', "solid 2px #E6E6E6");
+				$(this).css('border', "solid 2px transparent");
 			});
 			$(this).css('border', "solid 2px red");
 			$(this).css('border-radius', "5px");
