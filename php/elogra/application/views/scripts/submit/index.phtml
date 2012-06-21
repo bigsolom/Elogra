@@ -5,19 +5,29 @@
 		 <label><?=  Application_Service_Translate::_('paid_fare')?></label> <label></label> <input type="text"
 			name="fare" id="fare"
 			title="$ $ $" />
+                 <br></br>
 		<label><?=  Application_Service_Translate::_('from')?></label> <select size="1.1" name="from" id="from">
 			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
                 </select > <select  size="1.1" name="fromHS" id="fromHS">
 			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
 		</select>
+                &nbsp;
+                           <a style="font-size: smaller;" href="<?=$this->url(array('controller'=>'suggest','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('suggest_link')?></a>
+
+                                            <br></br>
 		<label><?=  Application_Service_Translate::_('address')?></label> <label></label> <input type="text"
 			name="fromAddr" id="fromAddr"
 			title="Address" /> 
+                                 <br></br>
 		<label><?=  Application_Service_Translate::_('to')?></label> <select name="to" size="1.1" id="to">
 			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
                 </select> <select size="1.1" name="toHS" id="toHS">
 			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
 		</select>
+                &nbsp;
+                
+                           <a style="font-size: smaller;" href="<?=$this->url(array('controller'=>'suggest','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('suggest_link')?></a>
+		                 <br></br>	
 			<label><?=  Application_Service_Translate::_('address')?></label> <label></label> <input type="text"
 			name="toAddr" id="toAddr"
 			title="Address" />

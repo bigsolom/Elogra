@@ -8,13 +8,21 @@
 					<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
 				</select> <select size="1.1" name="fromHS" id="fromHS">
 					<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
-				</select> <label><?=  Application_Service_Translate::_('to')?>
+				</select>                           &nbsp;
+                           <a style="font-size: smaller;" href="<?=$this->url(array('controller'=>'suggest','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('suggest_link')?></a>
+
+                           <br></br> 
+                            <label><?=  Application_Service_Translate::_('to')?>
 				</label> <select size="1.1" name="to" id="to">
 					<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
 				</select> <select size="1.1" name="toHS" id="toHS">
 					<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
 				</select>
-				<div class="control-group">
+                           &nbsp;
+                           <a style="font-size: smaller;" href="<?=$this->url(array('controller'=>'suggest','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('suggest_link')?></a>
+			
+                           <br></br> 
+                           <div class="control-group">
 					<label class="control-label">
                                             <?=  Application_Service_Translate::_('taxi_type')?> 
                                         </label>
