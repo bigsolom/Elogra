@@ -162,6 +162,17 @@ border-image: url('/img/hakawy-border.png') 22 27 27 fill stretch;
     behavior: url(/css/PIE.htc);
 }
 
+
+.hekaya-border-search{
+    background: none;
+    border-width: 12px 10px 9px 27px; 
+    -moz-border-image: url('/img/banner3.png') 12 10 9 27 stretch; 
+    -webkit-border-image: url('/img/banner3.png') 12 10 9 27 stretch; 
+    -o-border-image: url('/img/banner3.png') 12 10 9 27 stretch; 
+    border-image: url('/img/banner3.png') 12 10 9 27 fill stretch;
+    behavior: url(/css/PIE.htc);
+}
+
 .add-hekaya-btn{
     background: url('/img/add-hekaya-bg.png') no-repeat transparent;
     width: 107px !important;
