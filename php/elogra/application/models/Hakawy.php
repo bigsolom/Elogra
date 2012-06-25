@@ -9,9 +9,10 @@ class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
     protected $_name='hakawy';
     const NO_OF_ENTRIES_PER_PAGE = 5;
     
-    public function submitHekaya($hekaya){
+    public function submitHekaya($hekaya, $nickname){
         $data = array(
-            'text' => $hekaya
+            'text' => $hekaya,
+            'nickname' => $nickname
         );
         $row =  $this->createRow($data);
         $row->save();

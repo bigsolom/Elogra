@@ -6,6 +6,11 @@ return array(
     'submit_link'=>'أجرتك',
     'fares_link'=>'احسبها',
     'suggest_link'=>'قوللنا مكانك',
+    'nickname'=>' إسمك إية',
+    'tellUs'=>'قول للناس حدوتك',
+    'defaultNick'=>'الأجرة',
+    'hadoota'=>'حدوتة',
+    'myNick'=>'أنا',
     //---- Taxi fares
     
     'taxi_titles_1'=>'أبيض و أسود',

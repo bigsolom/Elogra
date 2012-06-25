@@ -186,11 +186,26 @@ border-image: url('/img/hakawy-border.png') 22 27 27 fill stretch;
 
 .imgRadio{
     width: 104px;
-    height: 50px;
-    
-        
+    height: 50px;       
 }
 
 .white{
     color: #fff;
+}
+
+.hekaya-padding{
+    margin-left: 10px;
+}
+
+.nickname{
+    margin-right: 3%;
+}
+
+.nickname-text{
+    font-size: 110%;
+    font-style: oblique;
+}
+
+.singleLine{
+    width: 50%;
 }

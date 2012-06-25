@@ -13,9 +13,9 @@
 class Application_Service_Hakawy {
     //put your code here
     
-    public function submitHekaya($hekaya){
+    public function submitHekaya($hekaya, $nickname){
       $hakawy = new Application_Model_Hakawy();
-      $insertedHekaya = $hakawy->submitHekaya($hekaya);
+      $insertedHekaya = $hakawy->submitHekaya($hekaya, $nickname);
       return $insertedHekaya;
     }
     

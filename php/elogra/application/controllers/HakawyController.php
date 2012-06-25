@@ -6,6 +6,13 @@ class HakawyController extends Zend_Controller_Action
     public function indexAction(){
         $hakawyService = new Application_Service_Hakawy();
         $hakawy = $hakawyService->getHakawy(1);
+    
+        $nickSession = new Zend_Session_Namespace('nickSession');
+        if(($nickSession->nickname != '') && ($nickSession->nickname != null)){
+            $this->view->nickname = $nickSession->nickname;
+        }else{
+            $this->view->nickname = 'NoNickN';
+        }
         $this->view->hakawy = $hakawy;
     }
     
@@ -33,11 +40,17 @@ class HakawyController extends Zend_Controller_Action
     
     public function submitAction(){
         $hekaya = $this->_request->getParam("taxiTalksInput");
+        $nickname = $this->_request->getParam("nicknameInput");
+        
+        $nickSession = new Zend_Session_Namespace('nickSession');
+        $nickSession->nickname = $nickname;
+        
         $hakawyService = new Application_Service_Hakawy();
-        $result = $hakawyService->submitHekaya($hekaya);
+        $result = $hakawyService->submitHekaya($hekaya, $nickname);
         if($result){
             $reply = array();
-            $reply['html'] = $this->view->partial('partials/_hekaya.phtml', array('hekaya' => $result));;
+            $reply['html'] = $this->view->partial('partials/_hekaya.phtml', array('hekaya' => $result));
+            $reply['nickname'] = $nickname;
             $this->_helper->json($reply);
         }
     }
