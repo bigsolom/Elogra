@@ -30,7 +30,7 @@ return array(
     'search'=>'دور',
     
     'history_fare'=>'الأجرة من حبة',
-    'live_fare'=>'أخر أجرة',
+    'live_fare'=>'الأجرة',
     
     //----- submit
     

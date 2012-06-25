@@ -1,11 +1,10 @@
 <div class="row show-grid">
-
-	<div class="span8 traffic-status-<?=$this->comment['traffic_status']?>">
-			<?=Application_Service_TextFormatting::htmlNlEncoding2Br($this->comment['comment'])?>
-		<div class="row show-grid">
-				<div class="span4"><?=$this->comment['srcAddrTxt']?></div>
-				<div class="span4"><?=$this->comment['destAddrTxt']?></div>
-		</div>
+    <div class="span2"><img src="/img/grey-from-arrow.png"/></div>
+    <div class="span4 from-search-result white"><?=$this->comment['srcAddrTxt']?></div>
+    <div class="span4 from-search-result white"><?=$this->comment['destAddrTxt']?></div>
+    <div class="span2"><img src="/img/grey-to-arrow.png"/></div>
+    <div class="span8 traffic-status-<?=$this->comment['traffic_status']?>">
+        	<?=Application_Service_TextFormatting::htmlNlEncoding2Br($this->comment['comment'])?>
 	</div>
 </div>
 

@@ -1,20 +1,6 @@
-<table border="1">
-
-	<tr>
-	<td>
-	<?=  Application_Service_Translate::_('live_fare')?>
-	</td>
-	<td>
-	<?=$this->searchResults->liveFare?>
-	</td>
-	<td>
-	<?=  Application_Service_Translate::_('history_fare')?>
-	</td>
-	<td>
-	<?=$this->searchResults->historyFare?>
-	</td>
-	</tr>
-</table>
+<div class="search-result-header white">
+    <?=  Application_Service_Translate::_('live_fare')?>&nbsp<?=$this->searchResults->liveFare?>
+    </div>
 <div class="paginated" data-page="1" data-from="<?=$this->from?>" data-to="<?=$this->to?>" data-taxi="<?=$this->taxi?>" data-status="idle">
     
         <?php
