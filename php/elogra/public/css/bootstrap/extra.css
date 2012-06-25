@@ -58,39 +58,62 @@ behavior: url(/css/PIE.htc);
 }
 /*green*/
 .traffic-status-1 {
-  background-color: #37dc74;
-  
-}
-
-.traffic-status-1:hover {
-  background-color: #63dc90;
+  border-width: 27px;
+  -moz-border-image: url('/img/green.png') 27 stretch; 
+  -webkit-border-image: url('/img/green.png') 27 stretch; 
+  -o-border-image: url('/img/green.png') 27 stretch; 
+  border-image: url('/img/green.png') 27 fill stretch;
+  behavior: url(/css/PIE.htc);
+  color: #fff;
   
 }
 
 /*yellow*/
 .traffic-status-2 {
-  background-color: #ffee40;
-}
-
-.traffic-status-2:hover {
-  background-color: #fff273;
+  border-width: 27px;
+  -moz-border-image: url('/img/yellow.png') 27 stretch; 
+  -webkit-border-image: url('/img/yellow.png') 27 stretch; 
+  -o-border-image: url('/img/yellow.png') 27 stretch; 
+  border-image: url('/img/yellow.png') 27 fill stretch;
+  behavior: url(/css/PIE.htc);
 }
 
 /*red*/
 .traffic-status-3 {
-  background-color: #ff4940;
+  border-width: 27px;
+  -moz-border-image: url('/img/red.png') 27 stretch; 
+  -webkit-border-image: url('/img/red.png') 27 stretch; 
+  -o-border-image: url('/img/red.png') 27 stretch; 
+  border-image: url('/img/red.png') 27 fill stretch;
+  behavior: url(/css/PIE.htc);
+  color: #fff;
 }
 
-.traffic-status-3:hover {
-  background-color: #ff7a73;
+.from-search-result{
+    border-width: 6px 20px 8px 27px;
+    -moz-border-image: url('/img/grey-box.png') 6 20 8 27 stretch;
+    -webkit-border-image: url('/img/grey-box.png') 6 20 8 27 stretch;
+    -o-border-image: url('/img/grey-box.png') 6 20 8 27 stretch;
+    border-image: url('/img/grey-box.png') 6 20 8 27 fill stretch;
+    behavior: url(/css/PIE.htc);
+/*    width: 10%;*/
 }
+
+/*.traffic-status-3:hover {
+  background-color: #ff7a73;
+}*/
 
 /*----------------*/
 .span8{
-	width: 580px;
+	width: 87%;
 }
 .span4{
-	width: 280px;
+	width: 32%;
+        margin-right: 0;
+}
+.span2{
+        width: 10%;
+        margin-right: 0;
 }
 
 
@@ -208,4 +231,15 @@ border-image: url('/img/hakawy-border.png') 22 27 27 fill stretch;
 
 .singleLine{
     width: 50%;
+}
+
+.search-result-header{
+    text-align: center;
+    font-size: 110%;
+    margin: 0 0 10px 0;
+    padding: 5px 0 5px 0;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: #fff;
+    border-width: thin;
 }
