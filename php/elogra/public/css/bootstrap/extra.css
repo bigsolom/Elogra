@@ -253,3 +253,17 @@ border-image: url('/img/hakawy-border.png') 22 27 27 fill stretch;
     width: 30%;
     margin-right: 35%;
 }
+
+.avail-area{
+    background-color: #fff;
+    color: #000;
+    margin: 2px;
+/*    width: 100%;*/
+    float: right;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.new-line{
+    clear: right;
+}

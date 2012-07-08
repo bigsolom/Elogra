@@ -22,7 +22,7 @@ return array(
     'other'=>'أخرى',
     'suggestArea'=>'المنطقة',
     'availableHS'=>'الموجود دلوقتى',
-    'suggestHS'=>'حى+',
+    'suggestHS'=>'اسم الحي',
     
     //------- search
     
@@ -65,4 +65,6 @@ return array(
     'suggest_place_success_msg' => 'شكرا علي المكان',
     'stop' => 'وقف !!',
     'wrong_page' => 'في حاجة غلط',
+    'new_area' => 'منطقة جديدة',
+    'area_name' => 'اسم المنطقة',
 );

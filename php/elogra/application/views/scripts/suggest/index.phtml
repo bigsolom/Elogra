@@ -2,22 +2,23 @@
 <form id="suggestForm" name="form1" method="post" onsubmit="suggestPlace(); return false;"
 			class="well hekaya-border">
 			<fieldset>
-                            <label><?=  Application_Service_Translate::_('suggestArea')?></label> <select name="from" id="from" size="1.1">
+                            <label><?=  Application_Service_Translate::_('suggestArea')?></label>
+                <select name="from" id="from" size="1.1">
 			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
-                        <option value="<?=  Application_Service_Translate::_('other')?>"><?=  Application_Service_Translate::_('other')?></option>   
+                        <option value="<?=  Application_Service_Translate::_('other')?>"><?=  Application_Service_Translate::_('new_area')?></option>   
 		</select> 
                             
             <label id="HSlabel"><?=  Application_Service_Translate::_('availableHS')?></label>
-            <select  size="1.1" name="fromHS" id="fromHS">
-            </select>
-                            <label id="newPLabel"><?=  Application_Service_Translate::_('other')?></label> <label></label> <input type="text"
+            <div id="fromHS"></div>
+            <div class="new-line">
+                            <label id="newPLabel"><?=  Application_Service_Translate::_('area_name')?></label>  <input type="text"
 			name="newParent" id="newParent"
 			title="حى" />
-                              <label id="newCLabel"><?=  Application_Service_Translate::_('suggestHS')?></label> <label></label> <input type="text"
+                              <label id="newCLabel"><?=  Application_Service_Translate::_('suggestHS')?></label> <input type="text"
 			name="name" id="name"
 			title="منطقة" />
                               
-                              <br />
+                              </div>
                               <input type="submit" name="button" id="button" value="<?=  Application_Service_Translate::_('share')?>" class="add-hekaya-btn" />
                             </fieldset>
 		</form>
@@ -81,7 +82,7 @@ $(document).ready(function(){
     });
     
     $("#from").change(function(){
-        if($("#from").val() == "<?=  Application_Service_Translate::_('other')?>"){
+        if($("#from").val() == "<?=  Application_Service_Translate::_('other')?>" || $("#from").val() == -1){
             $("#name").hide();
             $("#newCLabel").hide();
             $("#newParent").show();
@@ -119,11 +120,13 @@ $(document).ready(function(){
                     dataType: "json", 
                     data: {id : $(this).val()},
                     success: function(data) {
+                        
                         $("#"+childId).empty();
                         $.each(data, function(i, item) {
-                            $("#"+childId).append($('<option/>').val(data[i].id).text(data[i].name));
+                            $("#"+childId).append('<span class=\"avail-area\">'+data[i].name+'</span>');
                         });
-                        $("#"+childId).trigger("change");
+//                        $("#"+childId).trigger("change");
+                        
                     }});
         });
       }
