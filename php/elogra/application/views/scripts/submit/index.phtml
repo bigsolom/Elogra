@@ -2,11 +2,11 @@
 <form id="form2" name="form2" method="post" action="<?=$this->url(array('controller'=>'submit','action'=>'post'),'default',true)?>"
 	class="well hekaya-border-search">
 	<fieldset>
-		 <label><?=  Application_Service_Translate::_('paid_fare')?></label> <label></label> <input type="text"
+		 <label><?=  Application_Service_Translate::_('paid_fare')?> *</label> <label></label> <input type="text"
 			name="fare" id="fare"
-			title="$ $ $" />
+			title="" />
                  <br></br>
-		<label><?=  Application_Service_Translate::_('from')?></label> <select size="1.1" name="from" id="from">
+		<label><?=  Application_Service_Translate::_('from')?> *</label> <select size="1.1" name="from" id="from">
 			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
                 </select > <select  size="1.1" name="fromHS" id="fromHS">
 			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
@@ -17,9 +17,9 @@
                                             <br></br>
 		<label><?=  Application_Service_Translate::_('address')?></label> <label></label> <input type="text"
 			name="fromAddr" id="fromAddr"
-			title="Address" /> 
+			title="" /> 
                                  <br></br>
-		<label><?=  Application_Service_Translate::_('to')?></label> <select name="to" size="1.1" id="to">
+		<label><?=  Application_Service_Translate::_('to')?> *</label> <select name="to" size="1.1" id="to">
 			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
                 </select> <select size="1.1" name="toHS" id="toHS">
 			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
@@ -30,11 +30,11 @@
 		                 <br></br>	
 			<label><?=  Application_Service_Translate::_('address')?></label> <label></label> <input type="text"
 			name="toAddr" id="toAddr"
-			title="Address" />
+			title="" />
                         <br>
                                                 <br>
 		<div class="control-group">
-			<label class="control-label"><?=  Application_Service_Translate::_('taxi_type')?> </label>
+			<label class="control-label"><?=  Application_Service_Translate::_('taxi_type')?> *</label>
 			<div class="controls">
                             <img class="imgRadio" src="/img/blackTaxi.png" data-value="1"/>
                             <img class="imgRadio" src="/img/whiteTaxi.png" data-value="2"/>
@@ -45,7 +45,7 @@
 		</div>
                         <br>
 		<div class="control-group">
-			<label class="control-label"><!--<fmt:message key="form.search.type"/>--> <?=  Application_Service_Translate::_('traffic')?> </label>
+			<label class="control-label"><!--<fmt:message key="form.search.type"/>--> <?=  Application_Service_Translate::_('traffic')?> *</label>
 			<div class="controls">
 				<label class="radio"> <input type="radio" name="traffic"
 					value="3" id="White" /> <?=  Application_Service_Translate::_('traffic_crowded_1')?>
