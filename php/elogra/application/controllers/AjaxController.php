@@ -41,6 +41,15 @@ class AjaxController extends Zend_Controller_Action {
         $reportService->reportEntry($id, $type);
         $this->_helper->json('ok');
     }
+    
+    public function likeAction(){
+        $id = $this->_request->getParam('id');
+        $type = $this->_request->getParam('type');        
+        $likeService = new Application_Service_Hakawy();
+        $likeService->likeHekaya($id, $type);
+        
+        $this->_helper->json('ok');
+    }
 }
 
 ?>

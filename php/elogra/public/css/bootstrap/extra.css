@@ -243,3 +243,13 @@ border-image: url('/img/hakawy-border.png') 22 27 27 fill stretch;
     border-color: #fff;
     border-width: thin;
 }
+
+.likes{
+    width: 30%;
+    margin-right: 30%;
+}
+
+.dislikes{
+    width: 30%;
+    margin-right: 35%;
+}

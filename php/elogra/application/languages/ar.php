@@ -53,7 +53,9 @@ return array(
     
     
     'spam'=>'ميصحش!',
-
+    'like'=>'لطيفة',
+    'dislike'=>'أى ألش!',
+    
     'no_more_results'=>'أخر الخط',
     
     'site_title'=>'الأجرة  | حكاوي المشاوير',

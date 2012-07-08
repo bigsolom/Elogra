@@ -23,8 +23,14 @@
     <a class="popup" href="https://twitter.com/share?hashtags=ElOgra&url=<?=$hekayaUrl?>" ><img src="/img/social-icons/circular/twitter_32.png" height="20px" width="20px"></img></a>
     </div>
         <a class="delete" href="#" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::REPORT_TYPE_HAKAWY?>" onclick="javascript:report(this)"><?=  Application_Service_Translate::_('spam')?></a>
+        <div class="likes">
+        <a class="" href="#" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::HAKAWY_LIKE?>" onclick="javascript:like(this)"><?=  Application_Service_Translate::_('like')?></a>
+        (<span id="<?='no_likes_'.$this->hekaya['id']?>"><?=$this->hekaya['likes']?></span>)
+        </div>
+        <div class="dislikes">
+        <a class="" href="#" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::HAKAWY_DISLIKE?>" onclick="javascript:dislike(this)"><?=  Application_Service_Translate::_('dislike')?></a>
+        (<span id="<?='no_dislikes_'.$this->hekaya['id']?>"><?=$this->hekaya['dislikes']?></span>)
+        </div>
     </div>
-    </p>
-
-    
+    </p>    
 </div>

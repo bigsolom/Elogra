@@ -39,7 +39,7 @@ function OnFocusInput(textarea) {
         function successMsg(msg){
              $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>"+msg+"</strong></div> "));
              $("#error-alert").delay(2000).fadeOut("slow", function () {$(this).remove();});
-             $('html, body').animate({scrollTop:0}, 'slow');
+             //$('html, body').animate({scrollTop:0}, 'slow');
         }
         
         function report(elem){
@@ -57,4 +57,38 @@ function OnFocusInput(textarea) {
                 }
              });
              document.getElementById(id).style.display = 'none';
+        }
+        
+        function like(elem){
+            var id = elem.getAttribute('data-id');
+            var type = elem.getAttribute('data-type');
+            $.ajax({
+                url: likeURL,
+                dataType: "json", 
+                data: {'id':id,'type':type},
+                complete: function(){//enable them back
+                    //successMsg(reportMsg);
+                },
+                success: function(data) {
+                    var currNum = $('#no_likes_'+id).html();
+                    $('#no_likes_'+id).html(++currNum);
+                }
+             });
+            // document.getElementById(id).style.display = 'none';
+        }
+        
+        function dislike(elem){
+            var id = elem.getAttribute('data-id');
+            var type = elem.getAttribute('data-type');
+            $.ajax({
+                url: likeURL,
+                dataType: "json", 
+                data: {'id':id,'type':type},
+                complete: function(){//enable them back
+                  //  successMsg(reportMsg);
+                       var currNum = $('#no_dislikes_'+id).html();
+                    $('#no_dislikes_'+id).html(++currNum);
+                }
+             });
+             //document.getElementById(id).style.display = 'none';
         }
