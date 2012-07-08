@@ -16,7 +16,7 @@ class Application_Model_Entries extends Zend_Db_Table_Abstract {
     
     protected $_dependentTables = array('Application_Model_Addresses','Application_Model_Areas');
     
-    const NO_OF_ENTRIES_PER_PAGE = 2;
+    const NO_OF_ENTRIES_PER_PAGE = 5;
 
 
     //TODO pagination
