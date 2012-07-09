@@ -39,7 +39,9 @@ class Application_Model_Entries extends Zend_Db_Table_Abstract {
                 $srcAddrArray = $srcAddr->toArray();
                 $rowArray['srcAddrTxt'] = $srcAddrArray[0]['text'];
             }else{
-                $rowArray['srcAddrTxt'] = '';
+                $srcAddr = $row->findDependentRowset('Application_Model_Areas', 'Source_Entry_Area');
+                $srcAddrArray = $srcAddr->toArray();
+                $rowArray['srcAddrTxt'] = $srcAddrArray[0]['name'];
             }
             
             if (!is_null($row['dest_addr_id'])) {
@@ -47,7 +49,9 @@ class Application_Model_Entries extends Zend_Db_Table_Abstract {
                 $destAddrArray = $destAddr->toArray();
                 $rowArray['destAddrTxt'] = $destAddrArray[0]['text'];
             }else{
-                $rowArray['destAddrTxt'] = '';
+                $destAddr = $row->findDependentRowset('Application_Model_Areas', 'Destination_Entry_Area');
+                $destAddrArray = $destAddr->toArray();
+                $rowArray['destAddrTxt'] = $destAddrArray[0]['name'];
             }
             
             if(is_null($rowArray['comment']) || $rowArray['comment'] == ''){
