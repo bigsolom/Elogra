@@ -30,6 +30,11 @@ class Application_Service_Hakawy {
         $hekaya  = $hakawyService->getHekayaById($id);
         return $hekaya;
     }
+    
+    public function likeHekaya($id, $type){
+        $hakawyService = new Application_Model_Hakawy();
+        $hakawyService->likeHekaya($id, $type);
+    }
 }
 
 ?>

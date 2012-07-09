@@ -35,6 +35,11 @@
                 $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
                 return false;                
             }
+            if(($("#newParent").val() == '') && ($("#from").val() == "<?=  Application_Service_Translate::_('other')?>")){
+                $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أختار مكان</strong></div> "));
+                $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+                return false;                
+            }
         }
            $.ajax({
                 url: "<?= $this->url(array('controller'=>'suggest','action'=>'post'),'default',true) ?>",

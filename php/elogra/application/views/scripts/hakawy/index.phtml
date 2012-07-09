@@ -6,6 +6,7 @@ $nickSession = new Zend_Session_Namespace('nickSession');
     var noMoreMsg = "<?=  Application_Service_Translate::_('no_more_results')?>";
     var reportURL = "<?=$this->url(array('controller'=>'ajax','action'=>'report'),'default',true)?>";
     var reportMsg = "<?=  Application_Service_Translate::_('report_success_msg')?>";
+    var likeURL = "<?=$this->url(array('controller'=>'ajax','action'=>'like'),'default',true)?>";
     
     $(document).ready(function(){
         $('#nickDivPost').hide();
