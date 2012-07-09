@@ -65,4 +65,7 @@ return array(
     'wrong_page' => 'في حاجة غلط',
     'new_area' => 'منطقة جديدة',
     'area_name' => 'اسم المنطقة',
+    'default_comment_za7ma' => 'الطريق زحمة',
+    'default_comment_3ady' => 'الطريق عادي',
+    'default_comment_fady' => 'الطريق فاضي'
 );

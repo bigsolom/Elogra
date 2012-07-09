@@ -19,7 +19,6 @@ class Application_Model_Entries extends Zend_Db_Table_Abstract {
     const NO_OF_ENTRIES_PER_PAGE = 5;
 
 
-    //TODO pagination
     public function getEntries($srcID,$destID,$taxiType,$pageNumber) {
         $select = $this->select();
         $select->where(Application_Model_DBConstants::ENTRIES_SRC_ID." = ?",(int)$srcID)
@@ -27,23 +26,35 @@ class Application_Model_Entries extends Zend_Db_Table_Abstract {
                 ->where(Application_Model_DBConstants::ENTRIES_TAXI_TYPE." = ?", (int)$taxiType)
                 ->order("id DESC")
                 ->limitPage($pageNumber, self::NO_OF_ENTRIES_PER_PAGE);
-//                ->limit($count, $offset);
-//        $adapter = new Zend_Paginator_Adapter_DbSelect($select);
-//        $paginator = new Zend_Paginator($adapter);
-//        $paginator->setCurrentPageNumber($pageNumber);
         $rows = $this->fetchAll($select);
         if (!$rows) {
             throw new Exception("Could not find rows");
         }
         $rowsArray = array();
         foreach ($rows as $row){
-            $srcAddr = $row->findDependentRowset('Application_Model_Addresses','Source_Entry_Address');
-            $srcAddrArray = $srcAddr->toArray();
-            $destAddr = $row->findDependentRowset('Application_Model_Addresses','Destination_Entry_Address');
-            $destAddrArray = $destAddr->toArray();
             $rowArray = $row->toArray();
-            $rowArray['srcAddrTxt'] = $srcAddrArray[0]['text'];
-            $rowArray['destAddrTxt'] = $destAddrArray[0]['text'];
+            
+            if (!is_null($row['src_addr_id'])) {
+                $srcAddr = $row->findDependentRowset('Application_Model_Addresses', 'Source_Entry_Address');
+                $srcAddrArray = $srcAddr->toArray();
+                $rowArray['srcAddrTxt'] = $srcAddrArray[0]['text'];
+            }else{
+                $rowArray['srcAddrTxt'] = '';
+            }
+            
+            if (!is_null($row['dest_addr_id'])) {
+                $destAddr = $row->findDependentRowset('Application_Model_Addresses', 'Destination_Entry_Address');
+                $destAddrArray = $destAddr->toArray();
+                $rowArray['destAddrTxt'] = $destAddrArray[0]['text'];
+            }else{
+                $rowArray['destAddrTxt'] = '';
+            }
+            
+            if(is_null($rowArray['comment']) || $rowArray['comment'] == ''){
+                $rowArray['comment'] = $this->_getDefaultCommentText($rowArray['traffic_status']);
+            }
+            
+            
             $rowsArray[]=$rowArray;
         }
         return $rowsArray;
@@ -51,6 +62,9 @@ class Application_Model_Entries extends Zend_Db_Table_Abstract {
     
   
     public function submitEntry($taxiType, $comment, $fare, $traffic, $srcID, $destID, $srcAddrID, $destAddrID){
+       if(is_null($comment) || $comment == ''){
+           $comment = $this->_getDefaultCommentText($traffic);
+       }
         $data = array(
             'taxi_type' => $taxiType,
             'trip_time' => 'now()',
@@ -66,6 +80,21 @@ class Application_Model_Entries extends Zend_Db_Table_Abstract {
             'entry_time' => 'now()'
         );
         $this->insert($data);
+    }
+    
+    private function _getDefaultCommentText($status){
+        $text = '';
+        switch ($status){
+            case '1':
+                $text = Application_Service_Translate::_('default_comment_fady');
+                break;
+            case '2':
+                $text = Application_Service_Translate::_('default_comment_3ady');
+                break;
+            default :
+                $text = Application_Service_Translate::_('default_comment_za7ma');
+        }
+        return $text;
     }
 
 //    public function addAlbum($artist, $title) {

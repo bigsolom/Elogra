@@ -37,7 +37,7 @@ class Application_Model_Addresses extends Zend_Db_Table_Abstract {
     
     public function checkAddress($areaID, $address){
         if($address == ""){
-            return 0;
+            return null;
         }
         $select = $this->select();
         $select->where(Application_Model_DBConstants::ADDRESSES_AREA_ID.'= ?',(int)$areaID)

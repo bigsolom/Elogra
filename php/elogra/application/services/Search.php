@@ -14,7 +14,6 @@ class Application_Service_Search {
     //put your code here
     
     public function goSearch($srcID, $destID, $taxiType,$pageNumber = 1){
-        $noOfEntries = 5;
         $liveFares = new Application_Model_LiveFares();
         $fares = $liveFares->getLatestEntries($srcID, $destID, $taxiType);
         //TODO: handle zero results
