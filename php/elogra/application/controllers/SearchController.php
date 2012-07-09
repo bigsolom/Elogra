@@ -24,7 +24,9 @@ class SearchController extends Zend_Controller_Action {
 
         $searchService = new Application_Service_Search();
         $searchResults = $searchService->goSearch($srcID, $destID, $taxiColor);
-        
+        if ($searchResults->liveFare == 0) {//no results found
+            $this->view->noResult = true;
+        }
         $this->view->searchResults = $searchResults;
          $this->view->from = $srcID;
          $this->view->to = $destID;
