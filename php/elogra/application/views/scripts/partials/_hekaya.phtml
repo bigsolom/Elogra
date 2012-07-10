@@ -11,26 +11,26 @@
         }(document,"script","twitter-wjs");
 </script>
 
-<div class="record">
-    <img src="/img/dot.png" class="record-bg"/>
-    <p class="nickname-text"><?=  Application_Service_Translate::_('hadoota')?> <?=$this->hekaya['nickname']?> : </p>
-    
-    <p>
-        <?= Application_Service_TextFormatting::htmlNlEncoding2Br($this->hekaya['text'])?>
-    <div class="record-controls" >
-    <div class="fb-t-share">
-    <a class="popup" href="http://www.facebook.com/sharer.php?u=<?=$hekayaUrl?>"><img src="/img/social-icons/circular/facebook_32.png" height="20px" width="20px"></img></a>
-    <a class="popup" href="https://twitter.com/share?hashtags=ElOgra&url=<?=$hekayaUrl?>" ><img src="/img/social-icons/circular/twitter_32.png" height="20px" width="20px"></img></a>
-    </div>
-        <a class="delete" href="#" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::REPORT_TYPE_HAKAWY?>" onclick="javascript:report(this)"><?=  Application_Service_Translate::_('spam')?></a>
-        <div class="likes">
-        <a class="" href="#" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::HAKAWY_LIKE?>" onclick="javascript:like(this)"><?=  Application_Service_Translate::_('like')?></a>
-        (<span id="<?='no_likes_'.$this->hekaya['id']?>"><?=$this->hekaya['likes']?></span>)
-        </div>
-        <div class="dislikes">
-        <a class="" href="#" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::HAKAWY_DISLIKE?>" onclick="javascript:dislike(this)"><?=  Application_Service_Translate::_('dislike')?></a>
+ <div class="record">
+   <img src="/img/dot.png" class="record-bg"/>
+   <p class="nickname-text"><?=  Application_Service_Translate::_('hadoota')?> <?=$this->hekaya['nickname']?> : </p>
+   
+   <p>
+       <?= Application_Service_TextFormatting::htmlNlEncoding2Br($this->hekaya['text'])?>
+   <div >
+   
+       <a class="popup fb-t-share record-controls" href="http://www.facebook.com/sharer.php?u=<?=$hekayaUrl?>"><img src="/img/social-icons/circular/facebook_32.png" height="20px" width="20px"></img></a>
+       <a class="popup fb-t-share record-controls" href="https://twitter.com/share?hashtags=ElOgra&url=<?=$hekayaUrl?>" ><img src="/img/social-icons/circular/twitter_32.png" height="20px" width="20px"></img></a>
+   
+
+       <a class="delete record-controls" href="#" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::REPORT_TYPE_HAKAWY?>" onclick="javascript:report(this)"><?=  Application_Service_Translate::_('spam')?></a>
+       
+       <a class="likes record-controls" href="#!" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::HAKAWY_LIKE?>" onclick="javascript:like(this)"><?=  Application_Service_Translate::_('like')?></a>
+       (<span id="<?='no_likes_'.$this->hekaya['id']?>"><?=$this->hekaya['likes']?></span>) 
+       
+       <a class="dislikes record-controls" href="#!" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::HAKAWY_DISLIKE?>" onclick="javascript:dislike(this)"><?=  Application_Service_Translate::_('dislike')?></a>
         (<span id="<?='no_dislikes_'.$this->hekaya['id']?>"><?=$this->hekaya['dislikes']?></span>)
-        </div>
-    </div>
-    </p>    
+
+   </div>
+   </p>    
 </div>

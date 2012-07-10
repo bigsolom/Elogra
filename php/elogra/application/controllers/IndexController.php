@@ -10,9 +10,9 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        //$this->_redirect($this->view->url(array('controller'=>'hakawy','action'=>'index'),'default',true));
+        $this->_redirect($this->view->url(array('controller'=>'hakawy','action'=>'index'),'default',true));
         //$this->_helper->viewRenderer->setNoRender(true);
-       $this->_helper->layout->disableLayout();
+       //$this->_helper->layout->disableLayout();
 //        $entries = new Application_Model_Entries();
 //        $this->view->entries = $entries->fetchAll()->toArray();
     }

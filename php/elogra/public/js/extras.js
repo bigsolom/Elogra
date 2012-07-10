@@ -56,11 +56,16 @@ function OnFocusInput(textarea) {
 
                 }
              });
-             document.getElementById(id).style.display = 'none';
+            // document.getElementById(id).style.display = 'none';
+            elem.style.color = "gray";
+            elem.onclick = function() {return false;}
         }
         
         function like(elem){
             var id = elem.getAttribute('data-id');
+            /*alert(id);
+            id = id.toString().substring(5, id.toString().length);
+            alert(id);*/
             var type = elem.getAttribute('data-type');
             $.ajax({
                 url: likeURL,
@@ -74,7 +79,8 @@ function OnFocusInput(textarea) {
                     $('#no_likes_'+id).html(++currNum);
                 }
              });
-            // document.getElementById(id).style.display = 'none';
+            elem.style.color = "gray";
+            elem.onclick = function() {return false;}
         }
         
         function dislike(elem){
@@ -90,5 +96,6 @@ function OnFocusInput(textarea) {
                     $('#no_dislikes_'+id).html(++currNum);
                 }
              });
-             //document.getElementById(id).style.display = 'none';
+            elem.style.color = "gray";
+            elem.onclick = function() {return false;}
         }
