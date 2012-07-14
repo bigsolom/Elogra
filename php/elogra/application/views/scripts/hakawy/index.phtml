@@ -1,3 +1,25 @@
+  <script src="http://js.pusher.com/1.11/pusher.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    // Enable pusher logging - don't include this in production
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) window.console.log(message);
+    };
+    var socketId = null;
+    // Flash fallback logging - don't include this in production
+    WEB_SOCKET_DEBUG = true;
+   
+    var pusher = new Pusher('<?=  Zend_Registry::get('config')->get('pusher')->get('key')?>');
+    
+    pusher.connection.bind('connected',function(){
+       socketId = pusher.connection.socket_id;
+       $('#sock_id').val(socketId);
+    });
+    
+    var channel = pusher.subscribe('test_channel');
+    channel.bind('hekaya_added', function(data) {
+      $(".section").prepend(data);
+    });
+  </script>
 <?php
 $nickSession = new Zend_Session_Namespace('nickSession');
 ?>
@@ -66,6 +88,7 @@ $nickSession = new Zend_Session_Namespace('nickSession');
 <script type="text/javascript" src="/js/pagination.js"></script>
 <div id="alert-area"></div>
 <form id="hekayaForm" method="post" onsubmit="addHekaya(); return false;" class="well hekaya-border">
+    <input type="hidden" name="sock_id" id="sock_id"/>
     <fieldset>
 <textarea class="expand" id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput(this)" onblur="OnBlurInput(this)" placeholder="<?=  Application_Service_Translate::_('tellUs')?>"></textarea>
 <div class="singleLine">
