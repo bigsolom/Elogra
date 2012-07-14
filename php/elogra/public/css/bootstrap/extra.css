@@ -265,3 +265,7 @@ border-image: url('/img/hakawy-border.png') 22 27 27 fill stretch;
 .new-line{
     clear: right;
 }
+
+.gray{
+    color: gray;
+}

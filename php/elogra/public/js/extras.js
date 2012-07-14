@@ -79,8 +79,7 @@ function OnFocusInput(textarea) {
                     $('#no_likes_'+id).html(++currNum);
                 }
              });
-            elem.style.color = "gray";
-            elem.onclick = function() {return false;}
+            $(elem).replaceWith($('<span/>').text($(elem).text()).addClass("likes record-controls gray"));
         }
         
         function dislike(elem){
@@ -96,6 +95,5 @@ function OnFocusInput(textarea) {
                     $('#no_dislikes_'+id).html(++currNum);
                 }
              });
-            elem.style.color = "gray";
-            elem.onclick = function() {return false;}
+            $(elem).replaceWith($('<span/>').text($(elem).text()).addClass("dislikes record-controls gray"));
         }
