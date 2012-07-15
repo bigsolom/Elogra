@@ -176,7 +176,11 @@ setInterval(updateLayout, 400);
                                    <a href="https://twitter.com/ElOgraEgypt"  target="_blank"><img src="../img/social-icons/circular/twitter_32.png"  width="22" height="22" /></a>
                                </p>
                         
-<ul class="social"></ul>
+  <ul id="nav" class="sf-menu sf-vertical">
+    
+    <li><a href="<?=$this->url(array('controller'=>'contact','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('contact_us')?></a></li>
+    
+</ul>
                                
             
                         
