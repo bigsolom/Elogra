@@ -1,4 +1,4 @@
-*.DS_STORE
+.DS_STORE
 *.class
 elogra/build/classes/*
 php/elogra/library/Zend
