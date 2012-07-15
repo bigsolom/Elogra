@@ -49,10 +49,18 @@ class HakawyController extends Zend_Controller_Action
         $result = $hakawyService->submitHekaya($hekaya, $nickname);
         if($result){
             $reply = array();
-            $reply['html'] = $this->view->partial('partials/_hekaya.phtml', array('hekaya' => $result));
+            $html = $this->view->partial('partials/_hekaya.phtml', array('hekaya' => $result));
+            $reply['html'] = $html;
             $reply['nickname'] = $nickname;
+            $this->notifyConnectedUsers($html,  $this->_request->getParam('sock_id'));
             $this->_helper->json($reply);
         }
+    }
+    
+    private function notifyConnectedUsers($hekayaHtml,$execlude){
+        $pusherConfig = Zend_Registry::get('config')->get('pusher')->toArray();
+        $pusher = new Elogra_Pusher($pusherConfig['key'],$pusherConfig['secret'],$pusherConfig['app_id']);
+        $pusher->trigger('test_channel','hekaya_added',$hekayaHtml,$execlude);
     }
 
 }
