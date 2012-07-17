@@ -1,5 +1,14 @@
 /* root element for tabs  */
-@font-face { font-family: Frugiter; src: url('Fonts/FrutigerLTArabic-45Light.ttf'); }
+@font-face {
+    font-family: Frugiter;
+    src: url('Fonts/Frutigerltarabic-45light.eot');
+    src: url('Fonts/Frutigerltarabic-45light.eot?#iefix') format('embedded-opentype'),
+         url('Fonts/Frutigerltarabic-45light.woff') format('woff'),
+         url('Fonts/Frutigerltarabic-45light.ttf') format('truetype'),
+         url('Fonts/Frutigerltarabic-45light.svg#frutigerltarabic-45light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 ul.tabs { 
 	list-style:none; 
