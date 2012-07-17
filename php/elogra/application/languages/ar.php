@@ -2,10 +2,10 @@
 
 return array(
     'taxi_talks_link'=>'حكاوي التاكسي',
-    'search_link'=>'بكام',
-    'submit_link'=>'أجرتك',
+    'search_link'=>'هتدفع كام',
+    'submit_link'=>'دفعت كام',
     'fares_link'=>'احسبها',
-    'suggest_link'=>'قوللنا مكانك',
+    'suggest_link'=>'زود مكان',
     'nickname'=>' إسمك إية',
     'tellUs'=>'قول للناس حدوتك',
     'defaultNick'=>'الأجرة',
@@ -53,8 +53,8 @@ return array(
     
     
     'spam'=>'ميصحش!',
-    'like'=>'لطيفة',
-    'dislike'=>'أى ألش!',
+    'like'=>'قشطة',
+    'dislike'=>'عادى',
     
     'no_more_results'=>'أخر الخط',
     
