@@ -9,3 +9,4 @@ RewriteRule ^.*$ index.php [NC,L]
 #AuthName "Restricted Files"
 #AuthUserFile /var/chroot/home/content/55/8518655/data/pass
 #Require user elogra
+AddType text/x-component .htc
