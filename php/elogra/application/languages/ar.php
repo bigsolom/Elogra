@@ -17,6 +17,8 @@ return array(
     'taxi_titles_2'=>'أبيض بس',
     'taxi_titles_3'=>'كايرو كاب',
     'taxi_titles_4'=>'تاكسي لندن',
+    'average_fare'=>'متوسط',
+    'fare_currency'=>'جنيه',
     
     //------- suggest
     'other'=>'أخرى',

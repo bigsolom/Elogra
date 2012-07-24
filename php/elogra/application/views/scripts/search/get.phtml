@@ -1,5 +1,5 @@
 <div class="search-result-header white">
-    <?=  Application_Service_Translate::_('live_fare')?>&nbsp&nbsp&nbsp : &nbsp&nbsp&nbsp<?=$this->searchResults->liveFare?>
+    <?=  Application_Service_Translate::_('average_fare')?>&nbsp<?=  Application_Service_Translate::_('live_fare')?>&nbsp&nbsp&nbsp : &nbsp&nbsp&nbsp<?=$this->searchResults->liveFare?>&nbsp<?=  Application_Service_Translate::_('fare_currency')?>
     </div>
 <div class="paginated" data-page="1" data-from="<?=$this->from?>" data-to="<?=$this->to?>" data-taxi="<?=$this->taxi?>" data-status="idle">
     
