@@ -129,10 +129,20 @@ setInterval(updateLayout, 400);
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+  
+        $( function() {
+                var behaviorUrl = '/css/PIE.htc';
+                if($.browser.msie){
 
+                $('.css3').each(function(){
+                   this.addBehavior(behaviorUrl); 
+                });
+                 $('body').css('overflow-x','hidden');
+                }
+                } );
 </script>		
 	</head>
-	<body dir="rtl">
+	<body dir="rtl" class="css3">
 	
 	<!-- WRAPPER -->
 	<div id="wrapper">

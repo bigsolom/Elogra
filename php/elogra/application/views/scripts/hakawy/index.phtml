@@ -1,34 +1,34 @@
-  <script src="http://js.pusher.com/1.11/pusher.min.js" type="text/javascript"></script>
-  <script type="text/javascript">
+<script src="http://js.pusher.com/1.11/pusher.min.js" type="text/javascript"></script>
+<script type="text/javascript">
     // Enable pusher logging - don't include this in production
     Pusher.log = function(message) {
-      if (window.console && window.console.log) window.console.log(message);
+        if (window.console && window.console.log) window.console.log(message);
     };
     var socketId = null;
     // Flash fallback logging - don't include this in production
     WEB_SOCKET_DEBUG = true;
    
-    var pusher = new Pusher('<?=  Zend_Registry::get('config')->get('pusher')->get('key')?>');
+    var pusher = new Pusher('<?= Zend_Registry::get('config')->get('pusher')->get('key') ?>');
     
     pusher.connection.bind('connected',function(){
-       socketId = pusher.connection.socket_id;
-       $('#sock_id').val(socketId);
+        socketId = pusher.connection.socket_id;
+        $('#sock_id').val(socketId);
     });
     
     var channel = pusher.subscribe('test_channel');
     channel.bind('hekaya_added', function(data) {
-      $(".section").prepend(data);
+        $(".section").prepend(data);
     });
-  </script>
+</script>
 <?php
 $nickSession = new Zend_Session_Namespace('nickSession');
 ?>
 <script type="text/javascript">
     var moreActionURL = "<?= $this->url(array('controller' => 'hakawy', 'action' => 'more'), 'default', true) ?>";
-    var noMoreMsg = "<?=  Application_Service_Translate::_('no_more_results')?>";
-    var reportURL = "<?=$this->url(array('controller'=>'ajax','action'=>'report'),'default',true)?>";
-    var reportMsg = "<?=  Application_Service_Translate::_('report_success_msg')?>";
-    var likeURL = "<?=$this->url(array('controller'=>'ajax','action'=>'like'),'default',true)?>";
+    var noMoreMsg = "<?= Application_Service_Translate::_('no_more_results') ?>";
+    var reportURL = "<?= $this->url(array('controller' => 'ajax', 'action' => 'report'), 'default', true) ?>";
+    var reportMsg = "<?= Application_Service_Translate::_('report_success_msg') ?>";
+    var likeURL = "<?= $this->url(array('controller' => 'ajax', 'action' => 'like'), 'default', true) ?>";
     
     $(document).ready(function(){
         $('#nickDivPost').hide();
@@ -38,7 +38,7 @@ $nickSession = new Zend_Session_Namespace('nickSession');
         }else{
             $('#nickDivInput').hide();
             $('#nickDivPost').show();
-            $("#nicknameInput").val('<?= $nickSession->nickname?>');
+            $("#nicknameInput").val('<?= $nickSession->nickname ?>');
         }
     });
     
@@ -49,72 +49,72 @@ $nickSession = new Zend_Session_Namespace('nickSession');
     }
     
     function addHekaya(){
-           if($("#taxiTalksInput").val() == ''){
-                $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أحكى حكايتك</strong></div> "));
-                $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });                
-                return false;
-            }
-            
-            if(($("#nicknameInput").val() == '') || ($("#nicknameInput").val() == 'NoNickN')){
-                $("#nicknameInput").val('<?=  Application_Service_Translate::_('defaultNick')?>');
-            }
-            
-           $.ajax({
-                url: "<?= $this->url(array('controller' => 'hakawy', 'action' => 'submit'), 'default', true) ?>",
-                dataType: "json", 
-                data: $('#hekayaForm').serialize(),
-                beforeSend:function(){ //disable button and field
-                   $('#taxiTalksInput').attr("disabled","disabled");
-                   $('#hekayaButton').attr("disabled","disabled");
-                },
-                complete: function(){//enable them back
-                    $('#taxiTalksInput').attr("value","");
-                    displayCharCounts(document.getElementById("taxiTalksInput"));//to reset the characters counter
-                    $('#taxiTalksInput').removeAttr("disabled");
-                    $('#hekayaButton').removeAttr("disabled");
-                    $('#nickDivInput').hide();
-                    $('#nickDivPost').show();                    
-                },
-                success: function(data) {
-                    $(".section").prepend(data.html);
-                    $("#nicknameInput").val(data.nickname);
-                    $("#nickChange").html(data.nickname);
-                }
-             });
-             $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>شكرا على الحدوته</strong></div> "));
-             $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+        if($("#taxiTalksInput").val() == ''){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أحكى حكايتك</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });                
+            return false;
         }
+            
+        if(($("#nicknameInput").val() == '') || ($("#nicknameInput").val() == 'NoNickN')){
+            $("#nicknameInput").val('<?= Application_Service_Translate::_('defaultNick') ?>');
+        }
+            
+        $.ajax({
+            url: "<?= $this->url(array('controller' => 'hakawy', 'action' => 'submit'), 'default', true) ?>",
+            dataType: "json", 
+            data: $('#hekayaForm').serialize(),
+            beforeSend:function(){ //disable button and field
+                $('#taxiTalksInput').attr("disabled","disabled");
+                $('#hekayaButton').attr("disabled","disabled");
+            },
+            complete: function(){//enable them back
+                $('#taxiTalksInput').attr("value","");
+                displayCharCounts(document.getElementById("taxiTalksInput"));//to reset the characters counter
+                $('#taxiTalksInput').removeAttr("disabled");
+                $('#hekayaButton').removeAttr("disabled");
+                $('#nickDivInput').hide();
+                $('#nickDivPost').show();                    
+            },
+            success: function(data) {
+                $(".section").prepend(data.html);
+                $("#nicknameInput").val(data.nickname);
+                $("#nickChange").html(data.nickname);
+            }
+        });
+        $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>شكرا على الحدوته</strong></div> "));
+        $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+    }
 </script>
 <script type="text/javascript" src="/js/pagination.js"></script>
 <div id="alert-area"></div>
-<form id="hekayaForm" method="post" onsubmit="addHekaya(); return false;" class="well hekaya-border">
+<form id="hekayaForm" method="post" onsubmit="addHekaya(); return false;" class="well hekaya-border css3">
     <input type="hidden" name="sock_id" id="sock_id"/>
     <fieldset>
-<textarea class="expand" id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput(this)" onblur="OnBlurInput(this)" placeholder="<?=  Application_Service_Translate::_('tellUs')?>"></textarea>
-<div class="singleLine">
-<div id='nickDivInput'>
-    <?= Application_Service_Translate::_('nickname') ?>
-    <input type="text" class="nickname" name="nicknameInput" id="nicknameInput" title="nickname" value="<?= $nickSession->nickname ?>" placeholder="<?= Application_Service_Translate::_('defaultNick') ?>"/>
-</div>
-     
-<div id='nickDivPost'>
-    <?= Application_Service_Translate::_('myNick') ?>
-    <a href="#" id="nickChange" onclick="editNickName()" class="nickname"><?= $nickSession->nickname ?></a>
-</div>
-<input type="submit" name="button" id="hekayaButton" value="<?= Application_Service_Translate::_('share') ?>" class="add-hekaya-btn hekaya-padding"/> 
-</div>
-	 </fieldset>
+        <textarea class="expand" id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput(this)" onblur="OnBlurInput(this)" placeholder="<?= Application_Service_Translate::_('tellUs') ?>"></textarea>
+        <div class="singleLine">
+            <div id='nickDivInput'>
+                <?= Application_Service_Translate::_('nickname') ?>
+                <input type="text" class="nickname" name="nicknameInput" id="nicknameInput" title="nickname" value="<?= $nickSession->nickname ?>" placeholder="<?= Application_Service_Translate::_('defaultNick') ?>"/>
+            </div>
+
+            <div id='nickDivPost'>
+                <?= Application_Service_Translate::_('myNick') ?>
+                <a href="#" id="nickChange" onclick="editNickName()" class="nickname"><?= $nickSession->nickname ?></a>
+            </div>
+            <input type="submit" name="button" id="hekayaButton" value="<?= Application_Service_Translate::_('share') ?>" class="add-hekaya-btn hekaya-padding"/> 
+        </div>
+    </fieldset>
 </form>
 <script type="text/javascript" src="/js/charcount.js"></script>
 
- <div class="paginated round-box-border section" id="scrlDiv" data-page="1" data-status="idle">
+<div class="paginated round-box-border section css3" id="scrlDiv" data-page="1" data-status="idle">
     <?php
     foreach ($this->hakawy as $hekaya) {
         ?>
-            <?= $this->partial('partials/_hekaya.phtml', array('hekaya' => $hekaya)); ?>
-            
+        <?= $this->partial('partials/_hekaya.phtml', array('hekaya' => $hekaya)); ?>
+
         <?php
     }
     ?>
-       
+
 </div>
