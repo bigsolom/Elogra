@@ -28,7 +28,7 @@ class Application_Model_Areas extends Zend_Db_Table_Abstract {
             ));
     
     public function getParentAreas(){
-        $row = $this->fetchAll('parent_id is null AND approved=1');
+        $row = $this->fetchAll('parent_id is null AND approved=1', 'name');
         if (!$row) {
             throw new Exception("Could not find rows");
         }
@@ -36,7 +36,7 @@ class Application_Model_Areas extends Zend_Db_Table_Abstract {
     }
     
     public function getAreasUnder($id){
-        $row = $this->fetchAll("parent_id = $id AND approved=1");
+        $row = $this->fetchAll("parent_id = $id AND approved=1", 'name');
         if (!$row) {
             throw new Exception("Could not find row $id");
         }
