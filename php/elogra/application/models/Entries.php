@@ -61,6 +61,50 @@ class Application_Model_Entries extends Zend_Db_Table_Abstract {
             
             $rowsArray[]=$rowArray;
         }
+        //////////////////////////////////////////////////////////////////////
+        $select = $this->select();
+        $select->where(Application_Model_DBConstants::ENTRIES_SRC_ID." = ?",(int)$destID)
+                ->where(Application_Model_DBConstants::ENTRIES_DEST_ID." = ?",(int)$srcID)
+                ->where(Application_Model_DBConstants::ENTRIES_TAXI_TYPE." = ?", (int)$taxiType)
+                ->order("id DESC")
+                ->limitPage($pageNumber, self::NO_OF_ENTRIES_PER_PAGE);
+        $rows = $this->fetchAll($select);
+        if (!$rows) {
+            throw new Exception("Could not find rows");
+        }
+       // $rowsArray = array();
+        foreach ($rows as $row){
+            $rowArray = $row->toArray();
+            
+            if (!is_null($row['src_addr_id'])) {
+                $srcAddr = $row->findDependentRowset('Application_Model_Addresses', 'Source_Entry_Address');
+                $srcAddrArray = $srcAddr->toArray();
+                $rowArray['srcAddrTxt'] = $srcAddrArray[0]['text'];
+            }else{
+                $srcAddr = $row->findDependentRowset('Application_Model_Areas', 'Source_Entry_Area');
+                $srcAddrArray = $srcAddr->toArray();
+                $rowArray['srcAddrTxt'] = $srcAddrArray[0]['name'];
+            }
+            
+            if (!is_null($row['dest_addr_id'])) {
+                $destAddr = $row->findDependentRowset('Application_Model_Addresses', 'Destination_Entry_Address');
+                $destAddrArray = $destAddr->toArray();
+                $rowArray['destAddrTxt'] = $destAddrArray[0]['text'];
+            }else{
+                $destAddr = $row->findDependentRowset('Application_Model_Areas', 'Destination_Entry_Area');
+                $destAddrArray = $destAddr->toArray();
+                $rowArray['destAddrTxt'] = $destAddrArray[0]['name'];
+            }
+            
+            if(is_null($rowArray['comment']) || $rowArray['comment'] == ''){
+                $rowArray['comment'] = $this->_getDefaultCommentText($rowArray['traffic_status']);
+            }
+            
+            
+            //array_merge($rowsArray,$rowArray);
+            $rowsArray[]=$rowArray;
+        }
+        //////////////////////////////////////////////
         return $rowsArray;
     }
     

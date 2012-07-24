@@ -21,10 +21,23 @@ class Application_Model_LiveFares extends Zend_Db_Table_Abstract  {
                 ->where(Application_Model_DBConstants::LIVE_FARES_DEST_ID.'= ?',(int)$destID)
                 ->where(Application_Model_DBConstants::LIVE_TAXI_TYPE.'= ?',(int)$taxiType);
         $row = $this->fetchAll($select);
+        /////////// to get both ways //////////////////////////
+        $rowArray = $row->toArray();
+        
+        $select = $this->select();
+        $select->where(Application_Model_DBConstants::LIVE_FARES_SRC_ID.'= ?',(int)$destID)
+                ->where(Application_Model_DBConstants::LIVE_FARES_DEST_ID.'= ?',(int)$srcID)
+                ->where(Application_Model_DBConstants::LIVE_TAXI_TYPE.'= ?',(int)$taxiType);
+        $row = $this->fetchAll($select);
+        
+        $rowArray2 = $row->toArray();
+        
+        $resultsArray = array_merge($rowArray, $rowArray2);
+        ///////////////////////////////////////////////////////
         if (!$row) {
             throw new Exception("Could not find rows");
         }
-        return $row->toArray();
+        return $resultsArray;
     }
     
     public function updateFares($srcID,$destID,$taxiType,$fare){
