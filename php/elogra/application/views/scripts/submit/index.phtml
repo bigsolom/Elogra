@@ -150,6 +150,12 @@ $(document).ready(function(){
             $("#alert-area").focus();
             $('html, body').animate({scrollTop:0}, 'slow');
             return false;
+        }else if(isNaN($("#fare").val())){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>الأجرة ارقام و بس</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+            $("#alert-area").focus();
+            $('html, body').animate({scrollTop:0}, 'slow');
+            return false;
         }
     });	
 });
