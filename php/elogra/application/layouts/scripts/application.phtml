@@ -16,8 +16,8 @@ setInterval(updateLayout, 400);
 </script>
 		<meta charset="utf-8"/>
                 <meta name="viewport" content="width=device-width" >
-                <meta name="description" content="Connects Taxi Drivers and Passengers in Egypt, know taki fares in Cairo, tell taxi stories, rent a taxi">
-                <meta name="keywords" content="taxi, stories, fares, rent, cairo cab, london taxi">
+                <meta name="description" content="Elogra.com Connects Taxi Drivers and Passengers in Egypt, know taki fares in Cairo, tell taxi stories, rent a taxi">
+                <meta name="keywords" content="elogra, taxi, stories, fares, rent, cairo cab, london taxi">
                 
                 <title><?=  Application_Service_Translate::_('site_title')?> </title>
 		
@@ -155,10 +155,10 @@ setInterval(updateLayout, 400);
 						
 			<!-- Navigation class="current-menu-item" -->
 		  <ul id="nav" class="sf-menu sf-vertical">
-<li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'hakawy','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('taxi_talks_link')?></a></li>
-<li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'search','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('search_link')?></a></li>				
-<li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'submit','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('submit_link')?></a></li>
-<li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'fares','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('fares_link')?></a></li>
+<li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'hakawy','action'=>'index'),'default',true)?>" title="Cairo Taxi Stories"><?=  Application_Service_Translate::_('taxi_talks_link')?></a></li>
+<li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'search','action'=>'index'),'default',true)?>" title="Search Cairo Taxi Fares"><?=  Application_Service_Translate::_('search_link')?></a></li>				
+<li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'submit','action'=>'index'),'default',true)?>" title="Submit Cairo Taxi Fares"><?=  Application_Service_Translate::_('submit_link')?></a></li>
+<li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'fares','action'=>'index'),'default',true)?>" title="Calculate Cairo Taxi Fares"><?=  Application_Service_Translate::_('fares_link')?></a></li>
 
 			<!-- Navigation -->	
 					
@@ -183,13 +183,13 @@ setInterval(updateLayout, 400);
                         
                          <p style="font-size:larger;margin-right: 40px;margin-top: -20px;">                                 
                            <?=  Application_Service_Translate::_('follow')?> :
-                                   <a style="margin-bottom: 200px;" href="http://www.facebook.com/ElograEgypt/"  target="_blank"><img src="/img/social-icons/circular/facebook_32.png" width="22" height="22" /></a>
-                                   <a href="https://twitter.com/ElOgraEgypt"  target="_blank"><img src="/img/social-icons/circular/twitter_32.png"  width="22" height="22" /></a>
+                                   <a style="margin-bottom: 200px;" href="http://www.facebook.com/ElograEgypt/"  target="_blank" title="Elogra on facebook"><img src="/img/social-icons/circular/facebook_32.png" width="22" height="22" /></a>
+                                   <a href="https://twitter.com/ElOgraEgypt"  target="_blank" title="Elogra on twitter"><img src="/img/social-icons/circular/twitter_32.png"  width="22" height="22" /></a>
                                </p>
                         
   <ul id="nav" class="sf-menu sf-vertical">
     
-    <li><a href="<?=$this->url(array('controller'=>'contact','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('contact_us')?></a></li>
+    <li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'contact','action'=>'index'),'default',true)?>" title="contact Elogra team"><?=  Application_Service_Translate::_('contact_us')?></a></li>
     
 </ul>
                                
@@ -214,7 +214,7 @@ setInterval(updateLayout, 400);
                                         <!-- Title -->
                                         <br></br>
                                         <br></br>                                        
-                                        <img src="/img/title.png"></img>										
+                                        <img src="/img/title.png" alt="Elogra title"></img>										
                                         <br></br>
                                         <!-- End Title -->
 				<?=$this->layout()->content?>
