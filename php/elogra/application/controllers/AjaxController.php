@@ -37,19 +37,55 @@ class AjaxController extends Zend_Controller_Action {
         if($type != Application_Model_DBConstants::REPORT_TYPE_HAKAWY && $type != Application_Model_DBConstants::REPORT_TYPE_ENTRIES){
             throw new InvalidArgumentException('Invalid type');
         }
-        $reportService = new Application_Service_Report();
-        $reportService->reportEntry($id, $type);
-        $this->_helper->json('ok');
+        if (!$this->isActionInSession($type, $id)) {
+            $reportService = new Application_Service_Report();
+            $reportService->reportEntry($id, $type);
+            $this->addActionToSession($type, $id);
+            $this->_helper->json(array('status'=>true));
+        }else{
+            $this->_helper->json(array('status'=>false));
+            
+        }
     }
     
     public function likeAction(){
         $id = $this->_request->getParam('id');
         $type = $this->_request->getParam('type');        
-        $likeService = new Application_Service_Hakawy();
-        $likeService->likeHekaya($id, $type);
+        if (!$this->isActionInSession($type, $id)) {
+            $likeService = new Application_Service_Hakawy();
+            $likeService->likeHekaya($id, $type);
+            $this->addActionToSession($type, $id);
+            $this->_helper->json(array('status'=>true));
+        }else{
+            $this->_helper->json(array('status'=>false));
+            
+        }
         
-        $this->_helper->json('ok');
     }
+    
+    private function getActionsInSession(){
+        $actionsSession = new Zend_Session_Namespace('actions');
+        $actions = $actionsSession->actions;
+        return $actions;
+    }
+    
+    private function setActionsInSession($actions){
+        $actionsSession = new Zend_Session_Namespace('actions');
+        $actionsSession->actions = $actions;
+    }
+
+    private function isActionInSession($type,$id){
+        $actions = $this->getActionsInSession();
+        return (in_array(array('type'=>$type,'id'=>$id), $actions));
+    }
+
+    private function addActionToSession($type,$id){
+        $actions = $this->getActionsInSession();
+        $actions[] = array('type'=>$type,'id'=>$id);
+        $this->setActionsInSession($actions);
+    }
+    
+    
 }
 
 ?>
