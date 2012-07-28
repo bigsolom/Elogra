@@ -113,3 +113,35 @@ function dislike(elem){
     });
     $(elem).replaceWith($('<span/>').text($(elem).text()).addClass("dislikes record-controls gray"));
 }
+ function getLocation(latId,longId,addrId){
+    var geocoder = new google.maps.Geocoder();
+    var location,addr;
+    if (navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(function(position)
+        {
+            $('#'+longId).val(position.coords.longitude);
+            $('#'+latId).val(position.coords.latitude);
+            
+            var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            //---
+            geocoder.geocode({
+                'latLng': latlng
+            }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (results[1]) {
+                        $('#'+addrId).val(results[2].formatted_address);
+                    //infowindow.open(map, marker);
+                    }
+                } else {
+                    alert("Geocoder failed due to: " + status);
+                }
+            });
+
+        //---
+        
+        });
+    }else{
+        alert('else');
+    }
+}

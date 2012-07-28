@@ -1,13 +1,13 @@
 <script src="http://js.pusher.com/1.11/pusher.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    // Enable pusher logging - don't include this in production
-    Pusher.log = function(message) {
-        if (window.console && window.console.log) window.console.log(message);
-    };
+//    // Enable pusher logging - don't include this in production
+//    Pusher.log = function(message) {
+//        if (window.console && window.console.log) window.console.log(message);
+//    };
+//    // Flash fallback logging - don't include this in production
+//    WEB_SOCKET_DEBUG = true;
+//////   
     var socketId = null;
-    // Flash fallback logging - don't include this in production
-    WEB_SOCKET_DEBUG = true;
-   
     var pusher = new Pusher('<?= Zend_Registry::get('config')->get('pusher')->get('key') ?>');
     
     pusher.connection.bind('connected',function(){
@@ -40,6 +40,7 @@ $nickSession = new Zend_Session_Namespace('nickSession');
             $('#nickDivPost').show();
             $("#nicknameInput").val('<?= $nickSession->nickname ?>');
         }
+        getLocation('long','lat','addr');
     });
     
     
@@ -58,6 +59,8 @@ $nickSession = new Zend_Session_Namespace('nickSession');
         if(($("#nicknameInput").val() == '') || ($("#nicknameInput").val() == 'NoNickN')){
             $("#nicknameInput").val('<?= Application_Service_Translate::_('defaultNick') ?>');
         }
+        
+      
             
         $.ajax({
             url: "<?= $this->url(array('controller' => 'hakawy', 'action' => 'submit'), 'default', true) ?>",
@@ -89,6 +92,9 @@ $nickSession = new Zend_Session_Namespace('nickSession');
 <div id="alert-area"></div>
 <form id="hekayaForm" method="post" onsubmit="addHekaya(); return false;" class="well hekaya-border css3">
     <input type="hidden" name="sock_id" id="sock_id"/>
+    <input type="hidden" name="long" id="long"/>
+    <input type="hidden" name="lat" id="lat"/>
+    <input type="hidden" name="addr" id="addr"/>
     <fieldset>
         <textarea class="expand" id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput(this)" onblur="OnBlurInput(this)" placeholder="<?= Application_Service_Translate::_('tellUs') ?>"></textarea>
         <div class="singleLine">

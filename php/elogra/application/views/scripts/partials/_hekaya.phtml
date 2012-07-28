@@ -13,7 +13,7 @@
 
  <div class="record">
    <img src="/img/dot.png" class="record-bg"/>
-   <p class="nickname-text"><?=  Application_Service_Translate::_('hadoota')?> <?=$this->hekaya['nickname']?> : </p>
+   <p class="nickname-text"><?=$this->hekayaHeader($this->hekaya)?> : </p>
    
    <p>
        <?= Application_Service_TextFormatting::htmlNlEncoding2Br($this->hekaya['text'])?>

@@ -145,25 +145,6 @@ class Application_Model_Entries extends Zend_Db_Table_Abstract {
         return $text;
     }
 
-//    public function addAlbum($artist, $title) {
-//        $data = array(
-//            'artist' => $artist,
-//            'title' => $title,
-//        );
-//        $this->insert($data);
-//    }
-//    
-//    public function updateAlbum($id, $artist, $title) {
-//        $data = array(
-//            'artist' => $artist,
-//            'title' => $title,
-//        );
-//        $this->update($data, 'id = ' . (int) $id);
-//    }
-//    
-//    public function deleteAlbum($id){
-//        $this->delete('id =' . (int) $id);
-//    }
 
 }
 

@@ -46,7 +46,17 @@ class HakawyController extends Zend_Controller_Action
         $nickSession->nickname = $nickname;
         
         $hakawyService = new Application_Service_Hakawy();
-        $result = $hakawyService->submitHekaya($hekaya, $nickname);
+        $long = $this->_request->getParam('long');
+        $lat = $this->_request->getParam('lat');
+        $address = $this->_request->getParam('addr');
+        $location = null;
+        if(isset ($long)&&isset ($lat)&&isset ($address)){
+            $location = new stdClass();
+            $location->longitude = $long;
+            $location->latitude = $lat;
+            $location->address = $address;
+        }
+        $result = $hakawyService->submitHekaya($hekaya, $nickname,$location);
         if($result){
             $reply = array();
             $html = $this->view->partial('partials/_hekaya.phtml', array('hekaya' => $result));
