@@ -1,6 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
-        
+        //on enter submit the form
         $('#comment').keypress(function(e){
             if(e.which == 13){
                 e.preventDefault();
@@ -21,7 +21,7 @@
                 $('#comment').removeAttr("disabled");
             },
             success: function(data) {
-                $(".comments").prepend(data.html);
+                $(".comments").append(data.html);
             }
         });
     }
@@ -31,5 +31,5 @@
 </div>
 <form id="commentForm">
     <input type="hidden" name="id" value="<?=$this->id?>"/>
-    <textarea class="comment-expand" id="comment" name="comment" maxlength="500" placeholder="<?= Application_Service_Translate::_('add_your_comment') ?>"></textarea>
+    <textarea class="comment-expand" id="comment" name="comment" maxlength="300" placeholder="<?= Application_Service_Translate::_('add_your_comment') ?>"></textarea>
 </form>
