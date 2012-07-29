@@ -20,16 +20,13 @@
    <div >
    
        <a class="popup fb-t-share record-controls" href="http://www.facebook.com/sharer.php?u=<?=$hekayaUrl?>"><img src="/img/social-icons/circular/facebook_32.png" height="20px" width="20px"></img></a>
-       <a class="popup fb-t-share record-controls" href="https://twitter.com/share?hashtags=ElOgra&url=<?=$hekayaUrl?>" ><img src="/img/social-icons/circular/twitter_32.png" height="20px" width="20px"></img></a>
+       <a class="popup fb-t-share record-controls" href="https://twitter.com/share?hashtags=ElOgra&url=<?=$hekayaUrl?>&text=<?=  substr($this->hekaya['text'], 0, 100)?> ..." ><img src="/img/social-icons/circular/twitter_32.png" height="20px" width="20px"></img></a>
    
 
        <a class="delete record-controls" href="#" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::REPORT_TYPE_HAKAWY?>" onclick="javascript:report(this)"><?=  Application_Service_Translate::_('spam')?></a>
        
        <a class="likes record-controls" href="#!" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::HAKAWY_LIKE?>" onclick="javascript:like(this)"><?=  Application_Service_Translate::_('like')?></a>
        (<span id="<?='no_likes_'.$this->hekaya['id']?>"><?=$this->hekaya['likes']?></span>) 
-       
-       <a class="dislikes record-controls" href="#!" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::HAKAWY_DISLIKE?>" onclick="javascript:dislike(this)"><?=  Application_Service_Translate::_('dislike')?></a>
-        (<span id="<?='no_dislikes_'.$this->hekaya['id']?>"><?=$this->hekaya['dislikes']?></span>)
 
    </div>
    </p>    
