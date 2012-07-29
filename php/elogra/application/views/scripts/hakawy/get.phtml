@@ -1,3 +1,6 @@
 <div class="round-box-border css3">
 <?= $this->partial('partials/_hekaya.phtml', array('hekaya' => $this->hekaya)); ?>
+    <div class="comments">
+<?= $this->partial('partials/_comments.phtml', array('id' => $this->hekaya['id'],'type'=>'hakawy')); ?>
+    </div>    
 </div>

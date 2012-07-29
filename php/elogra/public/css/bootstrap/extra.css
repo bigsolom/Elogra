@@ -259,3 +259,19 @@ border-image: url('/img/hakawy-border.png') 22 27 27 fill stretch;
 .gray{
     color: gray;
 }
+
+.comment { 
+    direction: rtl;
+    margin: 0 0 20px 0; 
+    padding: 0 0 20px 0;
+    background: url('/skins/paper-brown/sidebar-divider.png') no-repeat 50% 100%;
+    
+}
+
+.comment-expand {
+    height: 100%;
+    width: 100%;
+    padding: 3px;
+        resize: none;
+
+}
