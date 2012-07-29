@@ -12,7 +12,7 @@
  */
 class CommentsController extends Zend_Controller_Action{
     //put your code here
-    public function commentAction(){
+    public function postAction(){
         $id = $this->_request->getParam('id');
         $text = $this->_request->getParam('comment');
         $nickname = $this->getNickName();
@@ -20,7 +20,7 @@ class CommentsController extends Zend_Controller_Action{
         $comment = $commentService->commentOnHekaya($id, $text, $nickname);
         if($comment){//comment was added
             $reply = array();
-            $html = $comment['nickname'].' '.$comment['text'].' '.$comment['creation_date'];
+            $html = $this->view->partial('partials/_comment.phtml', array('comment' => $comment));
             $reply['html'] = $html;
             $this->_helper->json($reply);
         }
