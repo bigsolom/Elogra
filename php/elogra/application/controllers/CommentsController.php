@@ -27,6 +27,20 @@ class CommentsController extends Zend_Controller_Action{
         
     }
     
+    public function indexAction(){
+        $id=$this->_request->getParam('id');
+        $type='hakawy';
+        $commentService = new Application_Service_Comment();
+        $comments = $commentService->getComments($id, $type);
+        $html = '';
+        $reply = array();
+        foreach ($comments as $comment){
+            $html .= $this->view->partial('partials/_comment.phtml', array('comment' => $comment));
+        }
+        $reply['html'] = $html;
+        $this->_helper->json($reply);
+    }
+    
     private function getNickName(){
         $nickSession = new Zend_Session_Namespace('nickSession');
         if (isset($nickSession->nickname)) {

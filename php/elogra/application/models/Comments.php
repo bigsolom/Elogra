@@ -30,6 +30,15 @@ class Application_Model_Comments extends Zend_Db_Table_Abstract {
             return $row->toArray();
     }
     
+    public function getComments($id,$type){
+        $select = $this->select();
+        $select->where(self::ENTITIY_ID." = ?",(int)$id)
+                ->where(self::ENTITY_TYPE." = ?",$type)
+                ->order("id ASC");
+        $rows = $this->fetchAll($select);
+        return $rows->toArray();
+    }
+    
 }
 
 ?>

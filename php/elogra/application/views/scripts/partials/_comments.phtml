@@ -7,6 +7,14 @@
                 addComment();
             }
         });
+        
+        //get the comments on hekaya
+        $.ajax({
+            url: "<?= $this->url(array('controller' => 'comments', 'action' => 'index','id'=>$this->id), 'default', true) ?>",
+            success: function(data) {
+                $(".comments").append(data.html);
+            }
+        });
     });
     function addComment(){
         $.ajax({

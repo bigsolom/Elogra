@@ -21,6 +21,11 @@ class Application_Service_Comment {
         $commentModel = new Application_Model_Comments();
         return $commentModel->addComment(array('entity_id'=>$entityId,'entity_type'=>$entityType,'text'=>$text,'nickname'=>$nickname));
     }
+    
+    public function getComments($entityId,$entityType){
+        $commentModel = new Application_Model_Comments();
+        return $commentModel->getComments($entityId, $entityType);
+    }
 
     
 }
