@@ -16,7 +16,9 @@
    <p class="nickname-text"><?=  Application_Service_Translate::_('hadoota')?> <?=$this->hekaya['nickname']?> : </p>
    
    <p>
-       <?= Application_Service_TextFormatting::htmlNlEncoding2Br($this->hekaya['text'])?>
+       <a href="<?=$this->serverUrl.$this->url(array('controller'=>'hakawy','action'=>'get','id'=>$this->hekaya['id']),'default',true)?>">
+        <?= Application_Service_TextFormatting::htmlNlEncoding2Br($this->hekaya['text'])?>
+   </a>
    <div >
    
        <a class="popup fb-t-share record-controls" href="http://www.facebook.com/sharer.php?u=<?=$hekayaUrl?>"><img src="/img/social-icons/circular/facebook_32.png" height="20px" width="20px"></img></a>
