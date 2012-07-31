@@ -35,6 +35,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $registry->set('Zend_Translate', $translate);
         Zend_Form::setDefaultTranslator($translate);
     }
+    
+    protected function _initActionHelpers(){
+         Zend_Controller_Action_HelperBroker::addPrefix('Elogra_Controller_Helper');
+    }
+
 
 }
 

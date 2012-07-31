@@ -18,11 +18,12 @@ class CommentsController extends Zend_Controller_Action{
         $nickname = $this->getNickName();
         $commentService = new Application_Service_Comment();
         $comment = $commentService->commentOnHekaya($id, $text, $nickname);
+        $notificationsHelper = $this->_helper->Notifications;
         if($comment){//comment was added
             $reply = array();
             $html = $this->view->partial('partials/_comment.phtml', array('comment' => $comment));
             $reply['html'] = $html;
-            $this->notifyConnectedUsers($html,  $this->_request->getParam('sock_id'),$id);
+            $notificationsHelper->notifyConnectedUsers('comments_channel',"comment_added_$id",$html,$this->_request->getParam('sock_id'));
             $this->_helper->json($reply);
         }
         
@@ -53,11 +54,6 @@ class CommentsController extends Zend_Controller_Action{
         return $nickname;
     }
     
-    private function notifyConnectedUsers($commentHtml,$execlude,$hekayaId){
-        $pusherConfig = Zend_Registry::get('config')->get('pusher')->toArray();
-        $pusher = new Elogra_Pusher($pusherConfig['key'],$pusherConfig['secret'],$pusherConfig['app_id']);
-        $pusher->trigger('comments_channel',"comment_added_$hekayaId",$commentHtml,$execlude);
-    }
 }
 
 ?>
