@@ -1,11 +1,11 @@
 <script type="text/javascript">
     // Enable pusher logging - don't include this in production
-    Pusher.log = function(message) {
-        if (window.console && window.console.log) window.console.log(message);
-    };
+//    Pusher.log = function(message) {
+//        if (window.console && window.console.log) window.console.log(message);
+//    };
     var socketId = null;
     // Flash fallback logging - don't include this in production
-    WEB_SOCKET_DEBUG = true;
+//    WEB_SOCKET_DEBUG = true;
    
     var pusher = new Pusher('<?= Zend_Registry::get('config')->get('pusher')->get('key') ?>');
     
