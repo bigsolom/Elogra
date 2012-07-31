@@ -39,6 +39,14 @@ class Application_Model_Comments extends Zend_Db_Table_Abstract {
         return $rows->toArray();
     }
     
+    public function getCommentsCount($id,$type){
+        $select = $this->select();
+        $select->from($this->_name,'COUNT(*) AS num')
+                ->where(self::ENTITIY_ID." = ?",(int)$id)
+                ->where(self::ENTITY_TYPE." = ?",$type);
+        return $this->fetchRow($select)->num;
+    }
+    
 }
 
 ?>

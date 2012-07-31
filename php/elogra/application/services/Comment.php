@@ -27,6 +27,10 @@ class Application_Service_Comment {
         return $commentModel->getComments($entityId, $entityType);
     }
 
+    public function getCommentsCount($entityId,$entityType){
+        $commentModel = new Application_Model_Comments();
+        return $commentModel->getCommentsCount($entityId, $entityType);
+    }
     
 }
 

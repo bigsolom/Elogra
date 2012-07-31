@@ -54,6 +54,15 @@ class CommentsController extends Zend_Controller_Action{
         return $nickname;
     }
     
+    public function countAction(){
+        $id=$this->_request->getParam('id');
+        $type='hakawy';
+        $commentService = new Application_Service_Comment();
+        $comments = $commentService->getCommentsCount($id, $type);
+        $reply['html'] = $comments;
+        $this->_helper->json($reply);
+    }
+    
 }
 
 ?>
