@@ -60,7 +60,7 @@ class HakawyController extends Zend_Controller_Action
     private function notifyConnectedUsers($hekayaHtml,$execlude){
         $pusherConfig = Zend_Registry::get('config')->get('pusher')->toArray();
         $pusher = new Elogra_Pusher($pusherConfig['key'],$pusherConfig['secret'],$pusherConfig['app_id']);
-        $pusher->trigger('test_channel','hekaya_added',$hekayaHtml,$execlude);
+        $pusher->trigger('hakawy_channel','hekaya_added',$hekayaHtml,$execlude);
     }
     
 }

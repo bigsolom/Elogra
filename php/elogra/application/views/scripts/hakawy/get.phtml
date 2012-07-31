@@ -1,3 +1,24 @@
+<script type="text/javascript">
+    // Enable pusher logging - don't include this in production
+    Pusher.log = function(message) {
+        if (window.console && window.console.log) window.console.log(message);
+    };
+    var socketId = null;
+    // Flash fallback logging - don't include this in production
+    WEB_SOCKET_DEBUG = true;
+   
+    var pusher = new Pusher('<?= Zend_Registry::get('config')->get('pusher')->get('key') ?>');
+    
+    pusher.connection.bind('connected',function(){
+        socketId = pusher.connection.socket_id;
+        $('#sock_id').val(socketId);
+    });
+    
+    var channel = pusher.subscribe('comments_channel');
+    channel.bind("comment_added<?='_'.$this->hekaya['id']?>", function(data) {
+        $(".comments").append(data);
+    });
+</script>
 <div class="round-box-border css3">
 <?= $this->partial('partials/_hekaya.phtml', array('hekaya' => $this->hekaya)); ?>
 <?= $this->partial('partials/_comments.phtml', array('id' => $this->hekaya['id'],'type'=>'hakawy')); ?>
