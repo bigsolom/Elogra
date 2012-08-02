@@ -76,6 +76,14 @@ class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
             }
         }
     }
+    
+    public function incrementCommentsCount($hekayaId){
+        $data = array(
+            'comments_count'=> new Zend_Db_Expr('comments_count + 1')
+        );
+        $where = $this->getAdapter()->quoteInto('id = ?', (int)$hekayaId);
+        $this->update($data, $where);
+    }
 }
 
 ?>

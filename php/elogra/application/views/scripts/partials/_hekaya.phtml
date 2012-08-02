@@ -30,6 +30,8 @@
        <a class="likes record-controls" href="#!" id="<?=$this->hekaya['id']?>" data-id="<?=$this->hekaya['id']?>" data-type="<?=Application_Model_DBConstants::HAKAWY_LIKE?>" onclick="javascript:like(this)"><?=  Application_Service_Translate::_('like')?></a>
        (<span id="<?='no_likes_'.$this->hekaya['id']?>"><?=$this->hekaya['likes']?></span>) 
 
+       <a class="likes record-controls" href="<?=$this->serverUrl().$this->url(array('controller'=>'hakawy','action'=>'get','id'=>$this->hekaya['id']),'default',true)?>" ><?=  Application_Service_Translate::_('comments')?></a>
+       (<span id="<?='no_comments_'.$this->hekaya['id']?>"><?=$this->hekaya['comments_count']?></span>) 
    </div>
    </p>    
 </div>

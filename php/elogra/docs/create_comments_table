@@ -10,3 +10,5 @@ DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_general_ci;
 
 ALTER TABLE `comments` ADD COLUMN `creation_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  AFTER `status` , CHANGE COLUMN `text` `text` VARCHAR(300) NOT NULL  , CHANGE COLUMN `nickname` `nickname` VARCHAR(100) NOT NULL  , CHANGE COLUMN `entity_id` `entity_id` INT(11) NOT NULL  , CHANGE COLUMN `entity_type` `entity_type` VARCHAR(45) NOT NULL  , CHANGE COLUMN `status` `status` INT(11) NOT NULL  ;
+
+ALTER TABLE `hakawy` ADD COLUMN `comments_count` INT NOT NULL DEFAULT 0;
