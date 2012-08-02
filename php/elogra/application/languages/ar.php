@@ -74,5 +74,7 @@ return array(
     'default_comment_fady' => 'الطريق فاضي',
     'no_results_found'=> 'محدش قال أجرة المشوار ده قبل كده, اعمل مشوارك و قولنا',
     'contact_us' => 'تواصل معانا',
+    'comments'=>'اصطباحات',
+    'add_your_comment'=> 'قول اصطباحتك',
     
 );

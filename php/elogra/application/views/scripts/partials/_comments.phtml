@@ -30,6 +30,8 @@
             },
             success: function(data) {
                 $(".comments").append(data.html);
+                var currNum = $('#no_comments_<?=$this->id?>').html();
+                $('#no_comments_<?=$this->id?>').html(++currNum);
             }
         });
     }
