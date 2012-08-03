@@ -39,7 +39,20 @@ $nickSession = new Zend_Session_Namespace('nickSession');
             $('#nickDivPost').show();
             $("#nicknameInput").val('<?= $nickSession->nickname ?>');
         }
+        
+    $('#taxiTalksInput').keyup(function () {
+        var arabic = /[\u0600-\u06FF]/;
+        var string = $(this).val().charAt(0);
+        if((arabic.test(string))){
+            $(this).attr('dir', 'rtl');
+        }else{
+            $(this).attr('dir', 'ltr');            
+        }
+//        $(this).unbind('keyup');
     });
+        
+    });
+    
     
     
     function editNickName(){

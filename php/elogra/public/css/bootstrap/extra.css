@@ -129,7 +129,7 @@ background-size : auto auto;
 
 .record			{ 
     margin:0 0 20px 0; 
-    padding: 0 0 5px 0;
+    padding: 0 0 20px 0;
     background: url('/img/hekaya-border.png') no-repeat 50% 100%;
     
 }
@@ -274,4 +274,8 @@ border-image: url('/img/hakawy-border.png') 22 27 27 fill stretch;
     padding: 3px;
         resize: none;
 
+}
+
+.ltr{
+    direction: ltr;
 }

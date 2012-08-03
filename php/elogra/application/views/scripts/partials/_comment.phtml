@@ -1,3 +1,9 @@
-<div class="comment">
-        <?=$this->comment['nickname']?>&nbsp;:&nbsp;<?=$this->comment['text']?>
-</div>
+<script type="text/javascript">
+$('.detect').each(function(){
+        var firstUnicode = $(this).html().charCodeAt(0); 
+         if(!(firstUnicode >= 1536 && firstUnicode<=1791)){//not arabic
+             $(this).addClass('ltr');
+         }
+    });
+</script>
+<div class="comment"><span class="detect"><?=$this->comment['nickname']?>&nbsp;</span>:&nbsp;<span class="detect"><?=$this->comment['text']?></span></div>
