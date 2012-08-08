@@ -50,7 +50,24 @@ $nickSession = new Zend_Session_Namespace('nickSession');
         }
 //        $(this).unbind('keyup');
     });
-        
+    
+   function addNick(){
+            $.ajax({
+            url: "<?= $this->url(array('controller'=>'index','action'=>'setnick'),'default',true) ?>",
+            dataType: "json", 
+            data: $('#nickForm').serialize(),
+            beforeSend:function(){ //disable button and field
+                $('#nick').attr("disabled","disabled");
+            },
+            complete: function(){//enable them back
+                $("#fuzz").fadeOut();
+            },
+            success: function(data) {
+                alert(data);
+            }
+        });
+        }
+        //-------------------
     });
     
     
@@ -96,6 +113,7 @@ $nickSession = new Zend_Session_Namespace('nickSession');
         $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>شكرا على الحدوته</strong></div> "));
         $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
     }
+     
 </script>
 <script type="text/javascript" src="/js/pagination.js"></script>
 <div id="alert-area"></div>
@@ -117,6 +135,7 @@ $nickSession = new Zend_Session_Namespace('nickSession');
         </div>
     </fieldset>
 </form>
+<button id="show">nternick</button>
 <script type="text/javascript" src="/js/charcount.js"></script>
 
 <div class="paginated round-box-border section css3" id="scrlDiv" data-page="1" data-status="idle">
@@ -130,3 +149,12 @@ $nickSession = new Zend_Session_Namespace('nickSession');
     ?>
 
 </div>
+
+<div id="fuzz">
+    <div class="msgbox">
+        <form id="nickForm">
+            <input type="text" name="nick" id="nick"/>
+        </form>
+       <a class="close" href="#" ><img src="close.jpg"/></a>
+    </div>
+ </div>
