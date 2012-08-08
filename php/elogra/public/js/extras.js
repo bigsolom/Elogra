@@ -113,3 +113,28 @@ function dislike(elem){
     });
     $(elem).replaceWith($('<span/>').text($(elem).text()).addClass("dislikes record-controls gray"));
 }
+
+function addNick(){
+    var name = prompt(enterNicknameMsg,defaultNick);
+    if(name != null){
+        $.ajax({
+            async: false,    
+            url: setNickUrl,
+            dataType: "json", 
+            data: {
+                nick: name
+            },
+            beforeSend:function(){ //disable button and field
+            //                $('#nick').attr("disabled","disabled");
+            },
+            complete: function(){//enable them back
+            //                $("#fuzz").fadeOut();
+            },
+            success: function(data) {
+            //                alert(data);
+            }
+        });
+    }else{
+        alert(noNicknameMsg);
+    }
+}

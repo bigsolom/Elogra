@@ -34,6 +34,12 @@ setInterval(updateLayout, 400);
 		
 		<!-- JS -->
 		<script type="text/javascript" src="/js/easing.js"></script>
+                <script type="text/javascript">
+                var enterNicknameMsg = "<?=Application_Service_Translate::_('enter_nick_msg')?>";
+                var defaultNick = "<?=  Application_Service_Translate::_('defaultNick')?>";
+                var setNickUrl = "<?= $this->url(array('controller' => 'index', 'action' => 'setnick'), 'default', true) ?>"
+                var noNicknameMsg = "<?=Application_Service_Translate::_('no_nick_msg')?>";
+                </script>
 		<script type="text/javascript" src="/js/extras.js"></script>
                 
                 

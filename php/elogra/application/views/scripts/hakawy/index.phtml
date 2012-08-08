@@ -28,7 +28,7 @@ $nickSession = new Zend_Session_Namespace('nickSession');
     var reportURL = "<?= $this->url(array('controller' => 'ajax', 'action' => 'report'), 'default', true) ?>";
     var reportMsg = "<?= Application_Service_Translate::_('report_success_msg') ?>";
     var likeURL = "<?= $this->url(array('controller' => 'ajax', 'action' => 'like'), 'default', true) ?>";
-    
+    var nickSet = <?php echo $this->nickset ?>;
     $(document).ready(function(){
         $('#nickDivPost').hide();
         if(($("#nicknameInput").val() == '') || ($("#nicknameInput").val() == 'NoNickN')){
@@ -51,24 +51,10 @@ $nickSession = new Zend_Session_Namespace('nickSession');
 //        $(this).unbind('keyup');
     });
     
-   function addNick(){
-            $.ajax({
-            url: "<?= $this->url(array('controller'=>'index','action'=>'setnick'),'default',true) ?>",
-            dataType: "json", 
-            data: $('#nickForm').serialize(),
-            beforeSend:function(){ //disable button and field
-                $('#nick').attr("disabled","disabled");
-            },
-            complete: function(){//enable them back
-                $("#fuzz").fadeOut();
-            },
-            success: function(data) {
-                alert(data);
-            }
-        });
-        }
-        //-------------------
-    });
+    
+    //-------------------
+});
+
     
     
     
@@ -83,9 +69,9 @@ $nickSession = new Zend_Session_Namespace('nickSession');
             $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });                
             return false;
         }
-            
-        if(($("#nicknameInput").val() == '') || ($("#nicknameInput").val() == 'NoNickN')){
-            $("#nicknameInput").val('<?= Application_Service_Translate::_('defaultNick') ?>');
+        
+        if(!nickSet){//no nickname
+            addNick();
         }
             
         $.ajax({
@@ -122,20 +108,14 @@ $nickSession = new Zend_Session_Namespace('nickSession');
     <fieldset>
         <textarea class="expand" id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput(this)" onblur="OnBlurInput(this)" placeholder="<?= Application_Service_Translate::_('tellUs') ?>"></textarea>
         <div class="singleLine">
-            <div id='nickDivInput'>
-                <?= Application_Service_Translate::_('nickname') ?>
-                <input type="text" class="nickname" name="nicknameInput" id="nicknameInput" title="nickname" value="<?= $nickSession->nickname ?>" placeholder="<?= Application_Service_Translate::_('defaultNick') ?>"/>
-            </div>
-
             <div id='nickDivPost'>
                 <?= Application_Service_Translate::_('myNick') ?>
-                <a href="#" id="nickChange" onclick="editNickName()" class="nickname"><?= $nickSession->nickname ?></a>
+                <a href="#" id="nickChange" onclick="addNick()" class="nickname"><?= $nickSession->nickname ?></a>
             </div>
             <input type="submit" name="button" id="hekayaButton" value="<?= Application_Service_Translate::_('share') ?>" class="add-hekaya-btn hekaya-padding"/> 
         </div>
     </fieldset>
 </form>
-<button id="show">nternick</button>
 <script type="text/javascript" src="/js/charcount.js"></script>
 
 <div class="paginated round-box-border section css3" id="scrlDiv" data-page="1" data-status="idle">
