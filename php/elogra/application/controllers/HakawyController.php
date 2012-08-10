@@ -6,7 +6,11 @@ class HakawyController extends Zend_Controller_Action
     public function indexAction(){
         $hakawyService = new Application_Service_Hakawy();
         $hakawy = $hakawyService->getHakawy(1);
+        $this->addNickIndicatorInView();
+        $this->view->hakawy = $hakawy;
+    }
     
+    private function addNickIndicatorInView(){
         $nickSession = new Zend_Session_Namespace('nickSession');
         if(($nickSession->nickname != '') && ($nickSession->nickname != null)){
             $this->view->nickset = 1;
@@ -14,14 +18,16 @@ class HakawyController extends Zend_Controller_Action
             $this->view->nickset = 0;
             
         }
-        $this->view->hakawy = $hakawy;
+        
     }
-    
+
+
     public function getAction(){
         $id  = $this->_request->getParam("id");
         $hakawyService = new Application_Service_Hakawy();
         $hekaya = $hakawyService->getHekaya($id);
         $this->view->hekaya = $hekaya;
+        $this->addNickIndicatorInView();
        
     }
     

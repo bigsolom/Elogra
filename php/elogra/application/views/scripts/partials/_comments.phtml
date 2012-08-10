@@ -1,4 +1,5 @@
 <script type="text/javascript">
+    var nickSet = <?php echo $this->nickset ?>;
     $(document).ready(function(){
         //on enter submit the form
         $('#comment').keypress(function(e){
@@ -17,6 +18,11 @@
         });
     });
     function addComment(){
+        
+        if(!nickSet){//no nickname
+            addNick();
+        }
+        
         $.ajax({
             url: "<?= $this->url(array('controller' => 'comments', 'action' => 'post'), 'default', true) ?>",
             dataType: "json", 
