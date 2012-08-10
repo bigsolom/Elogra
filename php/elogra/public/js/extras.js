@@ -134,6 +134,7 @@ function addNick(){
             //                alert(data);
             }
         });
+        //todo: add the new nick in ana: x
     }else{
         alert(noNicknameMsg);
     }
