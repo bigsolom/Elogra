@@ -206,6 +206,10 @@ border-image: url('/img/hakawy-border.png') 22 27 27 fill stretch;
     color: #fff;
 }
 
+.orange-back{
+    background: #FCB040;
+}
+
 .hekaya-padding{
     margin-left: 10px;
 }
