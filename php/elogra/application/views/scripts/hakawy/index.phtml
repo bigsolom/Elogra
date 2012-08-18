@@ -63,18 +63,8 @@ $nickSession = new Zend_Session_Namespace('nickSession');
         $('#nickDivPost').hide();
     }
     
-    function addHekaya(){
-        if($("#taxiTalksInput").val() == ''){
-            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أحكى حكايتك</strong></div> "));
-            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });                
-            return false;
-        }
-        
-        if(!nickSet){//no nickname
-            addNick();
-            nickSet = 1;
-        }
-            
+    function sendHekayaRequest(){
+        nickSet = 1;
         $.ajax({
             url: "<?= $this->url(array('controller' => 'hakawy', 'action' => 'submit'), 'default', true) ?>",
             dataType: "json", 
@@ -99,6 +89,22 @@ $nickSession = new Zend_Session_Namespace('nickSession');
         });
         $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>شكرا على الحدوته</strong></div> "));
         $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+    }
+    
+    function addHekaya(){
+        if($("#taxiTalksInput").val() == ''){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أحكى حكايتك</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });                
+            return false;
+        }
+        
+        if(!nickSet){//no nickname
+            addNick(sendHekayaRequest);
+            
+        }else{
+            sendHekayaRequest();
+        }
+            
     }
      
 </script>

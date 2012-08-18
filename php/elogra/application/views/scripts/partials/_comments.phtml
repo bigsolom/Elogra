@@ -17,13 +17,10 @@
             }
         });
     });
-    function addComment(){
-        
-        if(!nickSet){//no nickname
-            addNick();
+    
+    function sendCommentRequest(){
             nickSet = 1;
-        }
-        
+    
         $.ajax({
             url: "<?= $this->url(array('controller' => 'comments', 'action' => 'post'), 'default', true) ?>",
             dataType: "json", 
@@ -41,6 +38,16 @@
                 $('#no_comments_<?=$this->id?>').html(++currNum);
             }
         });
+    }
+    
+    function addComment(){
+        
+        if(!nickSet){//no nickname
+            addNick(sendCommentRequest);
+        }else{
+            sendCommentRequest();
+        }
+        
     }
 </script>
 <div class="comments">

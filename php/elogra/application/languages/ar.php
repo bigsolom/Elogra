@@ -78,5 +78,7 @@ return array(
     'add_your_comment'=> 'قول اصطباحتك',
     'enter_nick_msg' => 'اسمك ايه؟',
     'no_nick_msg' => 'لازم تقولنا اسمك',
+    'alert_ok'=>'كمل',
+    'alert_cancel'=>'الغي',
     
 );

@@ -114,9 +114,13 @@ function dislike(elem){
     $(elem).replaceWith($('<span/>').text($(elem).text()).addClass("dislikes record-controls gray"));
 }
 
-function addNick(){
-    var name = prompt(enterNicknameMsg,defaultNick);
-    if(name != null){
+function addNick(afterAdd){
+    $.alerts.dialogClass = 'round-box-border css3';
+    $.alerts.okButton = alertOk;
+    $.alerts.cancelButton = alertCancel;
+    jPrompt(enterNicknameMsg, defaultNick, '', function(name) {
+        if( name ) {
+        //setting nickname
         $.ajax({
             async: false,    
             url: setNickUrl,
@@ -134,8 +138,14 @@ function addNick(){
             //                alert(data);
             }
         });
-        //todo: add the new nick in ana: x
-    }else{
-        alert(noNicknameMsg);
-    }
+        
+        //calling function to be passed after adding
+        if(!(typeof afterAdd === "undefined")){
+            afterAdd();
+        }
+        
+        }else{
+            jAlertFade(noNicknameMsg, 'Alert Dialog');            
+        }
+    });
 }
