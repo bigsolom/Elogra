@@ -30,15 +30,6 @@ $nickSession = new Zend_Session_Namespace('nickSession');
     var likeURL = "<?= $this->url(array('controller' => 'ajax', 'action' => 'like'), 'default', true) ?>";
     var nickSet = <?php echo $this->nickset ?>;
     $(document).ready(function(){
-        $('#nickDivPost').hide();
-        if(($("#nicknameInput").val() == '') || ($("#nicknameInput").val() == 'NoNickN')){
-            $('#nickDivInput').show();
-            $('#nickDivPost').hide();
-        }else{
-            $('#nickDivInput').hide();
-            $('#nickDivPost').show();
-            $("#nicknameInput").val('<?= $nickSession->nickname ?>');
-        }
         
     $('#taxiTalksInput').keyup(function () {
         var arabic = /[\u0600-\u06FF]/;
@@ -57,12 +48,6 @@ $nickSession = new Zend_Session_Namespace('nickSession');
 
     
     
-    
-    function editNickName(){
-        $('#nickDivInput').show();
-        $('#nickDivPost').hide();
-    }
-    
     function sendHekayaRequest(){
         nickSet = 1;
         $.ajax({
@@ -78,13 +63,9 @@ $nickSession = new Zend_Session_Namespace('nickSession');
                 displayCharCounts(document.getElementById("taxiTalksInput"));//to reset the characters counter
                 $('#taxiTalksInput').removeAttr("disabled");
                 $('#hekayaButton').removeAttr("disabled");
-                $('#nickDivInput').hide();
-                $('#nickDivPost').show();                    
             },
             success: function(data) {
                 $(".section").prepend(data.html);
-                $("#nicknameInput").val(data.nickname);
-                $("#nickChange").html(data.nickname);
             }
         });
         $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>شكرا على الحدوته</strong></div> "));
@@ -115,10 +96,6 @@ $nickSession = new Zend_Session_Namespace('nickSession');
     <fieldset>
         <textarea class="expand" id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput(this)" onblur="OnBlurInput(this)" placeholder="<?= Application_Service_Translate::_('tellUs') ?>"></textarea>
         <div class="singleLine">
-            <div id='nickDivPost'>
-                <?= Application_Service_Translate::_('myNick') ?>
-                <a href="#" id="nickChange" onclick="addNick()" class="nickname"><?= $nickSession->nickname ?></a>
-            </div>
             <input type="submit" name="button" id="hekayaButton" value="<?= Application_Service_Translate::_('share') ?>" class="add-hekaya-btn hekaya-padding"/> 
         </div>
     </fieldset>

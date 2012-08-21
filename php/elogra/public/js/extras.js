@@ -139,6 +139,8 @@ function addNick(afterAdd){
             }
         });
         
+        $('#nickVal').html(name);
+        nickSet = 1;
         //calling function to be passed after adding
         if(!(typeof afterAdd === "undefined")){
             afterAdd();

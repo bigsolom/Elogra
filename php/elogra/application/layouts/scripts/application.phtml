@@ -171,33 +171,14 @@ setInterval(updateLayout, 400);
         <?php
             $nickSession = new Zend_Session_Namespace('nickSession');
         ?>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#nickDivPost').hide();
-        if(($("#nicknameInput").val() == '') || ($("#nicknameInput").val() == 'NoNickN')){
-            $('#nickDivInput').show();
-            $('#nickDivPost').hide();
-        }else{
-            $('#nickDivInput').hide();
-            $('#nickDivPost').show();
-            $("#nicknameInput").val('<?= $nickSession->nickname ?>');
-        }
-    });
-</script>
 
 <div id='nickDivInput'>
 <ul class="sf-vertical">
     <?= Application_Service_Translate::_('myNick') ?>
-    <a href="#" id="nickChange" onclick="" class="nickname">مش عارفنى؟!</a>
+    <a href="#" id="nickChange" onclick="addNick()" class="nickname"><span id="nickVal"><?=isset($nickSession->nickname)?$nickSession->nickname:'newnick'?></span></a>
 </ul>    
 </div>
 
-<div id='nickDivPost'>
-    <ul class="sf-vertical">
-        <?= Application_Service_Translate::_('myNick') ?>
-        <a href="#" id="nickChange" onclick="" class="nickname"><?= $nickSession->nickname ?></a>
-    </ul>
-</div>
 <!---------------------------->
 
 
