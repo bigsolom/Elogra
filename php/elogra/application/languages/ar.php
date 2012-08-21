@@ -11,6 +11,7 @@ return array(
     'defaultNick'=>'الأجرة',
     'hadoota'=>'حدوتة',
     'myNick'=>'أنا',
+    'noNick'=>'مش عارفنى؟!',
     //---- Taxi fares
     
     'taxi_titles_1'=>'أبيض و أسود',
