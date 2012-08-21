@@ -1,4 +1,5 @@
 <script type="text/javascript">
+    var nickSet = <?php echo $this->nickset ?>;
     $(document).ready(function(){
         //on enter submit the form
         $('#comment').keypress(function(e){
@@ -16,14 +17,8 @@
             }
         });
     });
-    function addComment(){
-    
-        if($("#comment").val() == ''){
-            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong> قول حاجة</strong></div> "));
-            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });                
-            return false;
-        }
-    
+    function sendCommentRequest(){
+            nickSet = 1;
         $.ajax({
             url: "<?= $this->url(array('controller' => 'comments', 'action' => 'post'), 'default', true) ?>",
             dataType: "json", 
@@ -41,6 +36,20 @@
                 $('#no_comments_<?=$this->id?>').html(++currNum);
             }
         });
+    }
+    
+    function addComment(){
+               if($("#comment").val() == ''){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong> قول حاجة</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });                
+            return false;
+        }
+        if(!nickSet){//no nickname
+            addNick(sendCommentRequest);
+        }else{
+            sendCommentRequest();
+        }
+        
     }
 </script>
 <div id="alert-area"></div>

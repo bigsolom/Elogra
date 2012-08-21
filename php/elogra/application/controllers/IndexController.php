@@ -11,21 +11,20 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
         $this->_redirect($this->view->url(array('controller'=>'hakawy','action'=>'index'),'default',true));
-        //$this->_helper->viewRenderer->setNoRender(true);
-       //$this->_helper->layout->disableLayout();
-//        $entries = new Application_Model_Entries();
-//        $this->view->entries = $entries->fetchAll()->toArray();
     }
     
-    public function searchAction(){
-        
+    public function newnickAction(){
+        $this->_helper->layout->disableLayout();
+//        $this->_helper->viewRenderer->setNoRender(TRUE);
+
     }
     
-    public function submitAction(){
-        
-    }
-    
-    public function hakawyAction(){
+    public function setnickAction(){
+        $nick = $this->_request->getParam('nick');
+        $nickSession = new Zend_Session_Namespace('nickSession');
+        $nickSession->nickname = $nick;
+        $result = true;
+        $this->_helper->json($result);
         
     }
 

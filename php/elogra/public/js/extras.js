@@ -113,3 +113,39 @@ function dislike(elem){
     });
     $(elem).replaceWith($('<span/>').text($(elem).text()).addClass("dislikes record-controls gray"));
 }
+
+function addNick(afterAdd){
+    $.alerts.dialogClass = 'round-box-border css3';
+    $.alerts.okButton = alertOk;
+    $.alerts.cancelButton = alertCancel;
+    jPrompt(enterNicknameMsg, defaultNick, '', function(name) {
+        if( name ) {
+        //setting nickname
+        $.ajax({
+            async: false,    
+            url: setNickUrl,
+            dataType: "json", 
+            data: {
+                nick: name
+            },
+            beforeSend:function(){ //disable button and field
+            //                $('#nick').attr("disabled","disabled");
+            },
+            complete: function(){//enable them back
+            //                $("#fuzz").fadeOut();
+            },
+            success: function(data) {
+            //                alert(data);
+            }
+        });
+        
+        //calling function to be passed after adding
+        if(!(typeof afterAdd === "undefined")){
+            afterAdd();
+        }
+        
+        }else{
+            jAlertFade(noNicknameMsg, 'Alert Dialog');            
+        }
+    });
+}

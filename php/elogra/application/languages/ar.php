@@ -76,5 +76,9 @@ return array(
     'contact_us' => 'تواصل معانا',
     'comments'=>'اصطباحات',
     'add_your_comment'=> 'قول اصطباحتك',
+    'enter_nick_msg' => 'اسمك ايه؟',
+    'no_nick_msg' => 'لازم تقولنا اسمك',
+    'alert_ok'=>'كمل',
+    'alert_cancel'=>'الغي',
     
 );

@@ -28,7 +28,7 @@ $nickSession = new Zend_Session_Namespace('nickSession');
     var reportURL = "<?= $this->url(array('controller' => 'ajax', 'action' => 'report'), 'default', true) ?>";
     var reportMsg = "<?= Application_Service_Translate::_('report_success_msg') ?>";
     var likeURL = "<?= $this->url(array('controller' => 'ajax', 'action' => 'like'), 'default', true) ?>";
-    
+    var nickSet = <?php echo $this->nickset ?>;
     $(document).ready(function(){
         $('#nickDivPost').hide();
         if(($("#nicknameInput").val() == '') || ($("#nicknameInput").val() == 'NoNickN')){
@@ -50,8 +50,11 @@ $nickSession = new Zend_Session_Namespace('nickSession');
         }
 //        $(this).unbind('keyup');
     });
-        
-    });
+    
+    
+    //-------------------
+});
+
     
     
     
@@ -60,17 +63,8 @@ $nickSession = new Zend_Session_Namespace('nickSession');
         $('#nickDivPost').hide();
     }
     
-    function addHekaya(){
-        if($("#taxiTalksInput").val() == ''){
-            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أحكى حكايتك</strong></div> "));
-            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });                
-            return false;
-        }
-            
-        if(($("#nicknameInput").val() == '') || ($("#nicknameInput").val() == 'NoNickN')){
-            $("#nicknameInput").val('<?= Application_Service_Translate::_('defaultNick') ?>');
-        }
-            
+    function sendHekayaRequest(){
+        nickSet = 1;
         $.ajax({
             url: "<?= $this->url(array('controller' => 'hakawy', 'action' => 'submit'), 'default', true) ?>",
             dataType: "json", 
@@ -96,6 +90,23 @@ $nickSession = new Zend_Session_Namespace('nickSession');
         $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>شكرا على الحدوته</strong></div> "));
         $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
     }
+    
+    function addHekaya(){
+        if($("#taxiTalksInput").val() == ''){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong>أحكى حكايتك</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });                
+            return false;
+        }
+        
+        if(!nickSet){//no nickname
+            addNick(sendHekayaRequest);
+            
+        }else{
+            sendHekayaRequest();
+        }
+            
+    }
+     
 </script>
 <script type="text/javascript" src="/js/pagination.js"></script>
 <div id="alert-area"></div>
@@ -104,14 +115,9 @@ $nickSession = new Zend_Session_Namespace('nickSession');
     <fieldset>
         <textarea class="expand" id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput(this)" onblur="OnBlurInput(this)" placeholder="<?= Application_Service_Translate::_('tellUs') ?>"></textarea>
         <div class="singleLine">
-            <div id='nickDivInput'>
-                <?= Application_Service_Translate::_('nickname') ?>
-                <input type="text" class="nickname" name="nicknameInput" id="nicknameInput" title="nickname" value="<?= $nickSession->nickname ?>" placeholder="<?= Application_Service_Translate::_('defaultNick') ?>"/>
-            </div>
-
             <div id='nickDivPost'>
                 <?= Application_Service_Translate::_('myNick') ?>
-                <a href="#" id="nickChange" onclick="editNickName()" class="nickname"><?= $nickSession->nickname ?></a>
+                <a href="#" id="nickChange" onclick="addNick()" class="nickname"><?= $nickSession->nickname ?></a>
             </div>
             <input type="submit" name="button" id="hekayaButton" value="<?= Application_Service_Translate::_('share') ?>" class="add-hekaya-btn hekaya-padding"/> 
         </div>
@@ -130,3 +136,12 @@ $nickSession = new Zend_Session_Namespace('nickSession');
     ?>
 
 </div>
+
+<div id="fuzz">
+    <div class="msgbox">
+        <form id="nickForm">
+            <input type="text" name="nick" id="nick"/>
+        </form>
+       <a class="close" href="#" ><img src="close.jpg"/></a>
+    </div>
+ </div>

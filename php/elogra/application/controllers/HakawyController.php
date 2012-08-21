@@ -6,21 +6,28 @@ class HakawyController extends Zend_Controller_Action
     public function indexAction(){
         $hakawyService = new Application_Service_Hakawy();
         $hakawy = $hakawyService->getHakawy(1);
-    
-        $nickSession = new Zend_Session_Namespace('nickSession');
-        if(($nickSession->nickname != '') && ($nickSession->nickname != null)){
-            $this->view->nickname = $nickSession->nickname;
-        }else{
-            $this->view->nickname = 'NoNickN';
-        }
+        $this->addNickIndicatorInView();
         $this->view->hakawy = $hakawy;
     }
     
+    private function addNickIndicatorInView(){
+        $nickSession = new Zend_Session_Namespace('nickSession');
+        if(($nickSession->nickname != '') && ($nickSession->nickname != null)){
+            $this->view->nickset = 1;
+        }else{
+            $this->view->nickset = 0;
+            
+        }
+        
+    }
+
+
     public function getAction(){
         $id  = $this->_request->getParam("id");
         $hakawyService = new Application_Service_Hakawy();
         $hekaya = $hakawyService->getHekaya($id);
         $this->view->hekaya = $hekaya;
+        $this->addNickIndicatorInView();
        
     }
     
@@ -40,10 +47,9 @@ class HakawyController extends Zend_Controller_Action
     
     public function submitAction(){
         $hekaya = $this->_request->getParam("taxiTalksInput");
-        $nickname = $this->_request->getParam("nicknameInput");
         
         $nickSession = new Zend_Session_Namespace('nickSession');
-        $nickSession->nickname = $nickname;
+        $nickname = $nickSession->nickname;
         
         $hakawyService = new Application_Service_Hakawy();
         $result = $hakawyService->submitHekaya($hekaya, $nickname);
