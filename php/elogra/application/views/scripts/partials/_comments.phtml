@@ -17,6 +17,13 @@
         });
     });
     function addComment(){
+    
+        if($("#comment").val() == ''){
+            $("#alert-area").append($("<div id=\"error-alert\" class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\">×</a> <strong> قول حاجة</strong></div> "));
+            $("#error-alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });                
+            return false;
+        }
+    
         $.ajax({
             url: "<?= $this->url(array('controller' => 'comments', 'action' => 'post'), 'default', true) ?>",
             dataType: "json", 
@@ -36,6 +43,7 @@
         });
     }
 </script>
+<div id="alert-area"></div>
 <div class="comments">
     
 </div>

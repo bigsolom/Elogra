@@ -154,18 +154,52 @@ setInterval(updateLayout, 400);
                         <a href="<?=$this->url(array('controller'=>'index','action'=>'index'),'default',true)?>"><img src="/img/logo.png" alt="Elogra Logo" id="logo" /></a>
 						
 			<!-- Navigation class="current-menu-item" -->
-		  <ul id="nav" class="sf-menu sf-vertical">
-<li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'hakawy','action'=>'index'),'default',true)?>" title="Cairo Taxi Stories"><?=  Application_Service_Translate::_('taxi_talks_link')?></a></li>
-<li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'search','action'=>'index'),'default',true)?>" title="Search Cairo Taxi Fares"><?=  Application_Service_Translate::_('search_link')?></a></li>				
-<li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'submit','action'=>'index'),'default',true)?>" title="Submit Cairo Taxi Fares"><?=  Application_Service_Translate::_('submit_link')?></a></li>
-<li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'fares','action'=>'index'),'default',true)?>" title="Calculate Cairo Taxi Fares"><?=  Application_Service_Translate::_('fares_link')?></a></li>
+<!-- nickname session -->
+        <?php
+            $nickSession = new Zend_Session_Namespace('nickSession');
+        ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#nickDivPost').hide();
+        if(($("#nicknameInput").val() == '') || ($("#nicknameInput").val() == 'NoNickN')){
+            $('#nickDivInput').show();
+            $('#nickDivPost').hide();
+        }else{
+            $('#nickDivInput').hide();
+            $('#nickDivPost').show();
+            $("#nicknameInput").val('<?= $nickSession->nickname ?>');
+        }
+    });
+</script>
 
+<div id='nickDivInput'>
+<ul class="sf-vertical">
+    <?= Application_Service_Translate::_('myNick') ?>
+    <a href="#" id="nickChange" onclick="" class="nickname">مش عارفنى؟!</a>
+</ul>    
+</div>
+
+<div id='nickDivPost'>
+    <ul class="sf-vertical">
+        <?= Application_Service_Translate::_('myNick') ?>
+        <a href="#" id="nickChange" onclick="" class="nickname"><?= $nickSession->nickname ?></a>
+    </ul>
+</div>
+<!---------------------------->
+
+
+<ul id="nav" class="sf-menu sf-vertical">                      
+    <li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'hakawy','action'=>'index'),'default',true)?>" title="Cairo Taxi Stories"><?=  Application_Service_Translate::_('taxi_talks_link')?></a></li>
+    <li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'search','action'=>'index'),'default',true)?>" title="Search Cairo Taxi Fares"><?=  Application_Service_Translate::_('search_link')?></a></li>				
+    <li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'submit','action'=>'index'),'default',true)?>" title="Submit Cairo Taxi Fares"><?=  Application_Service_Translate::_('submit_link')?></a></li>
+    <li><a href="<?=$this->serverUrl().$this->url(array('controller'=>'fares','action'=>'index'),'default',true)?>" title="Calculate Cairo Taxi Fares"><?=  Application_Service_Translate::_('fares_link')?></a></li>
+</ul>
 			<!-- Navigation -->	
 					
 			<!-- categories --><!-- categories -->	
 			<!-- latest tweets --><!-- ENDS latest tweets -->
 			
-                        </ul>
+                        
 			<!-- Social -->
 			<ul class="social">
                                                    <br>

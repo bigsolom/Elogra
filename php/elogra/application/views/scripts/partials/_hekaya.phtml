@@ -2,12 +2,15 @@
     $hekayaUrl = $this->serverUrl().$this->url(array('controller'=>'hakawy','action'=>'get','id'=>$this->hekaya['id']),'default',true);
 ?>
 <script>
+$(document).ready(function(){
     $('.hekaya').each(function(){
         var firstUnicode = $(this).html().charCodeAt(0); 
          if(!(firstUnicode >= 1536 && firstUnicode<=1791)){//not arabic
              $(this).addClass('ltr');
          }
     });
+});    
+
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
         if(!d.getElementById(id))
             {
