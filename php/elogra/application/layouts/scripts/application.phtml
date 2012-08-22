@@ -41,6 +41,8 @@ setInterval(updateLayout, 400);
                 var noNicknameMsg = "<?=Application_Service_Translate::_('no_nick_msg')?>";
                 var alertOk = "<?=Application_Service_Translate::_('alert_ok')?>";
                 var alertCancel ="<?=Application_Service_Translate::_('alert_cancel')?>";
+                var likeURL = "<?= $this->serverUrl().$this->url(array('controller' => 'ajax', 'action' => 'like'), 'default', true) ?>";
+                var reportURL = "<?= $this->serverUrl().$this->url(array('controller' => 'ajax', 'action' => 'report'), 'default', true) ?>";
                 </script>
 		<script type="text/javascript" src="/js/extras.js"></script>
                 

@@ -35,14 +35,16 @@ class HakawyController extends Zend_Controller_Action
         $page = $this->_request->getParam('page');
         $hakawyService = new Application_Service_Hakawy();
         $hakawy = $hakawyService->getHakawy($page);
-        
+        $options = array();
+        $options['enableJsonExprFinder'] = true;
+        $options['keepLayouts'] = false;
         $html = '';
         foreach ($hakawy as $hekaya){
             $html .= $this->view->partial('partials/_hekaya.phtml',array('hekaya'=>$hekaya));
         }
         $result = array();
         $result['html'] = $html;
-        $this->_helper->json($result);
+        $this->_helper->json($result,$options);
     }
     
     public function submitAction(){

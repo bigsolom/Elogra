@@ -76,6 +76,9 @@ class AjaxController extends Zend_Controller_Action {
 
     private function isActionInSession($type,$id){
         $actions = $this->getActionsInSession();
+        if($actions == null ){
+            $actions = array();
+        }
         return (in_array(array('type'=>$type,'id'=>$id), $actions));
     }
 
