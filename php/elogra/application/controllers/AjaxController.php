@@ -85,6 +85,14 @@ class AjaxController extends Zend_Controller_Action {
         $this->setActionsInSession($actions);
     }
     
+    public function setnickAction(){
+        $nick = $this->_request->getParam('nick');
+        $nickSession = new Zend_Session_Namespace('nickSession');
+        $nickSession->nickname = $nick;
+        $result = true;
+        $this->_helper->json($result);
+        
+    }
     
 }
 

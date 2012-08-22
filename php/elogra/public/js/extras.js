@@ -136,6 +136,9 @@ function addNick(afterAdd){
             },
             success: function(data) {
             //                alert(data);
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                alert(errorThrown);
             }
         });
         

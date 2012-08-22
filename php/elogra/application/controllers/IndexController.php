@@ -19,14 +19,7 @@ class IndexController extends Zend_Controller_Action
 
     }
     
-    public function setnickAction(){
-        $nick = $this->_request->getParam('nick');
-        $nickSession = new Zend_Session_Namespace('nickSession');
-        $nickSession->nickname = $nick;
-        $result = true;
-        $this->_helper->json($result);
-        
-    }
+    
 
 
 }

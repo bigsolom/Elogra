@@ -37,7 +37,7 @@ setInterval(updateLayout, 400);
                 <script type="text/javascript">
                 var enterNicknameMsg = "<?=Application_Service_Translate::_('enter_nick_msg')?>";
                 var defaultNick = "<?=  Application_Service_Translate::_('defaultNick')?>";
-                var setNickUrl = "<?= $this->url(array('controller' => 'index', 'action' => 'setnick'), 'default', true) ?>"
+                var setNickUrl = "<?= $this->serverUrl().$this->url(array('controller' => 'ajax', 'action' => 'setnick'), 'default', true) ?>"
                 var noNicknameMsg = "<?=Application_Service_Translate::_('no_nick_msg')?>";
                 var alertOk = "<?=Application_Service_Translate::_('alert_ok')?>";
                 var alertCancel ="<?=Application_Service_Translate::_('alert_cancel')?>";
