@@ -30,6 +30,27 @@ class Application_Service_Submit {
         
         $liveFares->updateFares($srcID, $destID, $taxiType, $avg);
     }
+    
+    public function recalculateLiveFares() {
+        $liveFares = new Application_Model_LiveFares();
+        $entries = new Application_Model_Entries();
+        $fares = $liveFares->getAllFares();
+        foreach ($fares as $fareRow) {
+            $fare = $fareRow->toArray();
+            $srcID = $fare['src_id'];
+            $destID = $fare['dest_id'];
+            $taxiType = $fare['taxi_type'];
+            
+            $entriesRows = $entries->getEntries($srcID, $destID, $taxiType, 1);
+
+            $total = 0;
+            foreach ($entriesRows as $entry) {
+                $total += $entry['fare'];
+            }
+            $avg = $total / count($entriesRows);
+            $liveFares->updateFares($srcID, $destID, $taxiType, $avg);
+        }
+    }
 }
 
 ?>

@@ -31,5 +31,11 @@ class SubmitController extends Zend_Controller_Action
         //$this->view->submitEntry = "Entry submitted";
 
     }
+    
+//    public function recalcAction(){
+//        $submit = new Application_Service_Submit();
+//        $submit->recalculateLiveFares();
+//        $this->_helper->json('done');
+//    }
 }
 ?>

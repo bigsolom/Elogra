@@ -77,6 +77,13 @@ class Application_Model_LiveFares extends Zend_Db_Table_Abstract  {
 
         }
     }
+    
+    public function getAllFares(){
+        
+        $select = $this->select();
+        $rows = $this->fetchAll($select);
+        return $rows;
+    }
 }
 
 ?>
