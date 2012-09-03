@@ -62,12 +62,19 @@ class Application_Model_LiveFares extends Zend_Db_Table_Abstract  {
                 'time_last_update' => new Zend_Db_Expr('NOW()')
             );
             
-            $where = array(
-                'src_id' => $srcID,
-                'dest_id' => $destID,
-                'taxi_type' => $taxiType
-            );
+            $where[] = $this->getAdapter()->quoteInto('src_id = ?', (int)$srcID);
+            $where[] = $this->getAdapter()->quoteInto('dest_id = ?', (int)$destID);
+            $where[] = $this->getAdapter()->quoteInto('taxi_type = ?', (int)$taxiType);
+            
+//            $where = array(
+//                "src_id= $srcID",
+//                "dest_id= $destID",
+//                "taxi_type= $taxiType"
+//            );
+
             $this->update($data, $where);
+            
+
         }
     }
 }
