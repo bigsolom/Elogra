@@ -81,5 +81,6 @@ return array(
     'no_nick_msg' => 'لازم تقولنا اسمك',
     'alert_ok'=>'كمل',
     'alert_cancel'=>'الغي',
+    'sponsers'=>'أصحابنا',
     
 );
