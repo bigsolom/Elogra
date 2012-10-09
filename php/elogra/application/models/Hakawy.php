@@ -13,6 +13,7 @@ class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
     protected $_name='hakawy';
     const NO_OF_ENTRIES_PER_PAGE = 5;
     
+    
     public function submitHekaya($hekaya, $nickname){
         $data = array(
             'text' => $hekaya,
@@ -25,9 +26,13 @@ class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
     
     public function getHakawy($pageNumber){
         $select = $this->select();
-        $select->order("id DESC")
+        $select ->setIntegrityCheck(false)
+                ->from($this)
+                ->join(array('l'=>'locations'),"hakawy.id = l.entity_id AND l.entity_type='hakawy'",array('address'=>'addr'))
                 ->where(Application_Model_DBConstants::HAKAWY_STATUS."=?",0)
+                ->order("id DESC")
                ->limitPage($pageNumber, self::NO_OF_ENTRIES_PER_PAGE);
+        
         $rows = $this->fetchAll($select);
         if (!$rows) {
             throw new Exception("Could not find rows");

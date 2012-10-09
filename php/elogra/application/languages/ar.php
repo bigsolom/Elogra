@@ -82,6 +82,10 @@ return array(
     'alert_ok'=>'كمل',
     'alert_cancel'=>'الغي',
     'sponsers'=>'أصحابنا',
+
     'contest'=>'المسابقة',
+
+    'from_location'=>'من',
+
     
 );
