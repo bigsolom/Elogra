@@ -28,7 +28,7 @@ class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
         $select = $this->select();
         $select ->setIntegrityCheck(false)
                 ->from($this)
-                ->join(array('l'=>'locations'),"hakawy.id = l.entity_id AND l.entity_type='hakawy'",array('address'=>'addr'))
+                ->joinLeft(array('l'=>'locations'),"hakawy.id = l.entity_id AND l.entity_type='hakawy'",array('address'=>'addr'))
                 ->where(Application_Model_DBConstants::HAKAWY_STATUS."=?",0)
                 ->order("id DESC")
                ->limitPage($pageNumber, self::NO_OF_ENTRIES_PER_PAGE);
