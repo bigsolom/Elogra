@@ -22,8 +22,10 @@ $(document).ready(function(){
 
  <div class="record">
    <img src="/img/dot.png" class="record-bg"/>
-   <p class="nickname-text"><?=  Application_Service_Translate::_('hadoota')?> <?=$this->hekaya['nickname']?> : 
+   <p class="nickname-text"><?=Application_Service_Translate::_('hadoota')?> <?=$this->hekaya['nickname']?>
+   (<?=Application_Service_Translate::_('from_h').' '. Application_Service_TextFormatting::time_difference($this->hekaya['hekaya_time'])?> ):
    </p>
+   
    
    <p class="hekaya"><?= Application_Service_TextFormatting::htmlNlEncoding2Br($this->hekaya['text'])?></p>    
    <div >
@@ -38,6 +40,6 @@ $(document).ready(function(){
        (<span id="<?='no_likes_'.$this->hekaya['id']?>"><?=$this->hekaya['likes']?></span>) 
 
        <a class="likes record-controls" href="<?=$this->serverUrl().$this->url(array('controller'=>'hakawy','action'=>'get','id'=>$this->hekaya['id']),'default',true)?>" ><?=  Application_Service_Translate::_('comments')?></a>
-       (<span id="<?='no_comments_'.$this->hekaya['id']?>"><?=$this->hekaya['comments_count']?></span>) 
+       (<span id="<?='no_comments_'.$this->hekaya['id']?>"><?=$this->hekaya['comments_count']?></span>)
    </div>
 </div>

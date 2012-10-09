@@ -12,6 +12,9 @@ return array(
     'hadoota'=>'حدوتة',
     'myNick'=>'أنا',
     'noNick'=>'مش عارفنى؟!',
+    'ago'=>'زمان',
+    'from_h'=>'من',
+    
     //---- Taxi fares
     
     'taxi_titles_1'=>'أبيض و أسود',
