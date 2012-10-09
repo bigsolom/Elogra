@@ -42,6 +42,8 @@ $nickSession = new Zend_Session_Namespace('nickSession');
 //        $(this).unbind('keyup');
     });
     
+    getLocation('long','lat','addr');
+    
     
     //-------------------
 });
@@ -93,6 +95,9 @@ $nickSession = new Zend_Session_Namespace('nickSession');
 <div id="alert-area"></div>
 <form id="hekayaForm" method="post" onsubmit="addHekaya(); return false;" class="well hekaya-border css3">
     <input type="hidden" name="sock_id" id="sock_id"/>
+    <input type="hidden" name="long" id="long"/>
+    <input type="hidden" name="lat" id="lat"/>
+    <input type="hidden" name="addr" id="addr"/>
     <fieldset>
         <textarea class="expand" id="taxiTalksInput" name="taxiTalksInput" maxlength="500"  onfocus="OnFocusInput(this)" onblur="OnBlurInput(this)" placeholder="<?= Application_Service_Translate::_('tellUs') ?>"></textarea>
         <div class="singleLine">

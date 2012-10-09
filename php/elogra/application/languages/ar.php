@@ -82,5 +82,6 @@ return array(
     'alert_ok'=>'كمل',
     'alert_cancel'=>'الغي',
     'sponsers'=>'أصحابنا',
+    'from_location'=>'من'
     
 );

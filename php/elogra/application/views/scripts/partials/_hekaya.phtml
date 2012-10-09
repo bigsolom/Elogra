@@ -22,7 +22,12 @@ $(document).ready(function(){
 
  <div class="record">
    <img src="/img/dot.png" class="record-bg"/>
-   <p class="nickname-text"><?=  Application_Service_Translate::_('hadoota')?> <?=$this->hekaya['nickname']?> : 
+   <p class="nickname-text"><?=  Application_Service_Translate::_('hadoota')?> <?=$this->hekaya['nickname']?> 
+       <?php
+       if(isset($this->hekaya['address']) && !empty($this->hekaya['address'])){
+           echo Application_Service_Translate::_('from_location').'&nbsp;'.$this->hekaya['address'];
+       }
+       ?>
    </p>
    
    <p class="hekaya"><?= Application_Service_TextFormatting::htmlNlEncoding2Br($this->hekaya['text'])?></p>    

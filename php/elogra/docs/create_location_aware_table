@@ -1,0 +1,11 @@
+CREATE  TABLE `locations` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `latitude` DOUBLE NOT NULL ,
+  `longitude` DOUBLE NOT NULL ,
+  `addr` VARCHAR(300) NOT NULL ,
+  `addr_ar` VARCHAR(300) NULL ,
+  `entity_id` INT NOT NULL ,
+  `entity_type` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`id`) )
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_general_ci;
