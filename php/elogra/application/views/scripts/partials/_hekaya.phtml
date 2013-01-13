@@ -22,9 +22,8 @@ $(document).ready(function(){
 
  <div class="record clearfix">
    
-   <div class="hekaya-header">    
         <div class="pull-right">
-            <img src="/img/dot.png" class="record-bg"/>&nbsp;<?=  Application_Service_Translate::_('hadoota')?> <?=$this->hekaya['nickname']?> 
+            <img src="/img/dot.png"/>&nbsp;<?=  Application_Service_Translate::_('hadoota')?> <?=$this->hekaya['nickname']?> 
        </div>
         <div class="pull-left">
        <?php
@@ -36,13 +35,12 @@ $(document).ready(function(){
        ?>
             <i class="icon-time"></i>&nbsp;<?=Application_Service_TextFormatting::time_difference($this->hekaya['hekaya_time'])?>
        </div>
- </div>
    
    
    <div class="hekaya-content new-line">
    <p class="hekaya"><?= Application_Service_TextFormatting::htmlNlEncoding2Br($this->hekaya['text'])?></p>    
    </div>
-   <div >
+   <div>
    
        <a class="popup fb-t-share record-controls" href="http://www.facebook.com/sharer.php?u=<?=$hekayaUrl?>"><img src="/img/social-icons/circular/facebook_32.png" height="20px" width="20px"></img></a>
        <a class="popup fb-t-share record-controls" href="https://twitter.com/share?hashtags=ElOgra&url=<?=$hekayaUrl?>&text=<?=  mb_substr($this->hekaya['text'], 0, 100,'UTF-8')?> ..." ><img src="/img/social-icons/circular/twitter_32.png" height="20px" width="20px"></img></a>
