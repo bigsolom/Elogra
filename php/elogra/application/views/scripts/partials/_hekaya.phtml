@@ -20,19 +20,28 @@ $(document).ready(function(){
         }(document,"script","twitter-wjs");
 </script>
 
- <div class="record">
-   <img src="/img/dot.png" class="record-bg"/>
-       <p class="nickname-text"><?=  Application_Service_Translate::_('hadoota')?> <?=$this->hekaya['nickname']?> 
+ <div class="record clearfix">
+   
+   <div class="hekaya-header">    
+        <div class="pull-right">
+            <img src="/img/dot.png" class="record-bg"/>&nbsp;<?=  Application_Service_Translate::_('hadoota')?> <?=$this->hekaya['nickname']?> 
+       </div>
+        <div class="pull-left">
        <?php
-       if(isset($this->hekaya['address']) && !empty($this->hekaya['address'])){
-           echo Application_Service_Translate::_('from_location').'&nbsp;'.$this->hekaya['address'];
-       }
+       if(isset($this->hekaya['address']) && !empty($this->hekaya['address'])){?>
+           
+            <i class="icon-pushpin"></i>&nbsp;<?=$this->hekaya['address']?>
+       <?php
+             }
        ?>
-   (<?=Application_Service_Translate::_('from_h').' '. Application_Service_TextFormatting::time_difference($this->hekaya['hekaya_time'])?> ):
-   </p>
+            <i class="icon-time"></i>&nbsp;<?=Application_Service_TextFormatting::time_difference($this->hekaya['hekaya_time'])?>
+       </div>
+ </div>
    
    
+   <div class="hekaya-content new-line">
    <p class="hekaya"><?= Application_Service_TextFormatting::htmlNlEncoding2Br($this->hekaya['text'])?></p>    
+   </div>
    <div >
    
        <a class="popup fb-t-share record-controls" href="http://www.facebook.com/sharer.php?u=<?=$hekayaUrl?>"><img src="/img/social-icons/circular/facebook_32.png" height="20px" width="20px"></img></a>
