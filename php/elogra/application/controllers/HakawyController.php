@@ -10,6 +10,37 @@ class HakawyController extends Zend_Controller_Action
         $this->view->hakawy = $hakawy;
     }
     
+  public function xmlAction()
+    {
+       $hakawyService = new Application_Service_Hakawy();
+        $hakawy = $hakawyService->getHakawy(1);
+        
+        // XML-related routine
+        $xml = new DOMDocument('1.0', 'utf-8');
+        $hakawyElement = $xml->createElement('hakawy');
+        foreach ($hakawy as $hekaya){
+            $hekayaElement = $xml->createElement('hekaya');
+            $hekayaElement->appendChild($xml->createElement('id', $hekaya['id']));
+            $hekayaElement->appendChild($xml->createElement('text', $hekaya['text']));
+            $hekayaElement->appendChild($xml->createElement('nickname', $hekaya['nickname']));
+            $hekayaElement->appendChild($xml->createElement('hekaya_time', $hekaya['hekaya_time']));
+            $hekayaElement->appendChild($xml->createElement('address', $hekaya['address']));
+            $hekayaElement->appendChild($xml->createElement('likes', $hekaya['likes']));
+            $hakawyElement->appendChild($hekayaElement);
+        }
+        $xml->appendChild($hakawyElement);
+//        $xml->appendChild($xml->createElement('foo', 'bar'));
+        $output = $xml->saveXML();
+
+        // Both layout and view renderer should be disabled
+        Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer')->setNoRender(true);
+        Zend_Layout::getMvcInstance()->disableLayout();
+
+        // Set up headers and body
+        $this->_response->setHeader('Content-Type', 'text/xml; charset=utf-8')
+            ->setBody($output);
+    }
+    
     private function addNickIndicatorInView(){
         $nickSession = new Zend_Session_Namespace('nickSession');
         if(($nickSession->nickname != '') && ($nickSession->nickname != null)){
