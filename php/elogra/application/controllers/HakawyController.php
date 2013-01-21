@@ -12,8 +12,15 @@ class HakawyController extends Zend_Controller_Action
     
   public function xmlAction()
     {
-       $hakawyService = new Application_Service_Hakawy();
-        $hakawy = $hakawyService->getHakawy(1);
+      $id  = $this->_request->getParam("id"); 
+      $hakawyService = new Application_Service_Hakawy();
+      $hakawy = array();
+      if(isset($id)){
+          $id = intval($id);
+          $hakawy[] = $hakawyService->getHekaya($id);
+      }  else {
+          $hakawy = $hakawyService->getHakawy(1);
+      }
         
         // XML-related routine
         $xml = new DOMDocument('1.0', 'utf-8');
@@ -24,7 +31,7 @@ class HakawyController extends Zend_Controller_Action
             $hekayaElement->appendChild($xml->createElement('text', $hekaya['text']));
             $hekayaElement->appendChild($xml->createElement('nickname', $hekaya['nickname']));
             $hekayaElement->appendChild($xml->createElement('hekaya_time', $hekaya['hekaya_time']));
-            $hekayaElement->appendChild($xml->createElement('address', $hekaya['address']));
+            $hekayaElement->appendChild($xml->createElement('address', isset($hekaya['address'])?$hekaya['address']:''));
             $hekayaElement->appendChild($xml->createElement('likes', $hekaya['likes']));
             $hakawyElement->appendChild($hekayaElement);
         }
