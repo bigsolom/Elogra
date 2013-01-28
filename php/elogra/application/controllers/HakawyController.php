@@ -28,7 +28,7 @@ class HakawyController extends Zend_Controller_Action
         foreach ($hakawy as $hekaya){
             $hekayaElement = $xml->createElement('hekaya');
             $hekayaElement->appendChild($xml->createElement('id', $hekaya['id']));
-            $hekayaElement->appendChild($xml->createElement('text', $hekaya['text']));
+            $hekayaElement->appendChild($xml->createElement('text', Application_Service_TextFormatting::htmlNlEncoding2LineFeed($hekaya['text'])));
             $hekayaElement->appendChild($xml->createElement('nickname', $hekaya['nickname']));
             $hekayaElement->appendChild($xml->createElement('hekaya_time', $hekaya['hekaya_time']));
             $hekayaElement->appendChild($xml->createElement('address', isset($hekaya['address'])?$hekaya['address']:''));

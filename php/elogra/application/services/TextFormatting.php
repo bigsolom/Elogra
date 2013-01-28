@@ -17,6 +17,10 @@ class Application_Service_TextFormatting {
         return preg_replace("/&#13;&#10;/", "<br/>", $input);
     }
     
+    public static function htmlNlEncoding2LineFeed($input){
+        return preg_replace("/&#13;&#10;/", "\\n", $input);
+    }
+    
     public static function isArabic($char){
         $pattern = '/^[\x{0600}-\x{06FF}]$/u';
         return(preg_match($pattern, $char));
