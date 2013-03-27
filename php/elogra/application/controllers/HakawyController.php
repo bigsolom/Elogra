@@ -47,22 +47,22 @@ class HakawyController extends Zend_Controller_Action
         $this->_response->setHeader('Content-Type', 'text/xml; charset=utf-8')
             ->setBody($output);
     }
-  public function jsonAction()
-    {
-      $id  = $this->_request->getParam("id"); 
-      $hakawyService = new Application_Service_Hakawy();
-      $hakawy = array();
-      if(isset($id)){
-          $id = intval($id);
-          $hakawy[] = $hakawyService->getHekaya($id);
-      }  else {
-          $page = $this->_request->getParam("page");
-          if(!isset($page)){
-              $page = 1;
-          }
-          $hakawy = $hakawyService->getHakawy($page);
-      }
-      $this->_helper->json($hakawy);
+    
+    public function jsonAction() {
+        $id = $this->_request->getParam("id");
+        $hakawyService = new Application_Service_Hakawy();
+        $hakawy = array();
+        if (isset($id)) {
+            $id = intval($id);
+            $hakawy[] = $hakawyService->getHekaya($id);
+        } else {
+            $page = $this->_request->getParam("page");
+            if (!isset($page)) {
+                $page = 1;
+            }
+            $hakawy = $hakawyService->getHakawy($page);
+        }
+        $this->_helper->json($hakawy);
     }
     
     private function addNickIndicatorInView(){
