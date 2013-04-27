@@ -11,7 +11,7 @@ class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
     const ENTITIY_ID = 'id';
     
     protected $_name='hakawy';
-    const NO_OF_ENTRIES_PER_PAGE = 5;
+    const NO_OF_ENTRIES_PER_PAGE = 10;
     
     
     public function submitHekaya($hekaya, $nickname){
