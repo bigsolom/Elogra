@@ -132,5 +132,23 @@ class HakawyController extends Zend_Controller_Action
         }
     }
     
+    public function addjsonAction(){
+        $hekaya = $this->_request->getParam("text");
+        $nickname = $this->_request->getParam("name");
+        $long = $this->_request->getParam('long');
+        $lat = $this->_request->getParam('lat');
+        $address = $this->_request->getParam('addr');
+        $location = null;
+        if(isset ($long)&&isset ($lat)&&isset ($address)){
+            $location = new stdClass();
+            $location->longitude = $long;
+            $location->latitude = $lat;
+            $location->address = $address;
+        }
+        $hakawyService = new Application_Service_Hakawy();
+        $result = $hakawyService->submitHekaya($hekaya, $nickname,$location);
+        $this->_helper->json($result);
+    }
+    
 }
 ?>
