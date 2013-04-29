@@ -86,6 +86,17 @@ class HakawyController extends Zend_Controller_Action
        
     }
     
+    public function getjsonAction(){
+        $id  = $this->_request->getParam("id");
+        $hakawyService = new Application_Service_Hakawy();
+        $hekaya = $hakawyService->getHekaya($id);
+        $type='hakawy';
+        $commentService = new Application_Service_Comment();
+        $comments = $commentService->getComments($id, $type);
+        $hekaya["comments"] = $comments;
+        $this->_helper->json($hekaya);
+    }
+    
     public function moreAction(){
         $page = $this->_request->getParam('page');
         $hakawyService = new Application_Service_Hakawy();
