@@ -29,6 +29,16 @@ class CommentsController extends Zend_Controller_Action{
         
     }
     
+    public function postjsonAction(){
+        $id = $this->_request->getParam('id');
+        $text = $this->_request->getParam('comment');
+        $nickname = $this->_request->getParam('nickname');
+        $commentService = new Application_Service_Comment();
+        $comment = $commentService->commentOnHekaya($id, $text, $nickname);
+        $this->_helper->json($comment);
+    }
+
+
     public function indexAction(){
         $id=$this->_request->getParam('id');
         $type='hakawy';
