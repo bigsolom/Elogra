@@ -18,6 +18,9 @@ class Application_Model_Comments extends Zend_Db_Table_Abstract {
     protected $_name = 'comments';
     
     public function addComment($commentAsArray){
+        if(Application_Service_TextFormatting::isNullOrEmptyOrSpacesOnly($commentAsArray['text'])){
+            throw new Exception("Comment text required");
+        }
         $data = array(
                 self::ENTITIY_ID => $commentAsArray['entity_id'],
                 self::ENTITY_TYPE => $commentAsArray['entity_type'],

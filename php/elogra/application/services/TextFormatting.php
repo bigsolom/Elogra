@@ -91,6 +91,21 @@ class Application_Service_TextFormatting {
 //return "$number_ar ".Application_Service_Translate::_($period);
         return "$number_ar $periodAr";
     }
+    
+    /**
+     * check if the given string is empty, null or contains spaces only
+     * @param type $str
+     * @return type boolean
+     */
+    public static function isNullOrEmptyOrSpacesOnly($str) {
+        if ($str == null || $str == '')
+            return true;
+        $trimmedStr = trim($str);
+        if ($trimmedStr == '')
+            return true;
+
+        return false;
+    }
 }
 
 ?>

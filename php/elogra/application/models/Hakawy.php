@@ -15,6 +15,12 @@ class Application_Model_Hakawy extends Zend_Db_Table_Abstract  {
     
     
     public function submitHekaya($hekaya, $nickname){
+        if(Application_Service_TextFormatting::isNullOrEmptyOrSpacesOnly($hekaya)){
+            throw new Exception("Hekaya text required");
+        }
+        if(Application_Service_TextFormatting::isNullOrEmptyOrSpacesOnly($nickname)){
+            throw new Exception("Hekaya teller name required");
+        }
         $data = array(
             'text' => $hekaya,
             'nickname' => $nickname

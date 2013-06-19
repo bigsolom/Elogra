@@ -34,7 +34,12 @@ class CommentsController extends Zend_Controller_Action{
         $text = $this->_request->getParam('comment');
         $nickname = $this->_request->getParam('nickname');
         $commentService = new Application_Service_Comment();
-        $comment = $commentService->commentOnHekaya($id, $text, $nickname);
+        try{
+            $comment = $commentService->commentOnHekaya($id, $text, $nickname);
+        }  catch (Exception $e){
+            $comment = new stdClass();
+            $comment->error = $e->getMessage();
+        }
         $this->_helper->json($comment);
     }
 

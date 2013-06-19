@@ -157,7 +157,12 @@ class HakawyController extends Zend_Controller_Action
             $location->address = $address;
         }
         $hakawyService = new Application_Service_Hakawy();
-        $result = $hakawyService->submitHekaya($hekaya, $nickname,$location);
+        try{
+            $result = $hakawyService->submitHekaya($hekaya, $nickname,$location);
+        }  catch (Exception $e){
+            $result = new stdClass();
+            $result->error = $e->getMessage();
+        }
         $this->_helper->json($result);
     }
     
