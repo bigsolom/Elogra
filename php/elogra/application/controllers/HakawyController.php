@@ -62,6 +62,11 @@ class HakawyController extends Zend_Controller_Action
             }
             $hakawy = $hakawyService->getHakawy($page);
         }
+        for($i=0;$i<count($hakawy);$i++){
+            $hekaya = $hakawy[$i];
+            $hekaya["hekaya_time_millis"] = strtotime($hekaya["hekaya_time"]) * 1000;
+            $hakawy[$i] = $hekaya;
+        }
         $this->_helper->json($hakawy);
     }
     
