@@ -14,9 +14,9 @@ class Application_Service_Submit {
         $srcAddrID = $addresses->checkAddress($srcID, $srcAddrText);
         $destAddrID = $addresses->checkAddress($destID, $destAddrText);
         
-        $entries->submitEntry($taxiType, $comment, $fare, $traffic, $srcID, $destID, $srcAddrID, $destAddrID);
+        $entries->submitEntry(2, $comment, $fare, $traffic, $srcID, $destID, $srcAddrID, $destAddrID);
         
-        $entriesRows = $entries->getEntries($srcID, $destID, $taxiType, 1);
+        $entriesRows = $entries->getEntries($srcID, $destID, 2, 1);
         
         $total = 0;
         foreach ($entriesRows as $entry){
@@ -28,7 +28,7 @@ class Application_Service_Submit {
             $avg = $total;
         }
         
-        $liveFares->updateFares($srcID, $destID, $taxiType, $avg);
+        $liveFares->updateFares($srcID, $destID, 2, $avg);
     }
     
     public function recalculateLiveFares() {
@@ -39,7 +39,7 @@ class Application_Service_Submit {
             $fare = $fareRow->toArray();
             $srcID = $fare['src_id'];
             $destID = $fare['dest_id'];
-            $taxiType = $fare['taxi_type'];
+            $taxiType = 2;
             
             $entriesRows = $entries->getEntries($srcID, $destID, $taxiType, 1);
 

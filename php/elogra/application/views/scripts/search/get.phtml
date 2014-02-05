@@ -1,15 +1,17 @@
 <div class="search-result-header white">
-    <?=  Application_Service_Translate::_('average_fare')?>&nbsp<?=  Application_Service_Translate::_('live_fare')?>&nbsp&nbsp&nbsp : &nbsp&nbsp&nbsp<?=$this->searchResults->liveFare?>&nbsp<?=  Application_Service_Translate::_('fare_currency')?>
-    </div>
-<div class="paginated" data-page="1" data-from="<?=$this->from?>" data-to="<?=$this->to?>" data-taxi="<?=$this->taxi?>" data-status="idle">
-    
-        <?php
-    foreach ($this->searchResults->comments as $comment) {
-?>
-        <?=$this->partial('partials/_entrySearch.phtml',array('comment'=>$comment));?>
+    <?= Application_Service_Translate::_('average_fare') ?>&nbsp<?= Application_Service_Translate::_('live_fare') ?>&nbsp&nbsp&nbsp : &nbsp&nbsp&nbsp<?= $this->searchResults->liveFare ?>&nbsp<?= Application_Service_Translate::_('fare_currency') ?>
+</div>
+<div class="paginated" data-page="1" data-from="<?= $this->from ?>" data-to="<?= $this->to ?>" data-taxi="<?= $this->taxi ?>" data-status="idle">
+
     <?php
-	}
-?>
+    
+        foreach ($this->searchResults->comments as $comment) {
+            ?>
+            <?= $this->partial('partials/_entrySearch.phtml', array('comment' => $comment)); ?>
+            <?php
+        }
+    
+    ?>
 </div>
 <script type="text/javascript">
     var moreActionURL = "<?= $this->url(array('controller' => 'search', 'action' => 'more'), 'default', true) ?>";
@@ -17,13 +19,13 @@
     var to = $(".paginated").attr('data-to');
     var taxi = $(".paginated").attr('data-taxi');
     var extraPaginationParams = {"from" :from,"to": to,"taxi": taxi};
-    var noMoreMsg = "<?=  Application_Service_Translate::_('no_more_results')?>";
+    var noMoreMsg = "<?= Application_Service_Translate::_('no_more_results') ?>";
 </script>
 <script type="text/javascript" src="/js/pagination.js"></script>
 <?php
-if(isset ($this->noResult)){//no results
-?>
-<div class="white">
-<?=  Application_Service_Translate::_('no_results_found')?>
-</div>
+if (isset($this->noResult)) {//no results
+    ?>
+    <div class="white">
+        <?= Application_Service_Translate::_('no_results_found') ?>
+    </div>
 <?php } ?>

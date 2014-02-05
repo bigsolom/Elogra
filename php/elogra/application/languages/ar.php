@@ -12,7 +12,7 @@ return array(
     'hadoota'=>'حدوتة',
     'myNick'=>'أنا',
     'noNick'=>'مش عارفنى؟!',
-    'ago'=>'زمان',
+    'ago'=>'من زمان',
     'from_h'=>'من',
     
     //---- Taxi fares

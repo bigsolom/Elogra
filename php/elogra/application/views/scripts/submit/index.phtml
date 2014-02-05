@@ -15,10 +15,10 @@
                            <a style="font-size: smaller;" href="<?=$this->url(array('controller'=>'suggest','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('suggest_link')?></a>
 
                                             <br></br>
-		<label><?=  Application_Service_Translate::_('address')?></label> <label></label> <input type="text"
+		<!-- <label><?=  Application_Service_Translate::_('address')?></label> <label></label> <input type="text"
 			name="fromAddr" id="fromAddr"
 			title="" /> 
-                                 <br></br>
+                                 <br></br> -->
 		<label><?=  Application_Service_Translate::_('to')?> *</label> <select name="to" size="1.1" id="to">
 			<option value=-1><?=  Application_Service_Translate::_('choose')?></option>
                 </select> <select size="1.1" name="toHS" id="toHS">
@@ -28,11 +28,11 @@
                 
                            <a style="font-size: smaller;" href="<?=$this->url(array('controller'=>'suggest','action'=>'index'),'default',true)?>"><?=  Application_Service_Translate::_('suggest_link')?></a>
 		                 <br></br>	
-			<label><?=  Application_Service_Translate::_('address')?></label> <label></label> <input type="text"
+			<!-- <label><?=  Application_Service_Translate::_('address')?></label> <label></label> <input type="text"
 			name="toAddr" id="toAddr"
 			title="" />
                         <br>
-                                                <br>
+                                                <br> 
 		<div class="control-group">
 			<label class="control-label"><?=  Application_Service_Translate::_('taxi_type')?> *</label>
 			<div class="controls">
@@ -42,8 +42,10 @@
                             <img class="imgRadio" src="/img/londonTaxi.png" data-value="4"/>
                             <input type="hidden" id="imgRadio-input" name="imgRadio-input" />
 			</div>
-		</div>
-                        <br>
+		</div> 
+    <br>
+                                 -->
+                       
 		<div class="control-group">
 			<label class="control-label"><!--<fmt:message key="form.search.type"/>--> <?=  Application_Service_Translate::_('traffic')?> *</label>
 			<div class="controls">
